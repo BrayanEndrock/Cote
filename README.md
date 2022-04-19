@@ -1,0 +1,2 @@
+# Cote
+https://coteshop.co/
