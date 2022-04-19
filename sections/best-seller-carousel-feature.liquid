@@ -1,0 +1,171 @@
+<div class="best-sellers-carousel-template__wrapper">
+  <div class="container">
+    {% assign collection = section.settings.best-sellers %}
+    <div class="title-box">
+      <hr>
+      <h2>{{ collection.title }}</h2>
+      <hr>                
+    </div>
+    <div class="best-sellers-carousel-wrapper">
+      <div class="best-sellers-slider">
+        {% for product in collections[collection].products %}                                     
+          {% include 'best-sellers-product-grid-item' %}                             
+        {% endfor %}
+      </div>
+    </div> 
+  </div>
+</div>  
+
+{% stylesheet 'scss' %}
+  .best-sellers-carousel-template {
+    padding: 66px 0 51px;
+    @media screen and (max-width: 768px) {
+      padding: 33px 0 25px;        
+    }         
+    .best-sellers-carousel-template__wrapper { 
+      .title-box {    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        margin-bottom: 31px;                                       
+        hr { 
+          width: 35%;
+          border: solid 2px #F29270;
+          height: 0; 
+          @media screen and (max-width: 768px) { 
+            width: 20%;         
+          }                                   
+        }             
+        h2 {
+          max-width: 274px;
+          text-align: center;     
+          text-transform: capitalize;
+          font-family: "Playfair Display", serif;                    
+          font-style: normal;
+          font-weight: normal;
+          font-size: 48px;
+          line-height: 64px;
+          letter-spacing: 0.03em;
+          color: #F29270;
+          margin: 0 auto; 
+          @media screen and (max-width: 768px) {
+            font-size: 28px;             
+          }            
+        }
+      }
+      .best-sellers-carousel-wrapper {
+        .best-sellers-slider {
+          .product-block {
+            .block-inner {
+              min-height: 197px;
+			  width: 100%;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              img {
+                display: block;
+                margin: 0 auto;         
+              }
+            }
+            .best-sellers-product__wrapper {
+              .best-sellers-product__title {       
+                font-size: 18px;             
+              }    
+            }
+			.add-to-cart-ajax {background: #3E4B57;}
+          }
+          button {
+            svg {
+              stroke: #3f4b57; 
+              width: 45px;
+              height: 45px;                
+            }
+            @media screen and (max-width: 768px) {
+              width: auto; 
+              height: auto;
+              top: 40%;  
+            }
+		  }
+          .slick-prev {
+            left: -50px;
+            @media screen and (max-width: 768px) {
+              left: -20px;
+            }   
+          }
+          .slick-next {
+            right: -50px;
+            @media screen and (max-width: 768px) {
+              right: -20px;                        
+            }          
+          }
+        }
+      }
+    }
+  }
+  .best-sellers-slider .slick-track {
+  	display: flex !important;
+  }
+
+  .best-sellers-slider .slick-slide {
+    height: inherit !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .best-sellers-slider .slick-slide .buttons-cont {
+  	align-self: flex-end;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  $('.best-sellers-slider').slick({   
+    dots: false,           
+    arrows: true,          
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: 6,                   
+    slidesToScroll: 1,                          
+    prevArrow:"<button type='button' class='slick-prev pull-left'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-left'><polyline points='15 18 9 12 15 6'></polyline></svg></button>",
+    nextArrow:"<button type='button' class='slick-next pull-right'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-right'><polyline points='9 18 15 12 9 6'></polyline></svg></button>",
+    responsive: [       
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,                                                                   
+          slidesToScroll: 1,                                 
+          adaptiveHeight: true,
+          infinite: true,
+          arrows: true,
+          autoplay: true,
+          autoplaySpeed: 2000                                                                         
+        }                 
+      }
+    ]             
+  });
+{% endjavascript %}
+
+{% schema %}
+  {
+    "name": "Best Sellers Slider",
+    "class": "best-sellers-carousel-template",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "best-sellers",
+        "label": "Best Sellers Collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Best Sellers Slider",
+        "category": "Home"
+      }
+    ]    
+  }
+{% endschema %}

@@ -1,0 +1,162 @@
+<!-- /sections/sas-hero.liquid -->
+<img 
+    class="lazyload featured-image"
+    src="{{ section.settings.mobile-image | img_url: '768x' }}"
+    srcset="{{ section.settings.mobile-image | img_url: '768x' }} 1x, {{ section.settings.mobile-image | img_url: '1536x', scale: 2 }} 2x"
+    alt="{{ page.title }} Featured Image"
+>
+<div class="sas-hero--template">
+    <div class="sas-hero--container">
+        <div class="main-content">
+            <h1>{{ page.title }}</h1>
+            <hr>
+            {{ page.content }}
+        </div>
+    </div>
+</div>
+
+<style>
+    .sas-hero--template {
+        background-image: url({{ section.settings.hero | img_url: 'master' }}); 
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 544px;
+    }
+    @media screen and (max-width: 768px) {
+        .sas-hero--template {
+            background-color: #EDD6B8;
+            background-image: none;
+            height: auto;
+        }
+    }
+</style>
+
+{% schema %}
+    {
+        "name": "Hero",
+        "class": "sas-hero",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "hero",
+                "label": "Hero"
+            },
+            {
+                "type": "image_picker",
+                "id": "mobile-image",
+                "label": "Mobile Featured Image"
+            }
+        ]
+    }
+{% endschema %}
+
+{% stylesheet 'scss' %}
+    .sas-hero {
+        .featured-image {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            @media screen and (min-width: 769px) {
+                display: none;
+            }
+        }
+        .sas-hero--template {
+            .sas-hero--container {
+                align-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                padding: 20px 103px 0 0;
+                @media (min-width: 769px) and (max-width: 1024px) {
+                    padding-right: 0;
+                }
+                @media screen and (max-width: 768px) {
+                    justify-content: center;
+                    padding: 16px 0 35px;
+                }
+                .main-content {
+                    h1 {
+                        color: #36414C;
+                        font-family: Playfair Display, serif;
+                        font-size: 50px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 67px;
+                        margin: 0;
+                        padding: 0;
+                        @media (min-width: 769px) and (max-width: 1024px) {
+                            font-size: 40px;
+                        }
+                        @media screen and (max-width: 768px) {
+                            line-height: 35px;
+                            font-size: 30px;
+                        }
+                    }
+                    hr {
+                        border-bottom: none;
+                        border-left: none;
+                        border-right: none;
+                        border-top: 1px solid #1F322F;
+                        color: #1F322F;
+                        height: 1px;
+                        margin: 10px 0 29px;
+                        width: 60px;
+                        @media screen and (max-width: 768px) {
+                            margin-bottom: 12px;
+                            margin-top: 8px;
+                        }
+                    }
+                    ol {
+                        li {
+                            color: #E07B5C;
+                            font-family: Playfair Display, serif;
+                            font-size: 32px;
+                            font-style: normal;
+                            font-weight: 400;
+                            margin: 0 0 23px;
+                            max-width: 441px;
+                            padding: 0;
+                            span {
+                                color: #36414C;
+                                font-family: 'Roboto';
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 24px;
+                                margin: 0;
+                                padding: 0;
+                                a {
+                                    text-decoration: underline;
+                                }
+                            }
+                            &:last-of-type {
+                                line-height: 43px;
+                                margin-bottom: 0;
+                            }
+                            @media (min-width: 769px) and (max-width: 1024px) {
+                                font-size: 25px;
+                                max-width: 405px;
+                                &:last-of-type {
+                                    line-height: 38px;
+                                }
+                            }
+                            @media screen and (max-width: 768px) {
+                                font-size: 25px;
+                                margin-bottom: 14px;
+                                max-width: 222px;
+                                span {
+                                    font-size: 16px;
+                                }
+                                &:last-of-type {
+                                    line-height: 33px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+{% endstylesheet %}

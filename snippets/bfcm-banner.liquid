@@ -1,0 +1,84 @@
+{%- assign baseBtn = 'BLACK FRIDAY WEEK' -%}
+{%- assign baseMsg = 'Enjoy 30% Off your favorite Toxin-Free Polishes, Treatments and Hand & Foot Mask' -%}
+{% assign bf_date = '2021-11-26' | date: '%d' %}
+{% assign cm_date = '2021-11-29' | date: '%d' %}
+{% assign cme_date = '2021-11-30' | date: '%d' %}
+{% assign today_date = 'now' | date: '%d' %}
+{% if bf_date == today_date %}
+{%- assign baseBtn = 'BLACK FRIDAY' -%}
+{%- assign baseMsg = 'Today Only 30% Off Polishes! Free Hand Mask & Foot Mask with purchase' -%}
+{% elsif cm_date == today_date %}
+{%- assign baseBtn = 'CYBER MONDAY' -%}
+{%- assign baseMsg = 'Today Only 30% Off Polishes! Free Hand Mask & Foot Mask with purchase' -%}
+{% elsif cme_date == today_date %}
+{%- assign baseBtn = 'BLACK FRIDAY WEEK' -%}
+{%- assign baseMsg = 'Enjoy 30% off your favorite toxin-free polish' -%}
+{% endif %}
+
+<div class="bfcm__banner">
+    <div class="bfcm__banner-elements">
+        <div class="bfcm__banner-button {% if cm_date == today_date %}blue{%endif%}">Free Gold Glitter Polish No. 107</div>
+        <div class="bfcm__banner-message">With every purchase made from December 13th-16th</div>
+    </div>
+</div>
+<style>
+.bfcm__banner {
+    background: #3E4B57;
+    padding: 24px 0;
+}
+
+.bfcm__banner .bfcm__banner-elements {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bfcm__banner .bfcm__banner-button {
+    border: 2px solid #C0A457;
+    box-sizing: border-box;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 900;
+    font-size: clamp(16px, 1.125vw, 20px);
+    line-height: 1;
+    padding: 8px 12px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #C0A457;
+    margin-right: 32px;
+}
+
+.bfcm__banner .bfcm__banner-button.blue {
+    border: 2px solid #83A9A8;
+    color: #83A9A8;
+}
+
+.bfcm__banner .bfcm__banner-message {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(16px, 1.125vw, 20px);
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+    color: #fff;
+}
+
+@media screen and (max-width: 991px) {
+    .bfcm__banner {
+        padding: 24px 16px;
+    }
+
+    .bfcm__banner .bfcm__banner-elements {
+        flex-direction: column;
+    }
+
+    .bfcm__banner .bfcm__banner-button {
+        margin-right: 0;
+        margin-bottom: 16px;
+    }
+
+    .bfcm__banner .bfcm__banner-message {
+        text-align: center;
+    }
+}
+
+</style>

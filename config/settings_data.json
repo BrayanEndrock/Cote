@@ -1,0 +1,1175 @@
+{
+  "presets": {
+    "Beatnik": {
+      "lightbox_imgs": true,
+      "use_fullwidth_layout": true,
+      "use_logo_img": true,
+      "logo": "shopify:\/\/shop_images\/logo-1.png",
+      "logo_img_width": "129",
+      "bg_col": "#f2f2f2",
+      "bg_image": "",
+      "bg_method": "repeatxy",
+      "font_col_base": "#8a8f93",
+      "font_col_link": "#3d4c4f",
+      "font_col_link_hover": "#00a2e1",
+      "font_col_heads": "#3f4b57",
+      "font_col_shoptitle": "#3f4b57",
+      "btn_col": "#00a2e1",
+      "btn_col_alt": "#00b0f3",
+      "btn_col_txt": "#ffffff",
+      "head_bg_col": "#f2f2f2",
+      "head_txt_col": "#3f4b57",
+      "head_nav_div_col": "#d1d6d9",
+      "font_col_nav": "#3f4b57",
+      "font_col_nav_hov": "#00a2e1",
+      "panel_nav_bg": "#f2f2f2",
+      "panel_nav_bg_gradation": "same",
+      "not_shade_bg": "#fafafa",
+      "head_not_col_bg": "#f2f2f2",
+      "head_not_col_txt1": "#3f4b57",
+      "head_not_col_txt2": "#8a8f93",
+      "slide_bg_col": "rgba(0,0,0,0)",
+      "slide_txt_col": "#ffffff",
+      "slide_txt_bg_col": "rgba(0,0,0,0)",
+      "home_sec_signup_bg": "#fafafa",
+      "home_overlay_txt_col": "#3f4b57",
+      "home_sec_collection_bg": "#f2f2f2",
+      "prod_hov_bg": "#ffffff",
+      "prod_thumb_detail_bg": "#f2f2f2",
+      "prod_thumb_detail_col": "#3f4b57",
+      "prod_thumb_detail_col_a": "#00a2e1",
+      "coll_col_st_txt": "#ffffff",
+      "coll_col_sale": "#1c223f",
+      "coll_col_sold": "#3f4b57",
+      "coll_col_gen": "#3f51b5",
+      "cross_page_promo_bg": "#1c223f",
+      "cross_page_promo_color": "#ffffff",
+      "foot_bg_col": "#fafafa",
+      "foot_text_col": "#3f4b57",
+      "foot_divider_col": "#d1d6d9",
+      "type_base_font": "cardo_n4",
+      "type_heading_font": "karla_n4",
+      "font_size_base_int": 15,
+      "font_size_slideshow": "1",
+      "prod_thumb_detail_show": true,
+      "prod_thumb_height": "255",
+      "prod_thumb_variable_width": true,
+      "prod_hov_type": "permanent",
+      "prod_block_label_loc": "c",
+      "prod_stock_warn_show": true,
+      "prod_stock_warn_limit_int": 5,
+      "prod_show_vendor": true,
+      "prod_show_sku": false,
+      "soc_icons_double": false,
+      "cart_type": "drawer",
+      "show_multiple_currencies": false,
+      "currency_format": "money_format",
+      "supported_currencies": "CAD USD GBP",
+      "default_currency": "USD",
+      "checkout_use_header_image": true,
+      "checkout_header_image": "",
+      "checkout_logo": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_use_body_background_image": false,
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_use_sidebar_background_image": false,
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#2a9dcc",
+      "checkout_button_color": "#2a9dcc",
+      "checkout_error_color": "#ff6d6d"
+    },
+    "Salt Yard": {
+      "lightbox_imgs": true,
+      "use_fullwidth_layout": true,
+      "use_logo_img": false,
+      "logo": "",
+      "logo_img_width": "300",
+      "bg_col": "#ffffff",
+      "bg_image": "",
+      "bg_method": "repeatxy",
+      "font_col_base": "#8a8f93",
+      "font_col_link": "#3d4c4f",
+      "font_col_link_hover": "#8a8f93",
+      "font_col_heads": "#232323",
+      "font_col_shoptitle": "#232323",
+      "btn_col": "#232323",
+      "btn_col_alt": "#000000",
+      "btn_col_txt": "#ffffff",
+      "head_bg_col": "#ffffff",
+      "head_txt_col": "#232323",
+      "head_nav_div_col": "#e2e2e2",
+      "font_col_nav": "#8a8f93",
+      "font_col_nav_hov": "#000000",
+      "panel_nav_bg": "#ffffff",
+      "panel_nav_bg_gradation": "darken",
+      "not_shade_bg": "#fafafa",
+      "head_not_col_bg": "#ffffff",
+      "head_not_col_txt1": "#232323",
+      "head_not_col_txt2": "#8a8f93",
+      "slide_bg_col": "rgba(0,0,0,0)",
+      "slide_txt_col": "#ffffff",
+      "slide_txt_bg_col": "rgba(0,0,0,0)",
+      "home_sec_signup_bg": "#fafafa",
+      "home_overlay_txt_col": "#ffffff",
+      "home_sec_collection_bg": "#fafafa",
+      "prod_hov_bg": "#ffffff",
+      "prod_thumb_detail_bg": "#ffffff",
+      "prod_thumb_detail_col": "#232323",
+      "prod_thumb_detail_col_a": "#e95144",
+      "coll_col_st_txt": "#ffffff",
+      "coll_col_sale": "#ebc2c1",
+      "coll_col_sold": "#232323",
+      "coll_col_gen": "#8da5d0",
+      "cross_page_promo_bg": "#f5f5f5",
+      "cross_page_promo_color": "#232323",
+      "foot_bg_col": "#fafafa",
+      "foot_text_col": "#232323",
+      "foot_divider_col": "#e2e2e2",
+      "type_base_font": "lato_n4",
+      "type_heading_font": "cardo_n4",
+      "font_size_base_int": 15,
+      "font_size_slideshow": "1.4",
+      "prod_thumb_detail_show": true,
+      "prod_thumb_height": "347",
+      "prod_thumb_variable_width": true,
+      "prod_hov_type": "permanent",
+      "prod_block_label_loc": "c",
+      "prod_stock_warn_show": true,
+      "prod_stock_warn_limit_int": 5,
+      "prod_show_vendor": true,
+      "prod_show_sku": false,
+      "soc_icons_double": false,
+      "cart_type": "drawer",
+      "show_multiple_currencies": false,
+      "currency_format": "money_format",
+      "supported_currencies": "CAD USD GBP",
+      "default_currency": "USD",
+      "checkout_use_header_image": true,
+      "checkout_header_image": "",
+      "checkout_logo": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_use_body_background_image": false,
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_use_sidebar_background_image": false,
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#2a9dcc",
+      "checkout_button_color": "#2a9dcc",
+      "checkout_error_color": "#ff6d6d"
+    },
+    "Chantilly": {
+      "lightbox_imgs": true,
+      "use_fullwidth_layout": false,
+      "font_col_base": "#454f5b",
+      "font_col_link": "#f78d54",
+      "font_col_link_hover": "#c05717",
+      "font_col_heads": "#212b36",
+      "font_col_shoptitle": "#212b36",
+      "btn_col": "#212b36",
+      "btn_col_alt": "#f78d54",
+      "btn_col_txt": "#ffffff",
+      "btn_alt_bg": "#ffffff",
+      "btn_alt_txt": "#212b36",
+      "bg_col": "#ffffff",
+      "bg_image": "",
+      "bg_method": "repeatxy",
+      "head_bg_col": "#ffffff",
+      "head_txt_col": "#454f5b",
+      "head_nav_div_col": "#dfe3e8",
+      "font_col_nav": "#212b36",
+      "font_col_nav_hov": "#f78d54",
+      "panel_nav_bg": "#ffffff",
+      "panel_nav_bg_gradation": "same",
+      "not_shade_bg": "#f4f6f8",
+      "head_not_col_bg": "rgba(0,0,0,0)",
+      "head_not_col_txt1": "#454f5b",
+      "head_not_col_txt2": "#c4cdd5",
+      "prod_hov_bg": "#ffffff",
+      "prod_thumb_detail_bg": "#f4f6f8",
+      "prod_thumb_detail_col": "#212b36",
+      "prod_thumb_detail_col_a": "#f78d54",
+      "coll_col_st_txt": "#ffffff",
+      "coll_col_sale": "#f78d54",
+      "coll_col_sold": "#454f5b",
+      "coll_col_gen": "#47c1bf",
+      "cross_page_promo_bg": "#f4f6f8",
+      "cross_page_promo_color": "#212b36",
+      "foot_bg_col": "#f4f6f8",
+      "foot_text_col": "#212b36",
+      "foot_divider_col": "#dfe3e8",
+      "type_heading_font": "humanist_521_n4",
+      "type_base_font": "humanist_521_n4",
+      "font_size_base_int": 15,
+      "font_size_nav_int": 13,
+      "font_size_slideshow": "1.4",
+      "prod_show_vendor": true,
+      "prod_show_sku": true,
+      "prod_variant_style": "",
+      "show_size_chart": false,
+      "size_chart_variant": "Size",
+      "size_chart_page": "",
+      "prod_thumb_detail_show": true,
+      "enable_payment_button": true,
+      "prod_thumb_height": "255",
+      "prod_thumb_variable_width": true,
+      "prod_thumb_hover_image": true,
+      "prod_hov_type": "permanent",
+      "prod_block_label_loc": "c",
+      "prod_stock_warn_show": true,
+      "prod_stock_warn_limit_int": 5,
+      "soc_icons_double": false,
+      "search_type": "product,article,page",
+      "favicon": "",
+      "cart_type": "drawer",
+      "show_multiple_currencies": false,
+      "currency_format": "money_format",
+      "supported_currencies": "CAD USD GBP",
+      "default_currency": "USD",
+      "font_col_nav_acct": "#000000",
+      "prod_thumb_detail_close_img": "dark",
+      "font_size_base": "15",
+      "prod_stock_warn_limit": "5",
+      "home_sec_signup_bg": "#fafafa",
+      "home_overlay_txt_col": "#ffffff",
+      "home_sec_collection_bg": "#fafafa",
+      "slide_bg_col": "rgba(0,0,0,0)",
+      "slide_txt_col": "#ffffff",
+      "slide_txt_bg_col": "rgba(0,0,0,0)",
+      "use_logo_img": false,
+      "logo": "",
+      "logo_img_width": "350"
+    },
+    "Duke": {
+      "lightbox_imgs": true,
+      "use_fullwidth_layout": true,
+      "use_logo_img": false,
+      "logo": "",
+      "logo_img_width": "350",
+      "bg_col": "#ffffff",
+      "bg_image": "",
+      "bg_method": "repeatxy",
+      "font_col_base": "#8a8f93",
+      "font_col_link": "#3d4c4f",
+      "font_col_link_hover": "#e94b3f",
+      "font_col_heads": "#464e54",
+      "font_col_shoptitle": "#464e54",
+      "btn_col": "#eb2626",
+      "btn_col_alt": "#464e54",
+      "btn_col_txt": "#ffffff",
+      "head_bg_col": "#ffffff",
+      "head_txt_col": "#464e54",
+      "head_nav_div_col": "#d9d9d4",
+      "font_col_nav": "#464e54",
+      "font_col_nav_hov": "#eb2626",
+      "panel_nav_bg": "#ffffff",
+      "panel_nav_bg_gradation": "darken",
+      "not_shade_bg": "#fafafa",
+      "head_not_col_bg": "#ffffff",
+      "head_not_col_txt1": "#464e54",
+      "head_not_col_txt2": "#8a8f93",
+      "slide_bg_col": "rgba(0,0,0,0)",
+      "slide_txt_col": "#ffffff",
+      "slide_txt_bg_col": "rgba(0,0,0,0)",
+      "home_sec_signup_bg": "#ffffff",
+      "home_overlay_txt_col": "#ffffff",
+      "home_sec_collection_bg": "#ffffff",
+      "prod_hov_bg": "#ffffff",
+      "prod_thumb_detail_bg": "#eaeaea",
+      "prod_thumb_detail_col": "#464e54",
+      "prod_thumb_detail_col_a": "#eb2626",
+      "coll_col_st_txt": "#ffffff",
+      "coll_col_sale": "#e94b3f",
+      "coll_col_sold": "#464e54",
+      "coll_col_gen": "#bacee3",
+      "cross_page_promo_bg": "#f5f5f5",
+      "cross_page_promo_color": "#0a1634",
+      "foot_bg_col": "#ffffff",
+      "foot_text_col": "#464e54",
+      "foot_divider_col": "#e2e2e2",
+      "type_base_font": "open_sans_n4",
+      "type_heading_font": "quantico_n4",
+      "font_size_base_int": 15,
+      "font_size_slideshow": "1.4",
+      "prod_thumb_detail_show": true,
+      "prod_thumb_height": "347",
+      "prod_thumb_variable_width": true,
+      "prod_hov_type": "permanent",
+      "prod_block_label_loc": "c",
+      "prod_stock_warn_show": true,
+      "prod_stock_warn_limit_int": 5,
+      "prod_show_vendor": true,
+      "prod_show_sku": false,
+      "soc_icons_double": false,
+      "cart_type": "drawer",
+      "show_multiple_currencies": false,
+      "currency_format": "money_format",
+      "supported_currencies": "CAD USD GBP",
+      "default_currency": "USD",
+      "checkout_use_header_image": true,
+      "checkout_header_image": "",
+      "checkout_logo": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_use_body_background_image": false,
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_use_sidebar_background_image": false,
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#2a9dcc",
+      "checkout_button_color": "#2a9dcc",
+      "checkout_error_color": "#ff6d6d"
+    }
+  },
+  "current": {
+    "lightbox_imgs": false,
+    "use_fullwidth_layout": true,
+    "font_col_base": "#3f4b57",
+    "font_col_link": "#3f4b57",
+    "font_col_link_hover": "#f79b7f",
+    "font_col_heads": "#3f4b57",
+    "font_col_shoptitle": "#3f4b57",
+    "btn_col": "#7b7572",
+    "btn_col_alt": "#f79b7f",
+    "btn_col_txt": "#ffffff",
+    "btn_alt_bg": "#ffffff",
+    "btn_alt_txt": "#232323",
+    "bg_col": "#ffffff",
+    "bg_image": "",
+    "bg_method": "centertop-repeatx",
+    "head_bg_col": "#ffffff",
+    "head_txt_col": "#3f4b57",
+    "head_nav_div_col": "#d1d6d9",
+    "font_col_nav": "#f79b7f",
+    "font_col_nav_hov": "#9f9f9f",
+    "panel_nav_bg": "#ffffff",
+    "panel_nav_bg_gradation": "same",
+    "not_shade_bg": "#fafafa",
+    "head_not_col_bg": "#ffffff",
+    "head_not_col_txt1": "#050000",
+    "head_not_col_txt2": "#000000",
+    "prod_hov_bg": "#ffffff",
+    "prod_thumb_detail_bg": "#fffcfc",
+    "prod_thumb_detail_col": "#555555",
+    "prod_thumb_detail_col_a": "#f79b7f",
+    "coll_col_st_txt": "#000000",
+    "coll_col_sale": "#f79b7f",
+    "coll_col_sold": "#f79b7f",
+    "coll_col_gen": "#f79b7f",
+    "cross_page_promo_bg": "#faf9f9",
+    "cross_page_promo_color": "#000000",
+    "foot_bg_col": "#f79b7f",
+    "foot_text_col": "#3f4b57",
+    "foot_divider_col": "#d1d6d9",
+    "type_heading_font": "playfair_display_n4",
+    "type_base_font": "lato_n5",
+    "font_size_base_int": 17,
+    "font_size_nav_int": 14,
+    "font_size_slideshow": "1",
+    "prod_show_vendor": false,
+    "prod_show_sku": false,
+    "prod_variant_style": "",
+    "show_size_chart": false,
+    "size_chart_variant": "Size",
+    "size_chart_page": "",
+    "prod_thumb_detail_show": false,
+    "enable_payment_button": true,
+    "prod_thumb_height": "255",
+    "prod_thumb_variable_width": true,
+    "prod_thumb_hover_image": true,
+    "prod_hov_type": "permanent",
+    "prod_block_label_loc": "c",
+    "prod_stock_warn_show": false,
+    "prod_stock_warn_limit_int": 7,
+    "soc_icons_double": true,
+    "social_twitter_url": "",
+    "social_facebook_url": "https:\/\/www.facebook.com\/coteshopbrentwood",
+    "social_pinterest_url": "",
+    "social_vimeo_url": "",
+    "social_youtube_url": "",
+    "social_instagram_url": "https:\/\/www.instagram.com\/coteshop\/",
+    "social_google_url": "",
+    "social_custom_icon": "",
+    "social_custom_url": "",
+    "search_type": "product",
+    "favicon": "shopify:\/\/shop_images\/o_logo_REGULAR_1.png",
+    "cart_type": "drawer",
+    "show_multiple_currencies": false,
+    "currency_format": "money_format",
+    "supported_currencies": "CAD USD GBP",
+    "default_currency": "USD",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/cote_logocolor.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#81b47a",
+    "checkout_button_color": "#81b47a",
+    "checkout_error_color": "#e89f84",
+    "social_rss_url": "",
+    "home_sec_signup_bg": "#fafafa",
+    "home_overlay_txt_col": "#3f4b57",
+    "home_sec_collection_bg": "#f2f2f2",
+    "slide_bg_col": "rgba(0,0,0,0)",
+    "slide_txt_col": "#ffffff",
+    "slide_txt_bg_col": "rgba(0,0,0,0)",
+    "use_logo_img": true,
+    "logo": "shopify:\/\/shop_images\/logo-1.png",
+    "logo_img_width": "129",
+    "checkout_use_header_image": true,
+    "checkout_logo": "",
+    "checkout_use_body_background_image": false,
+    "checkout_use_sidebar_background_image": false,
+    "sections": {
+      "header": {
+        "type": "header",
+        "blocks": {
+          "e70154b0-ca34-4b4f-bb2c-55d48a555f5b": {
+            "type": "topbar",
+            "settings": {
+              "heading": "FREE SHIPPING on orders over $40",
+              "link_url": "shopify:\/\/collections\/best-sellers"
+            }
+          },
+          "8d1e3be9-5dca-4a35-8d5b-e9c9324efc55": {
+            "type": "topbar",
+            "disabled": true,
+            "settings": {
+              "heading": "Use code AFTERPAYDAY at checkout and get 30% off polishes and treatments!",
+              "link_url": ""
+            }
+          },
+          "b0af7de8-3662-4337-a623-08623f3583c3": {
+            "type": "topbar",
+            "settings": {
+              "heading": "Due to heightened sanitation restrictions, all polishes treatments and sets are FINAL SALE. Thank you for your understanding.",
+              "link_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "e70154b0-ca34-4b4f-bb2c-55d48a555f5b",
+          "8d1e3be9-5dca-4a35-8d5b-e9c9324efc55",
+          "b0af7de8-3662-4337-a623-08623f3583c3"
+        ],
+        "settings": {
+          "use_btn_style_cart_link": false,
+          "nav_show_reg": false,
+          "show_social_icons": true,
+          "menu_linklist": "new-menu",
+          "nav_autoexpand": true,
+          "nav_featured_link": "Sale",
+          "nav_featured_col": "#e89f84",
+          "logo": "shopify:\/\/shop_images\/cote_logocolor.png",
+          "logo_img_width": "150",
+          "logo_pos": "",
+          "announcement_show": true,
+          "announcement_home_only": false,
+          "announcement_bar_col": "#335261",
+          "announcement_text_col": "#ffffff",
+          "announcement_time": 10,
+          "head_not_home_only": false,
+          "head_not_mob_show": false,
+          "head_not_mob_text": "",
+          "head_not_mob_url": "shopify:\/\/collections\/all-polish-1"
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "show_featured_image": true,
+          "show_date": true,
+          "show_author": true,
+          "show_article_tags": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "menu_linklist": "footer",
+          "show_social_icons": false,
+          "signup_show": false,
+          "newsletter_title": "Signup for our newsletter",
+          "newsletter_text": ""
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "prod_show_tags": false,
+          "prod_show_type": false,
+          "prod_gall_thumbs_under": "beside",
+          "prod_desc_pos": "beside",
+          "enable_payment_button": false,
+          "show_related_products": false
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "coll_desc_pos": "above",
+          "coll_show_sort": true,
+          "coll_show_feat": true,
+          "coll_show_tags": false,
+          "show_tagfilt_custom1": false,
+          "tagfilt_custom1_name": "Colors",
+          "tagfilt_custom1_tags": "",
+          "show_tagfilt_custom2": false,
+          "tagfilt_custom2_name": "",
+          "tagfilt_custom2_tags": "",
+          "coll_num_per_page_int": 40,
+          "coll_gridstream_mode": "grid",
+          "coll_gridstream_toggle": false,
+          "icon-1": "shopify:\/\/shop_images\/cote-recycles.png",
+          "text_icon-1": "côte recycles <span class=\"cleaner-safer-banner__desktop-only-copy\">all of its used polish bottles<\/span>",
+          "icon-2": "shopify:\/\/shop_images\/vegan.png",
+          "text_icon-2": "vegan",
+          "icon-3": "shopify:\/\/shop_images\/cruelty-free.png",
+          "text_icon-3": "cruelty-free",
+          "icon-4": "shopify:\/\/shop_images\/hand-poured.png",
+          "text_icon-4": "hand poured in the USA",
+          "icon-5": "shopify:\/\/shop_images\/free-shipping.png",
+          "text_icon-5": "FREE shipping <span class=\"cleaner-safer-banner__desktop-only-copy\">on orders over $40<\/span>",
+          "banner-visible": false,
+          "promobanner-copy": "Use code\n<strong>AFTERPAYDAY<\/strong>\nat checkout and get 30% off polishes and treatments!"
+        }
+      },
+      "cross-page-promos": {
+        "type": "cross-page-promos",
+        "blocks": {
+          "1478526632862": {
+            "type": "icon",
+            "settings": {
+              "icon": "delivery",
+              "text": "Free Delivery",
+              "link_url": "https:\/\/coteshop.co\/pages\/faqs"
+            }
+          },
+          "1478526647261": {
+            "type": "icon",
+            "settings": {
+              "icon": "smile",
+              "text": "Happy Customers Only",
+              "link_url": "https:\/\/coteshop.co\/pages\/contact"
+            }
+          },
+          "1478527611164": {
+            "type": "icon",
+            "settings": {
+              "icon": "heart",
+              "text": "Cleaner Safer Beauty™",
+              "link_url": "shopify:\/\/pages\/cleaner-safer-beauty"
+            }
+          }
+        },
+        "block_order": [
+          "1478526632862",
+          "1478526647261",
+          "1478527611164"
+        ],
+        "settings": {
+          "visibility": "all"
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "show_date": true,
+          "show_author": true,
+          "show_article_tags": true
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "enable_cart_notes": true,
+          "cart_terms_page": "",
+          "show_shipping_calculator": false,
+          "shipping_calculator_default_country": "United States"
+        }
+      },
+      "1478795901388": {
+        "type": "slideshow",
+        "blocks": {
+          "7eae0d92-95c1-4b26-a887-63b18e4bf91a": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/hero-nails.jpg",
+              "heading": "Non-toxic,<br>Long-lasting,",
+              "text": "High-performing Nail Polish",
+              "font_family": "body",
+              "button_text": "SHOP NOW",
+              "position": "left",
+              "overlay_color": "#f79b7f",
+              "second_text_color": "#3e4b57",
+              "overlay_bg": "rgba(0,0,0,0)",
+              "button_bg": "#83a9a8",
+              "button_text_color": "#ffffff",
+              "link_url": "shopify:\/\/collections\/non-toxic-nail-polish"
+            }
+          },
+          "55c803d5-15b2-47c5-b4df-34c69a4824d8": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Hero_3_9c2a0c59-feeb-4cf5-b45b-5f17c16dc23a.png",
+              "heading": "New & Improved<br> Traveler Nail<br> Polish Sets!",
+              "text": "Twist Off For 11-Free Formula",
+              "font_family": "body",
+              "button_text": "SHOP NOW",
+              "position": "left",
+              "overlay_color": "#f69b7f",
+              "second_text_color": "#3e4b57",
+              "overlay_bg": "rgba(0,0,0,0)",
+              "button_bg": "#83a9a8",
+              "button_text_color": "#ffffff",
+              "link_url": "shopify:\/\/products\/tahoe-traveler-nail-polish-set"
+            }
+          },
+          "360f7513-2163-410a-9f01-29ce2a4d8bc1": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/masks.homepage_jpg.jpg",
+              "heading": "New Plant Collagen Masks",
+              "text": "Miracle Therapies For Hands & Feet",
+              "font_family": "title",
+              "button_text": "Shop now",
+              "position": "centre",
+              "overlay_color": "#ffffff",
+              "second_text_color": "#3e4b57",
+              "overlay_bg": "#6b6b79",
+              "button_bg": "#83a9a8",
+              "button_text_color": "#ffffff",
+              "link_url": "shopify:\/\/collections\/new-collagen-masks"
+            }
+          },
+          "1585273268197": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/homeluxe_3.png",
+              "heading": "At-home mani perfection",
+              "text": "With our updated Luxe Set",
+              "font_family": "title",
+              "button_text": "shop now",
+              "position": "left",
+              "overlay_color": "#f47e5a",
+              "second_text_color": "#3e4b57",
+              "overlay_bg": "rgba(0,0,0,0)",
+              "button_bg": "#83a9a8",
+              "button_text_color": "#ffffff",
+              "link_url": "shopify:\/\/products\/luxe-manicure-set"
+            }
+          },
+          "1591113957104": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/cote_cares_header.jpg",
+              "heading": "Côte Cares",
+              "text": "colors for a cause",
+              "font_family": "title",
+              "button_text": "Support Now",
+              "position": "centre",
+              "overlay_color": "#ffffff",
+              "second_text_color": "#3e4b57",
+              "overlay_bg": "#f79b7f",
+              "button_bg": "#83a9a8",
+              "button_text_color": "#ffffff",
+              "link_url": "shopify:\/\/collections\/cote-cares-colors-for-a-cause"
+            }
+          },
+          "f06441a0-fb55-4c67-9bf3-e132a38c4024": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/website_header.jpg",
+              "heading": "The Côte-Pilot",
+              "text": "Polish your nails with ease",
+              "font_family": "title",
+              "button_text": "Shop now",
+              "position": "left",
+              "overlay_color": "#ffffff",
+              "second_text_color": "#3e4b57",
+              "overlay_bg": "#7b7572",
+              "button_bg": "#83a9a8",
+              "button_text_color": "#ffffff",
+              "link_url": ""
+            }
+          },
+          "e449c8c1-9477-4585-bbd0-8c93fa47420d": {
+            "type": "image",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Mask-Group-perfect.png",
+              "mobile_image": "shopify:\/\/shop_images\/mobile.png",
+              "heading": "Our Gift To You!",
+              "text": "With every purchase made from December 13th-16th receive a bottle of our Fine-Flake Gold Glitter Polish No. 107 for free!",
+              "font_family": "title",
+              "button_text": "SHOP NOW",
+              "position": "left",
+              "overlay_color": "#f69b7f",
+              "second_text_color": "#3e4b57",
+              "overlay_bg": "#ffffff",
+              "button_bg": "#83a9a8",
+              "button_text_color": "#ffffff",
+              "link_url": "shopify:\/\/collections\/non-toxic-nail-polish"
+            }
+          },
+          "011e271a-2004-4ac6-a391-18c2106d8626": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cote-promo-desktop-single_b25abd57-3a1c-470f-b414-6fad7e7ea81b.png",
+              "mobile_image": "shopify:\/\/shop_images\/Cote-promo-mobile-single.png",
+              "heading": "",
+              "text": "",
+              "font_family": "body",
+              "button_text": "SHOP NOW",
+              "position": "left",
+              "overlay_color": "#ffffff",
+              "second_text_color": "#ffffff",
+              "overlay_bg": "#f7aa92",
+              "button_bg": "#83a9a8",
+              "button_text_color": "#ffffff",
+              "link_url": "shopify:\/\/products\/malibu-traveler-nail-polish-set"
+            }
+          }
+        },
+        "block_order": [
+          "7eae0d92-95c1-4b26-a887-63b18e4bf91a",
+          "55c803d5-15b2-47c5-b4df-34c69a4824d8",
+          "360f7513-2163-410a-9f01-29ce2a4d8bc1",
+          "1585273268197",
+          "1591113957104",
+          "f06441a0-fb55-4c67-9bf3-e132a38c4024",
+          "e449c8c1-9477-4585-bbd0-8c93fa47420d",
+          "011e271a-2004-4ac6-a391-18c2106d8626"
+        ],
+        "settings": {}
+      },
+      "1535418692457": {
+        "type": "text-image-overlay",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/PRESS.BAR.png",
+          "title": "",
+          "text": "",
+          "position": "centre",
+          "overlay_color": "#ffffff",
+          "overlay_bg": "#e89f84",
+          "link_url": "shopify:\/\/pages\/press"
+        }
+      },
+      "1535418865798": {
+        "type": "collage-with-text",
+        "disabled": true,
+        "settings": {
+          "layout": "left",
+          "layout_mobile": "above",
+          "style": "3",
+          "image_1": "shopify:\/\/shop_images\/interior.jpg",
+          "image_2": "shopify:\/\/shop_images\/ConGraphic1-02-08.png",
+          "title": "Book An Appointment",
+          "text": "<p>We offer online booking and walk-ins at all locations. Escape to the coast for a while with us. <\/p>",
+          "cta_text": "Book Appointment",
+          "cta_url": "shopify:\/\/pages\/brentwood-store"
+        }
+      },
+      "1535421423900": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Spring '22 Collection",
+          "collection": "spring-collection",
+          "use_carousel": true,
+          "background_color": "#83a9a8"
+        }
+      },
+      "1535431770220": {
+        "type": "newsletter",
+        "settings": {
+          "title": "Join The  Family",
+          "text": "<p>Join the cleaner safer beauty movement today<\/p>",
+          "background_color": "#f79b7f"
+        }
+      },
+      "1554133674054": {
+        "type": "text-image-overlay",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/ML_Slider22.jpg",
+          "title": "Founders' Collection",
+          "text": "Celebrating 5 Years!",
+          "position": "left",
+          "overlay_color": "#ffffff",
+          "overlay_bg": "rgba(0,0,0,0)",
+          "link_url": ""
+        }
+      },
+      "1569286208490": {
+        "type": "custom-row",
+        "disabled": true,
+        "blocks": {
+          "1569286208490-0": {
+            "type": "image",
+            "settings": {
+              "width": "half",
+              "image": "shopify:\/\/shop_images\/product_retail_candle_900x_fcc7bc40-0209-4ed1-b8df-3879d4d686be.png",
+              "link_url": "shopify:\/\/products\/candle",
+              "text": "",
+              "subtext": "",
+              "overlay_color": "#ffffff",
+              "overlay_bg": "rgba(0,0,0,0)"
+            }
+          },
+          "1569286208490-1": {
+            "type": "text",
+            "settings": {
+              "width": "half",
+              "title": "côte candle",
+              "text": "<p>Our signature <a href=\"\/products\/candle\" title=\"Candle\">blend candle<\/a> is inspired by the gentle, relaxing breezes of the coast.  It greets you with subtle lemon and seagrass tones and then shifts to a delicate floral bouquet of honeysuckle, wild sea rose and sea daffodils. <br\/><\/p><p><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1569286208490-0",
+          "1569286208490-1"
+        ],
+        "settings": {
+          "alignment": "middle"
+        }
+      },
+      "1589226160863": {
+        "type": "image-with-text",
+        "disabled": true,
+        "settings": {
+          "image_link_url": "https:\/\/media.giphy.com\/media\/elQFJPWPSyMe6BcbzA\/giphy.gif",
+          "layout": "right",
+          "title": "Back in stock!",
+          "text": "<p>Some of our bestsellers have now returned in time for the warmer temps! <\/p>",
+          "cta_text": "Read more",
+          "cta_url": "",
+          "alignment": "middle",
+          "section_background": "#ffffff",
+          "title_color": "#3f4b57",
+          "button_color": "#ffffff"
+        }
+      },
+      "1589245156297": {
+        "type": "image-with-text",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Copy_of_Cote_master_51.png",
+          "image_link_url": "shopify:\/\/collections\/cote-cares-colors-for-a-cause",
+          "layout": "left",
+          "title": "COLORS FOR A CAUSE",
+          "text": "<p>Côte is pleased to announce the launch of <em>Côte Cares<\/em>, a new way for you to show your support through the colors you wear!<\/p>",
+          "cta_text": "SUPPORT NOW",
+          "cta_url": "shopify:\/\/collections\/cote-cares-colors-for-a-cause",
+          "alignment": "middle",
+          "section_background": "#ffffff",
+          "title_color": "#f79b7f",
+          "button_color": "#83a9a8"
+        }
+      },
+      "1592584715691": {
+        "type": "instagram",
+        "disabled": true,
+        "settings": {
+          "title": "Instagram feed",
+          "account": "",
+          "access_token": "",
+          "show_margins": true
+        }
+      },
+      "go-cart": {
+        "type": "go-cart",
+        "settings": {}
+      },
+      "1637775667e2dfb5b7": {
+        "type": "best-sellers",
+        "settings": {
+          "menu": "best-sellers"
+        }
+      },
+      "16383974698f37d4e3": {
+        "type": "image-with-text",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/abyss_02_29f5a067-750d-4c9b-9a76-36e94b7b983b.jpg",
+          "image_link_url": "",
+          "layout": "right",
+          "title": "Cool nail care for men",
+          "text": "<p>Our vegan nail polish takes a manicure for men up a notch. Nail polish for men isn’t going anywhere, so hop on the bandwagon and use côte's clean nail polish to build up your nail kit.<\/p>",
+          "cta_text": "SHOP NOW",
+          "cta_url": "shopify:\/\/collections\/nail-polish-for-men",
+          "alignment": "middle",
+          "section_background": "#eeeeee",
+          "title_color": "#f79b7f",
+          "button_color": "#83a9a8"
+        }
+      },
+      "16401899621631ac50": {
+        "type": "best-seller-carousel-feature",
+        "settings": {
+          "best-sellers": "best-sellers"
+        }
+      },
+      "16419166950eab2145": {
+        "type": "home-instagram",
+        "settings": {
+          "background": "#f79b7f",
+          "hashtag": "#cleanersaferbeauty",
+          "title": "Follow us <a href=\"https:\/\/www.instagram.com\/coteshop\" target=\"_blank\">@coteshop<\/a> to learn tips and tricks on cleaner safer beauty!",
+          "title_color": "#ffffff",
+          "instagram": "<div id=\"insta-feed\"><\/div>"
+        }
+      },
+      "1643124655ef8784ae": {
+        "type": "home-press",
+        "blocks": {
+          "e58b6b7f-940c-428b-9f94-2774ca14a650": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/Forbes_1.png",
+              "image_alt": "Forbes"
+            }
+          },
+          "572cf6b6-70b0-46dc-8cb5-727b99f14391": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/Vogue.png",
+              "image_alt": "Vogue"
+            }
+          },
+          "d189e4de-dab2-4963-8a98-0873bc62d7e0": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/Goop_100e5d6e-6820-4ab2-a075-ecd35a876ea3.png",
+              "image_alt": "Goop"
+            }
+          },
+          "0422530b-dd00-406f-99ca-d7887b241c06": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/womens-wear-daily-wwd-vector-logo_1.png",
+              "image_alt": "WWD"
+            }
+          },
+          "d5345dfb-fc2e-46a4-84fe-b66a5673059b": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/Departures_magazine_logo_1.png",
+              "image_alt": "Departures"
+            }
+          },
+          "03f5dc5b-8747-4f2e-bc64-39caf58e87fc": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/oprah-magazine-logo-vector_1.png",
+              "image_alt": "The Oprah Magazine"
+            }
+          },
+          "173460c8-abbd-4d19-8654-f51e28923c20": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/Allure.png",
+              "image_alt": "Allure"
+            }
+          },
+          "47dcbdb5-2893-4521-b5a2-13e4ba1f7cd8": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/Layer_1_1.png",
+              "image_alt": "Coveteur"
+            }
+          }
+        },
+        "block_order": [
+          "e58b6b7f-940c-428b-9f94-2774ca14a650",
+          "572cf6b6-70b0-46dc-8cb5-727b99f14391",
+          "d189e4de-dab2-4963-8a98-0873bc62d7e0",
+          "0422530b-dd00-406f-99ca-d7887b241c06",
+          "d5345dfb-fc2e-46a4-84fe-b66a5673059b",
+          "03f5dc5b-8747-4f2e-bc64-39caf58e87fc",
+          "173460c8-abbd-4d19-8654-f51e28923c20",
+          "47dcbdb5-2893-4521-b5a2-13e4ba1f7cd8"
+        ],
+        "settings": {
+          "background": "#ffffff",
+          "title": "As featured in",
+          "title_color": "#f29270"
+        }
+      },
+      "giveaway-template": {
+        "type": "giveaway-template",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/Cote_BC_Giveaway_LandingPage_1.png",
+          "mobile-image": "shopify:\/\/shop_images\/Cote_BC_Giveaway_LandingPage_1_1b96e17e-517b-468c-956f-ea80338c00aa.png",
+          "disclaimer": "<p>#Giveaway ends 3\/13\/2022 at 11:59 pm ET, and the winners will be DM'ed on 3\/14\/2022! By entering this giveaway, you acknowledge that this is not sponsored, endorsed, or administered by or associated with Instagram, and you release Instagram of all responsibility. Must complete all steps to qualify. I agree to accept marketing from Cote Shop and Beauty Counter.<\/p>"
+        }
+      },
+      "164857500418bf7c91": {
+        "type": "home-value-propositions",
+        "blocks": {
+          "993d487d-0be2-4097-8764-3794d4ebe8a6": {
+            "type": "proposition",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Frame.png",
+              "proposition": "100,000+ satisfied <br>customers"
+            }
+          },
+          "44c59000-c11a-402b-aa12-042d938d7efe": {
+            "type": "proposition",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Frame_1.png",
+              "proposition": "Over 1 million cleaner <br>safer manicures"
+            }
+          },
+          "1cc7dbfc-319f-4971-bd73-e371955c1342": {
+            "type": "proposition",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Frame_2.png",
+              "proposition": "Vegan"
+            }
+          },
+          "b87e8330-3934-4372-9ecc-ddc9b89ff0bf": {
+            "type": "proposition",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Frame_3.png",
+              "proposition": "Cruelty <br>free"
+            }
+          },
+          "4b4e1edc-0449-477c-97ce-3bc248762888": {
+            "type": "proposition",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Frame_4.png",
+              "proposition": "Made in <br>the USA"
+            }
+          },
+          "9102f2df-8164-43d2-9393-43aefef215b2": {
+            "type": "proposition",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Frame_5.png",
+              "proposition": "Toxin <br>free"
+            }
+          }
+        },
+        "block_order": [
+          "993d487d-0be2-4097-8764-3794d4ebe8a6",
+          "44c59000-c11a-402b-aa12-042d938d7efe",
+          "1cc7dbfc-319f-4971-bd73-e371955c1342",
+          "b87e8330-3934-4372-9ecc-ddc9b89ff0bf",
+          "4b4e1edc-0449-477c-97ce-3bc248762888",
+          "9102f2df-8164-43d2-9393-43aefef215b2"
+        ],
+        "settings": {
+          "background": "#ffffff",
+          "font_color": "#747474"
+        }
+      },
+      "sas-hero": {
+        "type": "sas-hero",
+        "settings": {
+          "hero": "shopify:\/\/shop_images\/sas-hero.png",
+          "mobile-image": "shopify:\/\/shop_images\/Cote_mob.png"
+        }
+      },
+      "sas-join-now": {
+        "type": "sas-join-now",
+        "blocks": {
+          "a0a2b392-647a-4c02-abc5-9f629db4e102": {
+            "type": "Icon",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Group_19.png",
+              "copy": "<p>10% commission <br\/>on sales<\/p>"
+            }
+          },
+          "395f4575-3264-4ac8-b9ba-257917525db7": {
+            "type": "Icon",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Group_20.png",
+              "copy": "<p>Be the 1st to know about our new products<\/p>"
+            }
+          },
+          "786f59b1-695c-4fa4-855c-75157497215b": {
+            "type": "Icon",
+            "settings": {
+              "icon": "shopify:\/\/shop_images\/Group_21.png",
+              "copy": "<p>Find special <br\/>discounts<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "a0a2b392-647a-4c02-abc5-9f629db4e102",
+          "395f4575-3264-4ac8-b9ba-257917525db7",
+          "786f59b1-695c-4fa4-855c-75157497215b"
+        ],
+        "settings": {
+          "title": "Join Our Affiliate Team",
+          "link": "https:\/\/www.shareasale.com\/join\/118954",
+          "label": "Join Now"
+        }
+      },
+      "mobile-dynamic-filters-collection-template": {
+        "type": "mobile-dynamic-filters-collection-template",
+        "settings": {
+          "coll_desc_pos": "below",
+          "coll_show_sort": true,
+          "coll_show_feat": false,
+          "coll_show_tags": false,
+          "show_tagfilt_custom1": false,
+          "tagfilt_custom1_name": "",
+          "tagfilt_custom1_tags": "",
+          "show_tagfilt_custom2": false,
+          "tagfilt_custom2_name": "",
+          "tagfilt_custom2_tags": "",
+          "coll_num_per_page_int": 16,
+          "coll_gridstream_mode": "grid",
+          "coll_gridstream_toggle": false,
+          "mobile_link_list": "dynamic-mobile-menu"
+        }
+      }
+    },
+    "content_for_index": [
+      "1637775667e2dfb5b7",
+      "1478795901388",
+      "164857500418bf7c91",
+      "16401899621631ac50",
+      "1535421423900",
+      "1643124655ef8784ae",
+      "1535418692457",
+      "1589245156297",
+      "16383974698f37d4e3",
+      "1569286208490",
+      "1535418865798",
+      "1554133674054",
+      "16419166950eab2145",
+      "1535431770220",
+      "1589226160863",
+      "1592584715691"
+    ]
+  }
+}

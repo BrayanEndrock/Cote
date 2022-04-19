@@ -1,0 +1,98 @@
+{% raw %}
+<script id="globo_preorder_partial_payment_template" type="text/template">
+  {% assign show = false %}
+  {% if config.fullPayment.enable and config.fullPayment.discountValue > 0 %}
+    {% assign show = true %}
+  {% endif %}
+  {% if config.partialPayment.enable %}
+    {% assign show = true %}
+  {% endif %}
+  {% if show %}
+  <div class="gPreorderPartialPaymentWrapper">
+    {% if config.fullPayment.discountValue > 0 or config.partialPayment.discountValue > 0 %}
+    <div class="gPreorderPrice">
+      {{translation.preorderPrice | default: 'PreOrder Price: '}}
+      <span class="gPreorderPriceHtml">{% if config.fullPayment.enable %}{{ full_price | money_without_trailing_zeros }}{% elsif config.partialPayment.enable %}{{ partial_discounted_price | money_without_trailing_zeros }}{% endif %}</span>
+    </div>
+    {% endif %}
+    {% if config.fullPayment.enable or config.partialPayment.enable %}
+    <div class="gPreorderPartialPaymentLabel">{{translation.partialPaymentLabel | default: 'Payment option'}}</div>
+    <div class="gPreorderPartialPayment">
+      <ul class="gPreorderPartialPaymentChoices">
+        {% if config.fullPayment.enable %}
+        <li>
+          <label for="fullPayment-{{randomID}}">
+            <span class="gPreorderPartialPaymentControl">
+              <span class="gPreorderPartialPaymentRadioButton">
+                <input checked name="_preorder_partial_payment" id="fullPayment-{{randomID}}" type="radio" class="gPreorderPartialPaymentInput" data-priceHTML="{{full_price | money_without_trailing_zeros | escape}}" data-discount-type="{{config.fullPayment.discountType}}" data-discount-value="{{config.fullPayment.discountValue}}" value="full">
+                <span class="gPreorderPartialPaymentBackdrop"></span>
+                <span class="gPreorderPartialPaymentIcon"></span>
+              </span>
+            </span>
+            <span class="gPreorderPartialPaymentLabel">{{translation.partialPaymentOptionFull | default: 'Full Payment'}}</span>
+          </label>
+        </li>
+        {% endif %}
+        {% if config.partialPayment.enable %}
+        <li>
+          <label for="partialPayment-{{randomID}}">
+            <span class="gPreorderPartialPaymentControl">
+              <span class="gPreorderPartialPaymentRadioButton">
+                <input {% unless config.fullPayment.enable %}checked{% endunless %} name="_preorder_partial_payment" id="partialPayment-{{randomID}}" type="radio" class="gPreorderPartialPaymentInput" data-priceHTML="{{partial_discounted_price | money_without_trailing_zeros | escape}}" data-discount-type="{{config.partialPayment.discountType}}" data-discount-value="{{config.partialPayment.discountValue}}" value="part">
+                <span class="gPreorderPartialPaymentBackdrop"></span>
+                <span class="gPreorderPartialPaymentIcon"></span>
+              </span>
+            </span>
+            <span class="gPreorderPartialPaymentLabel">{{translation.partialPaymentOptionPart | default: 'Partial Payment'}} - <span>{{ partial_price | money_without_trailing_zeros }}</span></span>
+          </label>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</script>
+<script id="globo_preorder_cart_mixed_template" type="text/template">
+  {% if translation.cartWarningTitle or translation.cartWarningContent %}
+  <div id="Globo-Modal">
+    <div>
+      <div class="Globo-Modal-Dialog__Container">
+        <div>
+          <div tabindex="-1" class="Globo-Modal-Dialog">
+            <div class="Globo-Modal-Dialog__Modal">
+              <div class="Globo-Modal-Header">
+                <div class="Globo-Modal-Header__Title">
+                  <h4 class="Globo-DisplayText Globo-DisplayText--sizeSmall">{{translation.cartWarningTitle}}</h4>
+                </div>
+                <button class="Globo-Modal-CloseButton">
+                  <span class="Globo-Icon Globo-Icon--colorInkLighter Globo-Icon--isColored"><svg viewBox="0 0 20 20" class="Globo-Icon__Svg" focusable="false" aria-hidden="true"><path d="M11.414 10l6.293-6.293a.999.999 0 1 0-1.414-1.414L10 8.586 3.707 2.293a.999.999 0 1 0-1.414 1.414L8.586 10l-6.293 6.293a.999.999 0 1 0 1.414 1.414L10 11.414l6.293 6.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414L11.414 10z" fill-rule="evenodd"></path></svg></span>
+                </button>
+              </div>
+              <div class="Globo-Modal__BodyWrapper">
+                <div class="Globo-Modal__Body Globo-Scrollable">
+                  <section class="Globo-Modal-Section">
+                    <div class="Globo-TextContainer">
+                      {{translation.cartWarningContent}}
+                      {% if translation.cartWarningCheckboxLabel %}
+                      <div>
+                        <label for="Globo-Modal-Checkbox">
+                          <input type="checkbox" id="Globo-Modal-Checkbox" />
+                          {{translation.cartWarningCheckboxLabel}}
+                        </label>
+                      </div>
+                      {% endif %}
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Globo-Backdrop"></div>
+  </div>
+  {% endif %}
+</script>
+{% endraw %}

@@ -1,0 +1,464 @@
+{
+  "general": {
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "404": {
+      "title": "404 Page Not Found",
+      "subtext_html": "You may want to return to the <a href=\"\/\">home page<\/a> or <a href=\"\/search\">try a search<\/a>."
+    },
+    "search": {
+      "title": "Search",
+      "search_again": "Search again",
+      "your_search_html": "You searched for: <strong>{{ terms }}<\/strong>",
+      "no_results": "No results found for your search.",
+      "results_with_count": {
+        "one": "We found {{ count }} result",
+        "other": "We found {{ count }} results"
+      },
+      "read_more": "Continue reading"
+    },
+    "multi_currency": {
+      "pick_a_currency": "Pick a currency"
+    },
+    "social": {
+      "label": "Share",
+      "on_facebook": "Share on Facebook",
+      "on_twitter": "Share on Twitter",
+      "on_pinterest": "Pin the main image",
+      "on_google": "Share on Google+",
+      "by_email": "Share using email",
+      "check_out_html": "Check out {{ title }}"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "navigation": {
+      "menu_toggle_aria_label": "Toggle menu",
+      "main_navigation_aria_label": "Primary navigation"
+    }
+  },
+  "blogs": {
+    "general": {
+      "no_matches": "You don't have any articles yet! Once you've written one, it will show up here."
+    },
+    "filtering": {
+      "filter": "Filter"
+    },
+    "pagination": {
+      "older_articles": "previous",
+      "newer_articles": "next"
+    },
+    "article": {
+      "older_post": "Older Post",
+      "newer_post": "Newer Post",
+      "back_to_blog": "Back to {{ blog }}",
+      "read_more_html": "<span>Read more<\/span> {{ icon }}",
+      "author": "by {{ author }}",
+      "tags": "Tags"
+    },
+    "comments": {
+      "title": "Comments",
+      "form_title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment",
+      "post": "Post comment",
+      "moderated": "Please note: comments must be approved before they are published.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "author_meta": "{{ author }} said:",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your Cart",
+      "quantity": "Quantity",
+      "quantity_too_high": "You can only have {{ quantity }} in your cart",
+      "backorder": "Product is backordered. We will ship it separately in 10 to 15 days.",
+      "remove": "Remove",
+      "confirm_remove": "Are you sure you want to remove this item?",
+      "subtotal": "Subtotal",
+      "continue": "Continue shopping",
+      "update": "Update cart",
+      "or": "or",
+      "checkout": "Check Out",
+      "message": "Delivery is calculated at checkout",
+      "empty": "Your cart is currently empty."
+    },
+    "terms": {
+      "agreement_html": "I agree to the <a href=\"{{ terms_url }}\" target=\"_blank\">terms and refund policy<\/a>",
+      "confirmation": "You must agree to the terms and conditions before continuing."
+    },
+    "label": {
+      "note": "Special instructions for the seller:"
+    },
+    "shipping_calculator": {
+      "button_show": "Estimate shipping",
+      "button_hide": "Hide shipping calculator",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal Code\/Zip",
+      "submit": "Calculate shipping",
+      "loading": "Calculating...",
+      "multiple_rates": "shipping rates available, starting at",
+      "single_rate": "There is one shipping rate available for",
+      "no_rates": "We do not ship to this destination.",
+      "at": "at"
+    }
+  },
+  "collections": {
+    "general": {
+      "view": "View",
+      "grid": "Grid",
+      "list": "List",
+      "share": "Share",
+      "no_matches": "Sorry, there are no products matching your search.",
+      "product_count": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      }
+    },
+    "filtering": {
+      "filter": "Filter",
+      "all": "All"
+    },
+    "sorting": {
+      "title": "Sort by",
+      "featured": "Featured",
+      "best_selling": "Best Selling",
+      "az": "Alphabetically, A-Z",
+      "za": "Alphabetically, Z-A",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "date_descending": "Date, new to old",
+      "date_ascending": "Date, old to new"
+    }
+  },
+  "contact": {
+    "form": {
+      "subtext": "Please get in touch!",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send",
+      "post_success": "Thanks for contacting us. We'll get back to you as soon as possible."
+    }
+  },
+  "customer": {
+    "general": {
+      "return": "Return to Store",
+      "or": "or"
+    },
+    "account": {
+      "title": "My Account",
+      "details": "Account Details",
+      "view_addresses": "View Addresses",
+      "return": "Return to Account Details"
+    },
+    "activate_account": {
+      "title": "Activate Account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Activate Account",
+      "cancel": "Decline Invitation"
+    },
+    "addresses": {
+      "title": "Your Addresses",
+      "default": "Default",
+      "add_new": "Add a New Address",
+      "edit_address": "Edit address",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "company": "Company",
+      "address1": "Address1",
+      "address2": "Address2",
+      "city": "City",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal\/Zip Code",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "add": "Add Address",
+      "update": "Update Address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "forgot_password": "Forgot your password?",
+      "sign_in": "Sign In",
+      "register": "Create account",
+      "cancel": "Return to Store",
+      "guest_title": "Continue as a guest",
+      "guest_continue": "Continue"
+    },
+    "orders": {
+      "title": "Order History",
+      "order_number": "Order",
+      "date": "Date",
+      "payment_status": "Payment Status",
+      "fulfillment_status": "Fulfillment Status",
+      "total": "Total",
+      "full_details_html": "Full details &rarr;",
+      "none": "You haven't placed any orders yet."
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date": "Placed on {{ date }}",
+      "cancelled": "Order Cancelled on {{ date }}",
+      "cancelled_reason": "Reason: {{ reason }}",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "fulfilled_at": "Fulfilled {{ date }}",
+      "subtotal": "Subtotal"
+    },
+    "recover_password": {
+      "title": "Reset your password",
+      "email": "Email",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "subtext": "We will send you an email to reset your password.",
+      "success": "We've sent you an email with a link to update your password."
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtext": "Enter a new password for {{ email }}",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Reset Password"
+    },
+    "register": {
+      "title": "Create Account",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create",
+      "log_in": "Log in with an existing account",
+      "cancel": "Return to Store"
+    }
+  },
+  "home_page": {
+    "products": {
+      "see_all": "See All"
+    }
+  },
+  "layout": {
+    "header": {
+      "cart": "Cart",
+      "search": "Search"
+    },
+    "live_search": {
+      "no_results": "No results found",
+      "see_all": "See all results"
+    },
+    "customer": {
+      "account": "Your Account",
+      "log_out": "Log out",
+      "log_in": "Log in",
+      "register": "Register"
+    },
+    "signup": {
+      "label": "Signup for our newsletter",
+      "email": "Email Address",
+      "post_success": "Thank you for your interest!"
+    },
+    "footer": {
+      "theme_by_html": "Theme by <a href=\"http:\/\/www.cleanthemes.co.uk\" target=\"_blank\">Clean Themes<\/a>. ",
+      "navigation_aria_label": "Secondary navigation"
+    }
+  },
+  "products": {
+    "product": {
+      "tags": "Tags",
+      "see_more_of_this_type": "See more:",
+      "size_chart": "Size Guide",
+      "next": "Next",
+      "previous": "Previous",
+      "vendor": "Brand",
+      "sku": "SKU:",
+      "quantity": "Quantity",
+      "product_unavailable": "This product is sold out",
+      "add_to_cart": "Add to Cart",
+      "adding_to_cart": "Adding...",
+      "added_to_cart": "Thank you!",
+      "backorder": "is backordered. We will ship it separately in 10 to 15 days.",
+      "related_title": "You might also like"
+    },
+    "listing": {
+      "was": "Was",
+      "from": "from"
+    },
+    "labels": {
+      "sale": "Sale",
+      "only_x_left": "Only {{ quantity }} left!",
+      "sold_out": "Sold Out"
+    },
+    "quick_buy": {
+      "read_more": "More Details"
+    },
+    "variant": {
+      "no_stock": "Out of stock",
+      "non_existent": "Unavailable"
+    },
+    "added_notification": {
+      "title": "Just added",
+      "item": "Item",
+      "unit_price": "Item price",
+      "quantity": "Qty",
+      "total_price": "Total price",
+      "subtotal": "Subtotal",
+      "shipping_note": "Excl. shipping",
+      "keep_shopping": "Keep Shopping",
+      "cart": "Cart"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Here's your {{ value }} gift card for {{ shop }}!",
+      "subtext": "Here's your gift card!",
+      "disabled": "Disabled",
+      "expired": "Expired on {{ expiry }}",
+      "active": "Expires on {{ expiry }}",
+      "redeem": "Use this code at checkout to redeem your gift card",
+      "shop_link": "Start shopping",
+      "print": "Print"
+    }
+  },
+  "storefront_password": {
+    "general": {
+      "powered_by": "This shop will be powered by",
+      "social_label": "Spread the word:"
+    },
+    "login": {
+      "link": "Enter using password",
+      "label": "Enter store using password:",
+      "button": "Enter",
+      "admin_link_html": "Are you the store owner? <a href=\"\/admin\">Log in here<\/a>"
+    },
+    "signup": {
+      "success": "Thanks for your interest! We'll be sure to keep you up to date."
+    }
+  },
+  "map": {
+    "errors": {
+      "address_error": "Error looking up that address",
+      "address_no_results": "No results for that address",
+      "address_query_limit_html": "You have exceeded the Google API usage limit. Consider upgrading to a <a href=\"https:\/\/developers.google.com\/maps\/premium\/usage-limits\">Premium Plan<\/a>.",
+      "auth_error_html": "There was a problem authenticating your Google Maps API Key."
+    }
+  },
+  "onboarding": {
+    "product": {
+      "product_title": "Product title"
+    },
+    "collection": {
+      "collection_title": "Collection title"
+    },
+    "blog": {
+      "empty": "You don't have any articles yet! Once you've written one, it will show up here."
+    },
+    "article": {
+      "title": "Your post's title",
+      "excerpt": "Your store hasn’t published any blog posts yet. A blog can be used to talk about new product launches, tips, or other news you want to share with your customers. You can check out Shopify’s ecommerce blog for inspiration and advice for your own store and blog.",
+      "author": "Author name"
+    }
+  },
+  "date_formats": {
+    "month_date_year": "%B %d, %Y"
+  },
+  "shopify": {
+    "checkout": {
+      "general": {
+        "continue_to_shipping_method": "Continue to delivery methods",
+        "back_to_shipping_method": "Return to delivery method",
+        "edit_shipping_address": "Edit delivery address",
+        "edit_shipping_method": "Edit delivery method"
+      },
+      "contact": {
+        "shipping_address_title": "Delivery address"
+      },
+      "order_summary": {
+        "free_shipping_discount_label": "Free delivery",
+        "discount_requires_customer_notice": "Please submit your delivery information to apply the {{code}} discount code",
+        "shipping_information_does_not_meet_discount_requirements_notice": "Your delivery information does not meet the requirements for the {{code}} discount code",
+        "shipping_label": "Delivery"
+      },
+      "review": {
+        "blocks": {
+          "shipping_address_title": "Deliver to"
+        }
+      },
+      "shipping": {
+        "title": "Delivery method",
+        "waiting_on_rate_notice": "Please wait while we fetch available delivery rates...",
+        "no_rates_for_cart_or_destination_notice": "There are no delivery methods available for your cart or destination.",
+        "no_rates_for_country_notice": "We do not offer delivery to {{country}}.",
+        "please_enter_your_shipping_information_notice": "Please enter your delivery information"
+      },
+      "payment": {
+        "same_billing_address_label": "Same as delivery address"
+      },
+      "shipping_errors": {
+        "shipping_method": "Your cart has been modified and the delivery rate you previously selected no longer applies. Please select a new rate."
+      },
+      "thank_you": {
+        "shipping_information_title": "Delivery information",
+        "shipping_address_title": "Delivery address",
+        "shipping_method_title": "Delivery method",
+        "marker": {
+          "shipping": "Delivery address",
+          "current": "Current delivery location"
+        },
+        "confirmed_description_html": "We have accepted your order, and we are getting it ready. A confirmation email has been sent to {{ email }}. Come back to this page for updates on your delivery status.",
+        "no_tracking_number": "There is no tracking number for this delivery.",
+        "unfulfilled_items_title": "Preparing for delivery",
+        "unfulfilled_items_description": "We are currently preparing these items for delivery.",
+        "fulfillment": {
+          "unfulfilled_table_title": "Items preparing for delivery",
+          "fulfilled_table_title": "Items in this delivery"
+        },
+        "login_title": "Login to view all delivery details",
+        "failed_title": "We could not deliver your order",
+        "delivered_description_html": "Your order has been delivered to the address you provided. If you haven't received it, or if you have any other problems, please {{ contact_us }}.",
+        "delivered_title": "Your order has been delivered",
+        "attempted_delivery_description_html": "An attempt was made to deliver your order but it was unsuccessful. Please {{ contact_us }} to arrange another delivery attempt.",
+        "attempted_delivery_title": "An attempt was made to delivery your order",
+        "out_for_delivery_description_html": "Your order is on the delivery truck - expect it to arrive today. If you still haven't received it in the next 2 days, please {{ contact_us }}.",
+        "out_for_delivery_title": "Your order is out for delivery",
+        "in_transit_description": "Come back to this page for updates on your delivery status.",
+        "in_transit_title": "Your order is on the way",
+        "confirmed_title": "Your delivery is confirmed",
+        "order_updates_subscribe_to_email_notifications": "Get delivery updates by email",
+        "order_updates_subscribe_to_phone_notifications": "Get delivery updates by email or SMS",
+        "order_updates_subscribe_to_email_or_phone_notifications": "Get delivery updates by SMS"
+      }
+    },
+    "notices": {
+      "cart": {
+        "shipping_address_not_required": "This cart does not require delivery",
+        "shipping_address_invalid": "Invalid delivery address"
+      }
+    }
+  }
+}

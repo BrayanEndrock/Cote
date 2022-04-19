@@ -1,0 +1,111 @@
+<div class="grid-uniform">
+    <h2>{{section.settings.title}}</h2>
+    <div class="grid__item one-whole credibility-logos text-center">
+        {%- for block in section.blocks -%}
+            <img 
+                src="{{ block.settings.logo | img_url: 'x56' }}"
+                data-srcset="{{ block.settings.logo | img_url: 'x56' }} 1x, {{ block.settings.logo | img_url: 'x112', scale: 2 }} 2x"
+                alt="{{ block.settings.image_alt }}"
+                class="lazyload"
+            >
+        {%- endfor -%}
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name":"Home Pres Barr",
+        "class":"home-credibility",
+        "max_blocks": 8,
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color",
+                "default": "#fff"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "As featured in"
+            },
+            {
+                "type": "color",
+                "id": "title_color",
+                "label": "Title Color",
+                "default": "#f29270"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "logo",
+                "name": "Logo",
+                "settings":[
+                    {
+                        "type": "image_picker",
+                        "id": "logo",
+                        "label": "Logo"
+                    },
+                    {
+                        "type": "text",
+                        "id": "image_alt",
+                        "label": "Image Alt"
+                    }
+                ]
+            }
+        ],   
+        "presets":[
+            {
+                "name":"Home Press Bar",
+                "category": "Cote"
+            }
+        ]
+    }
+{% endschema %}
+
+{% style %}
+    .home-credibility {
+        padding: 50px 0 80px;
+        margin-top: 0 !important;
+        background-color: {{section.settings.background}};
+    }
+    .home-credibility .grid-uniform {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+    .home-credibility h2 {
+        font-size: 48px;
+        line-height: 1.33;
+        letter-spacing: 0.03em;
+        text-align: center;
+        margin-bottom: 40px;
+        color: {{section.settings.title_color}};
+    }
+    .home-credibility .credibility-logos {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-left: 0;
+    }
+    @media screen and (max-width: 768px) {
+        .home-credibility {
+            padding: 30px 0 24px;
+        }
+        .home-credibility h2 {
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+        .home-credibility .credibility-logos {
+            justify-content: center;
+            gap: 16px;
+            padding: 0;
+        }
+        .home-credibility .credibility-logos img {
+            margin: 0;
+            /*max-height: 40px;*/
+        }
+    }
+{% endstyle %}

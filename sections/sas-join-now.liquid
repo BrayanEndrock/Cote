@@ -1,0 +1,211 @@
+<!-- /sections/sas-join-now.liquid -->
+<div class="sas-join-now--template">
+    <h2>{{ section.settings.title }}</h2>
+    <hr>
+    <div class="sas-join-now--container">
+        <div class="container">
+            <div class="icons--wrapper">
+                {% for block in section.blocks %}
+                    <div class="icon--box">
+                        <img 
+                            class="lazyload"
+                            src="{{ block.settings.icon | img_url: '136x' }}" 
+                            srcset="{{ block.settings.icon | img_url: '136x' }} 1x, {{ block.settings.icon | img_url: '272x', scale: 2 }} 2x"
+                            alt="{{ block.settings.copy | escape}}"
+                        >
+                        <div class="copy">{{ block.settings.copy }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="join-now-cta--wrapper">
+                <a href="{{ section.settings.link }}" target="_blank">{{ section.settings.label }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Join Now",
+        "class": "sas-join-now",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Join Our Affiliate Team"
+            },
+            {
+                "type": "url",
+                "id": "link",
+                "label": "Link"
+            },
+            {
+                "type": "text",
+                "id": "label",
+                "label": "CTA Label",
+                "default": "Join Now"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "Icon",
+                "name": "Icon with copy",
+                "settings": [      
+                    {
+                        "type": "image_picker",
+                        "id": "icon",
+                        "label": "Icon"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "copy",
+                        "label": "Copy"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}
+
+{% stylesheet 'scss' %}
+    .sas-join-now {
+        @media screen and (max-width: 768px) {
+            padding-top: 32px;
+        }
+        .sas-join-now--template {
+            h2 {
+                color: #36414C;
+                font-size: 50px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 67px;
+                margin: 0 auto;
+                padding: 0;
+                text-align: center;
+                @media screen and (max-width: 768px) {
+                    font-size: 30px;
+                    line-height: 40px;
+                }
+            }
+            hr {
+                border-bottom: none;
+                border-left: none;
+                border-right: none;
+                border-top: 1px solid #1F322F;
+                color: #1F322F;
+                height: 1px;
+                margin: 10px auto 0;
+                text-align: center;
+                width: 60px;
+            }
+            .sas-join-now--container {
+                margin-top: 72px;
+                @media screen and (max-width: 768px) {
+                    margin-top: 31px;
+                }
+                .icons--wrapper {
+                    display: flex;
+                    justify-content: space-evenly;
+                    margin-bottom: 42px;
+                    position: relative;
+                    &:before {
+                        background: #FFDACE;
+                        content: "";
+                        height: 8px;
+                        position: absolute;
+                        top: 32%;
+                        width: 552px;
+                        z-index: -1;
+                    }
+                    @media screen and (max-width: 768px) {
+                        align-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin-bottom: 40px;
+                        &:before {
+                            right: 198px;
+                            top: auto;
+                            transform: rotate(90deg);
+                            width: 452px;
+                        }
+                    }
+                    @media (min-width: 377px) and (max-width: 425px) {
+                        &:before {
+                            right: 44px;
+                        }
+                    }
+                    @media screen and (max-width: 376px) {
+                        &:before {
+                            right: 18px;
+                        }
+                    }
+                    .icon--box {
+                        text-align: center;
+                        @media screen and (max-width: 768px) {
+                            align-content: center;
+                            align-items: center;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            margin-bottom: 62px;
+                            text-align: left;
+                            &:last-of-type {
+                                margin-bottom: 0;
+                            }
+                        }
+                        img {
+                            @media screen and (max-width: 768px) {
+                                width: 120px;
+                                text-align: left;
+                            }
+                        }
+                        .copy {
+                            margin-top: 14px;
+                            max-width: 198px;
+                            p {
+                                color: #36414C;
+                                font-family: 'Roboto';
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 24px;
+                                margin: 0 auto;
+                                text-align: center;
+                            }
+                            @media screen and (max-width: 768px) {
+                                margin: 0 0 0 11px;
+                                width: 143px;
+                                p {
+                                    text-align: left;
+                                }
+                            }
+                        }
+                    }
+                }
+                .join-now-cta--wrapper {
+                    text-align: center;
+                    a {
+                        background-color: #36414C;
+                        color: #FFFFFF;
+                        font-family: Playfair Display, serif;
+                        font-size: 18;
+                        font-style: normal;
+                        font-weight: 700;
+                        letter-spacing: 0.05em;
+                        line-height: 24px;
+                        padding: 8px 30px;
+                        text-transform: uppercase;
+                        &:hover {
+                            background-color: transparent;
+                            border: solid 1px #36414C;
+                            color: #36414C;
+                            transition-duration: .5s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+{% endstylesheet %}

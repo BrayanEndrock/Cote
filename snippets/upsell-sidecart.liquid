@@ -1,0 +1,81 @@
+{{ '//ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js' | script_tag }}
+{{ 'jquery.products.min.js' | asset_url | script_tag }}
+
+<div id="recently-viewed-products" class="collection clearfix upsell-slider" style="display:none"></div>
+
+{% raw %}
+    <script id="recently-viewed-product-template"  type="text/x-jquery-tmpl">
+        <div id="product-${handle}" class="product" data-variant-id="${variants[0].id}">
+            <div class="image">
+                <a href="${url}">
+                    <img src="${Shopify.Products.resizeImage(featured_image, "medium")}" />
+                </a>
+            </div>
+            <div class="details">
+                <a href="${url}" class="title-and-price">
+                    {{html title}}
+                    <span class="price">${Shopify.formatMoney(price)}</span>
+                </a>
+            </div>
+            <div class="actions">
+                <button id="btnAddToCartUpsell" class="btn btn-add-to-cart-upsell" data-variant-id="${variants[0].id}" data-quantity="1">
+                    Add to Cart
+                    {% endraw %}{% render 'plus-icon-atc' %}{% raw %}  
+                </button>
+            </div>
+        </div>
+    </script>
+{% endraw %}
+
+<style>
+    .collection {
+        clear: both;
+    }
+    .collection .product {
+        float: left;
+        text-align: center;
+        width: 162px; /* 160px + 1px + 1px for the borders on either side */
+        margin: 0 14px 0px 0;
+        padding: 0;
+        position: relative; /* used to display absolutely positioned sale tag */
+        overflow: hidden;
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        align-content: center;
+    }
+    @media screen and (max-width: 768px) {
+        .collection .product {
+            height: 246px;
+        }
+    }
+</style>
+
+<script type="text/javascript">
+    function addToCartUpsellProducts(event) {
+        let variant = event.currentTarget.getAttribute("data-variant-id");
+        $.ajax({
+            type: 'POST',
+            url: '/cart/add.js',
+            data: "quantity=1&id=" + variant,
+            dataType: 'json', 
+            success: function(cart) {
+                goCart.fetchAndOpenCart();
+            }, error: function(x,y,z){
+                console.log(z);
+            }
+        }); 
+    }
+    Shopify.Products.showRecentlyViewed({
+        howManyToShow:6,
+        onComplete: function(){
+            document.querySelectorAll(".btn-add-to-cart-upsell").forEach(btn => { 
+                btn.addEventListener("click", (e) => {
+                    addToCartUpsellProducts(e);
+                });
+            })
+        }
+    });
+</script>

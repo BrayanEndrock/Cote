@@ -1,0 +1,104 @@
+<style>
+.trigger-popup-klaviyo {
+    display: none;
+}
+@media screen and (max-width: 590px){
+    .trigger-popup-klaviyo {
+        position: fixed;
+        display: flex;
+        bottom: 25px;
+        left: 10px;
+        background: #000;
+        color: #fff;
+        padding: 14px 16px;
+        font-size: 18px;
+        letter-spacing: 0.03em;
+        line-height: 0.89;
+        align-items: center;
+        font-family: "Playfair Display",serif;
+        z-index: 99 !important;
+    }
+    .trigger-popup-klaviyo span {
+        cursor: pointer;
+    }
+    .trigger-popup-klaviyo .close-trigger {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-left: 12px;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    .popup-klaviyo {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  .popup-klaviyo.hide, .trigger-popup-klaviyo.hide {
+   display: none; 
+  }
+    .close_popup_lp path{
+        width: 8px !important;
+        height: 8px !important;
+        fill: #3f4b57 !important;
+    }
+    .close_popup_lp{
+        position: absolute;
+        top: 2%;
+        right: 4%;
+        width: 16px;
+        z-index: 1;
+    }
+    .close_more_popup{ 
+     position: relative;
+    }
+}
+</style>
+<div class="trigger-popup-klaviyo">
+    <span>Get 20% Off</span>
+    <svg class="close-trigger " width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.46384 0.706056C1.30151 0.543715 1.03833 0.543715 0.876007 0.706056C0.713683 0.868397 0.713683 1.1316 0.876007 1.29394L1.46384 0.706056ZM10.7057 11.1246C10.868 11.2869 11.1312 11.2869 11.2935 11.1246C11.4558 10.9622 11.4558 10.699 11.2935 10.5367L10.7057 11.1246ZM0.876007 1.29394L10.7057 11.1246L11.2935 10.5367L1.46384 0.706056L0.876007 1.29394Z" fill="white"/>
+        <path d="M0.706086 10.7061C0.543761 10.8684 0.543761 11.1316 0.706086 11.2939C0.86841 11.4563 1.13159 11.4563 1.29391 11.2939L0.706086 10.7061ZM11.1236 1.4633C11.2859 1.30096 11.2859 1.03776 11.1236 0.875416C10.9612 0.713075 10.6981 0.713075 10.5357 0.875416L11.1236 1.4633ZM1.29391 11.2939L11.1236 1.4633L10.5357 0.875416L0.706086 10.7061L1.29391 11.2939Z" fill="white"/>
+    </svg>
+</div>
+
+
+
+<div class="popup-klaviyo hide">
+
+<div class="close_more_popup">
+<svg class="close-trigger close_popup_lp svg_lp" width="8" height="8" viewBox="0 0 12 12" fill="black" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.46384 0.706056C1.30151 0.543715 1.03833 0.543715 0.876007 0.706056C0.713683 0.868397 0.713683 1.1316 0.876007 1.29394L1.46384 0.706056ZM10.7057 11.1246C10.868 11.2869 11.1312 11.2869 11.2935 11.1246C11.4558 10.9622 11.4558 10.699 11.2935 10.5367L10.7057 11.1246ZM0.876007 1.29394L10.7057 11.1246L11.2935 10.5367L1.46384 0.706056L0.876007 1.29394Z" fill="#3f4b57"/>
+        <path d="M0.706086 10.7061C0.543761 10.8684 0.543761 11.1316 0.706086 11.2939C0.86841 11.4563 1.13159 11.4563 1.29391 11.2939L0.706086 10.7061ZM11.1236 1.4633C11.2859 1.30096 11.2859 1.03776 11.1236 0.875416C10.9612 0.713075 10.6981 0.713075 10.5357 0.875416L11.1236 1.4633ZM1.29391 11.2939L11.1236 1.4633L10.5357 0.875416L0.706086 10.7061L1.29391 11.2939Z" fill="#3f4b57"/>
+    </svg>  
+<div class="klaviyo-form-TPdGZc"></div></div>
+</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{
+    document.querySelector('.trigger-popup-klaviyo > span').addEventListener('click', (e) => {
+        e.target.closest('.trigger-popup-klaviyo').classList.add('hide');
+        document.querySelector('.popup-klaviyo').classList.remove('hide');
+    })
+    
+    document.querySelector('.trigger-popup-klaviyo .close-trigger').addEventListener('click', (e) => {
+        e.target.closest('.trigger-popup-klaviyo').classList.add('hide');
+    })
+     document.querySelector('.popup-klaviyo .close-trigger').addEventListener('click', (e) => {
+        e.target.closest('.popup-klaviyo').classList.add('hide');
+    })
+    document.querySelector('.popup-klaviyo').addEventListener('click', (e) => {
+        if(e.target.classList.contains('popup-klaviyo')){
+            e.target.classList.add('hide');
+        }
+    })
+});
+</script>

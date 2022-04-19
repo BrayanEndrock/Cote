@@ -1,0 +1,177 @@
+<div class="container strongly-spaced-row layout-content-with-image-{{ section.settings.layout }} valign-{{ section.settings.alignment}} cf">
+  {% if section.settings.layout == 'left' %}
+  <div class="image-cont">
+    {% if section.settings.image_link_url != blank %}<a href="{{ section.settings.image_link_url }}">{% endif %}
+    {% if section.settings.image == blank %}
+    <div class="placeholder-image">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+    {% else %}
+    <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.image.alt | escape }}" />
+    {% endif %}
+    {% if section.settings.image_link_url != blank %}</a>{% endif %}
+  </div>{% endif %}<div class="content">
+
+  {% if section.settings.title != blank %}
+  <h1 class="majortitle in-content">{{ section.settings.title | escape }}</h1>
+  {% endif %}
+
+  <div class="user-content">{{ section.settings.text }}</div>
+
+  {% if section.settings.cta_text != blank %}
+  <div class="spaced-row-above">
+    <a class="button altcolour" href="{{ section.settings.cta_url | default: '#' }}">{{ section.settings.cta_text | escape }}</a>
+  </div>
+  {% endif %}
+
+  </div>{% if section.settings.layout == 'right' %}<div class="image-cont">
+    {% if section.settings.image_link_url != blank %}<a href="{{ section.settings.image_link_url }}">{% endif %}
+    {% if section.settings.image == blank %}
+    <div class="placeholder-image">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+    {% else %}
+    <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.image.alt | escape }}" />
+    {% endif %}
+    {% if section.settings.image_link_url != blank %}</a>{% endif %}
+  </div>
+  {% endif %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Image with text",
+    "class": "home-image-with-text",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "image_link_url",
+        "label": "Image link"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "options": [
+          {
+            "value": "right",
+            "label": "Text on left"
+          },
+          {
+            "value": "left",
+            "label": "Text on right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      },
+	    {
+        "type": "text",
+        "id": "cta_text",
+        "label": "Button text",
+        "default": "Read more"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "Button link"
+      },
+      {
+        "type": "select",
+        "id": "alignment",
+        "label": "Vertical alignment",
+        "default": "middle",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "middle",
+            "label": "Middle"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ]
+      },
+     {
+       "type": "color",
+       "id": "section_background",
+       "label": "Background Color",
+       "default": "#fff",
+       "info": "Section Background"
+     },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#3f4b57"
+    },
+   {
+     "type": "color",
+     "id": "button_color",
+     "label": "Button Background Color",
+     "default": "#fff"
+   }
+    ],
+    "presets": [
+      {
+      "name": "Image with text",
+          "category": "Image",
+          "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+{% style %}
+#shopify-section-{{section.id}}.home-image-with-text {
+  background-color: {{section.settings.section_background}};
+  {% unless section.settings.button_color contains 'fff' or section.settings.button_color contains 'FFF' %}
+  padding-top: 60px;
+  padding-bottom: 90px;
+
+  {% endunless %}
+}
+{% unless section.settings.button_color contains 'fff' or section.settings.button_color contains 'FFF' %}
+  #shopify-section-{{section.id}}.home-image-with-text .strongly-spaced-row {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+{% endunless %}
+#shopify-section-{{section.id}}.home-image-with-text .majortitle {
+  color: {{section.settings.title_color}};
+}
+{% unless section.settings.button_color contains 'fff' or section.settings.button_color contains 'FFF' %}
+  #shopify-section-{{section.id}}.home-image-with-text .button.altcolour {
+    background-color: {{section.settings.button_color}};
+    border-color: {{section.settings.button_color}};
+    letter-spacing: 0.05em;
+    font-size: 18px;
+    font-family: "Playfair Display",serif;
+    text-transform: uppercase;
+    color: #fff;
+  }
+{% endunless %}
+@media only screen and (min-width: 768px) {
+  .layout-content-with-image-right .content {
+    width: 53.334%;
+  }
+  .layout-content-with-image-right .image-cont {
+    width: 40%;
+  }
+}
+{% endstyle %}

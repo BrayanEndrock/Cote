@@ -1,0 +1,31 @@
+{{ 'bold-tm-custom.js' | asset_url | script_tag }}
+{{ 'bold-motivator-php-blocker.js' | asset_url | script_tag }}
+<script>
+  var bold_initial_cart = {{ cart | json }};
+  // will check the bold_inital_cart object
+  // adjust cart if necessary
+  // also save cookies and show messages
+  shappify_tm_check(bold_initial_cart)
+  .then(function(cart){
+    if(window.BOLD
+       && BOLD.common
+       && BOLD.common.cartDoctor
+       && typeof BOLD.common.cartDoctor.fix == 'function'){
+      cart = BOLD.common.cartDoctor.fix(cart);
+    }
+    if(cart.item_count  !== bold_initial_cart.item_count) {
+      // shappify_update_cart_form function is defined in bold-tm-custom.js
+      // the function will update the element you decide (through selectors,
+      // #cart_items is used when cart is not empty, #MainContent is used when cart is empty)
+      // through ajax request without reloading page, they are only put here as examples
+      // for different themes, they are probably different
+      shappify_update_cart_form(cart, "#cart_items", "#MainContent")
+    }
+  });
+   
+  // used in themes that cart page is not controlled by ajax, the event listener could hide or display checkout buttons
+  // we need also add a data attribute data-bold-original-qty="{{item.quantity}}" to the template of quantity input
+  // <input class="quantity-selector" data-bold-original-qty="{{item.quantity}}" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+  document.addEventListener("focusin", shappify_toggle_checkout, true);
+  document.addEventListener("change", shappify_toggle_checkout, true);
+</script>

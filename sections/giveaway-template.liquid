@@ -1,0 +1,210 @@
+<div class="giveaway-template-container">
+  <div class="container">
+    <div class="row">
+      <div class="image-wrapper">
+        <img 
+          src="{{ section.settings.image | img_url: '773x773' }}"
+          srcset="{{ section.settings.image | img_url: '1546x1546', scale: 2 }} 2x, {{ section.settings.image | img_url: '2319x2319', scale: 3 }} 3x"
+          class="desktop-image lazyload"
+          alt="{{ page.title }} Featured Image"
+        >
+        <img 
+          src="{{ section.settings.mobile-image | img_url: '433x433' }}"
+          srcset="{{ section.settings.mobile-image | img_url: '866x866', scale: 2 }} 2x"
+          class="mobile-image lazyload"
+          alt="{{ page.title }} Featured Image"
+        >
+      </div>
+      <div class="content-wrapper">
+        <h1>{{ page.title }}</h1>
+        <div class="copy">{{ page.content }}</div>
+        <div class="form-giveaway klaviyo-form-W5kMt9"></div>
+        <div class="disclaimer-giveaway">{{ section.settings.disclaimer }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Giveaway",
+    "class": "giveaway-template",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Featured Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile-image",
+        "label": "Mobile Featured Image"
+      },
+      {
+        "type": "richtext",
+        "id": "disclaimer",
+        "label": "Disclaimer",
+        "default": "<p>#Giveaway ends 3/13/2022 at 11:59 pm ET, and the winners will be DM'ed on 3/14/2022! By entering this giveaway, you acknowledge that this is not sponsored, endorsed, or administered by or associated with Instagram, and you release Instagram of all responsibility. Must complete all steps to qualify. I agree to accept marketing from Cote Shop and Beauty Counter.</p>"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet 'scss' %}
+  #spring-clean-giveaway {
+    #content {
+      padding-bottom: 0;
+    }
+  }
+  .giveaway-template {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 320px;
+      top: 45px;
+      background-color: #F7AA92;
+      @media screen and (max-width: 768px) {
+        height: 291px;
+        top: 390px;
+      }
+    }
+    .giveaway-template-container {
+      position: relative;
+      .container {
+        max-width: 1300px;
+        padding: 0;
+        .row {
+          align-content: center;
+          align-items: center;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          @media screen and (max-width: 768px) {
+            flex-direction: column;
+          }
+          .image-wrapper {
+            width: 55%;
+            @media screen and (max-width: 768px) {
+              width: 100%;
+            }
+            .desktop-image {
+              display: block;
+              margin: 0 auto;
+              width: 100%;
+              @media screen and (max-width: 1023px) {
+                display: none;
+              }
+            }
+            .mobile-image {
+              display: block;
+              margin: 0 auto;
+              width: 100%;
+              @media screen and (min-width: 1023px) {
+                display: none;
+              }
+            }
+          }
+          .content-wrapper {
+            text-align: center;
+            width: 45%;
+            @media screen and (max-width: 768px) {
+              width: 100%;
+            }
+            h1 {
+              color: #FFFFFF;
+              font-family: Playfair Display;
+              font-size: 48px;
+              font-style: normal;
+              font-weight: normal;
+              letter-spacing: 0.03em;
+              line-height: 64px;
+              margin: 55px auto 0;
+              padding: 0;
+              text-align: center;
+              @media screen and (max-width: 768px) {
+                font-size: 32px;
+                line-height: 64px;
+                margin-top: 10px;
+              }
+            }
+            .copy {
+              padding-bottom: 54px;
+              @media screen and (max-width: 768px) {
+                padding-bottom: 42px;
+              }
+              h2 {
+                color: #FFFFFF;
+                font-family: Playfair Display;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: normal;
+                letter-spacing: 0.03em;
+                line-height: 43px;
+                margin: 0 auto;
+                text-align: center;
+                @media screen and (max-width: 768px) {
+                  font-size: 20px;
+                  line-height: 27px;
+                  strong {
+                    font-size: 32px;
+                    line-height: 43px;
+                  }
+                }
+              }
+              .subtitle {
+                color: #FFFFFF;
+                font-family: Roboto;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: normal;
+                letter-spacing: 0.03em;
+                line-height: 23px;
+                max-width: 401px;
+                margin: 43px auto 0;
+                text-align: center;
+                @media screen and (max-width: 768px) {
+                  font-size: 20px;
+                  line-height: 23px;
+                  margin-top: 36px;
+                  max-width: 251px;
+                }
+              }
+            }
+            .form-giveaway {
+              input {
+                border-top: none !important;
+                border-left: none !important;
+                border-right: none !important;
+                border-bottom: 1px solid rgb(65, 75, 86) !important;
+              }
+              @media screen and (max-width: 768px) {
+                margin-top: 30px !important;
+              }
+            }
+            .disclaimer-giveaway {
+              color: #973948;
+              font-family: Roboto;
+              font-size: 11px;
+              font-style: normal;
+              font-weight: normal;
+              letter-spacing: 0.03em;
+              line-height: 16px;
+              margin: 49px auto 0;
+              max-width: 503px;
+              text-align: center;
+              @media screen and (max-width: 768px) {
+                margin-bottom: 20px;
+                margin-top: 31px;
+                max-width: 310px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+{% endstylesheet %}

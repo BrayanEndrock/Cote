@@ -1,0 +1,152 @@
+.template-index .article {
+    /* background: url("https://cdn.shopify.com/s/files/1/0447/4049/t/51/assets/bannercustom.jpg?9193772726794503546")50% 50%; */
+  	background: #F79B7F;
+    border: none;
+  	background-size: cover;
+}
+
+.template-index .article .majortitle, .template-index .article p {
+    color:#FFFFFF;
+}
+
+div#shopify-section-1535407056406 {
+    background: #CF9C8B;
+    border: 1px solid #CF9C8B;
+}
+
+.image-cont .buttons-cont {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (hover:hover){
+  .image-cont .buttons-cont {
+  	visibility: hidden;
+    opacity: 0;
+  }
+  .image-cont:hover .buttons-cont {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.image-cont .view-details {
+  border: 1px solid #7b7572;
+  font-size: 12px;
+  padding: 11px 10px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.image-cont:hover .view-details {
+  background: #fff;
+}
+.image-cont .add-to-cart-ajax {
+  background: #335261;
+  border-color: #335261;
+  font-size: 12px;
+  padding: 11px 10px;
+  line-height: 1.2;
+}
+.image-cont .add-to-cart-ajax:hover {
+  background: #f79b7f;
+  border-color: #f79b7f;
+}
+.buttons-cont.desktop{
+	display: none;
+}
+.buttons-cont.mobile{
+	display: block;
+}
+@media screen and (min-width: 769px){
+  .buttons-cont.desktop{ display: grid;}
+  .buttons-cont.mobile{ display: none;}
+  .image-cont .buttons-cont {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    grid-template-columns: 1fr;
+    row-gap: 8px;
+  }
+  .image-cont .buttons-cont > * {
+    max-width: 131px;
+    margin: auto;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:768px){
+  .collection-listing .product-block .buttons-cont {
+    grid-template-columns: 1fr;
+  }
+  .collection-listing .product-block .buttons-cont.mobile .add-to-cart-ajax {
+    max-width: 110px;
+    margin: auto;
+    background: #3E4B57;
+  }
+  .collection-listing .product-block .image-label-wrap {
+    min-height: 150px;
+  }
+  .collection-listing .product-list {
+  	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  [data-section-type="collection-template"] .collection-listing .product-block {
+  	width: 45%;
+  }
+  .collection-listing .product-block .block-inner {
+    height: calc(100% - 20px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .collection-listing .product-block .block-inner > * {
+  	width: 100%;
+  }
+  .collection-listing .product-block .buttons-cont.mobile {
+    align-self: flex-end;
+  }
+  
+}
+
+/* Build Your Own Bundle Hide on PLP Menu */
+.collection-template .tags li[data-tag="build your own bundles"] {
+  display: none;
+}
+
+/* AB Test - Mobile PLP CTA */
+@media screen and (max-width: 768px) {
+  .add-to-cart-version-a {
+    display: none !important;
+  }
+  .add-to-cart-version-b {
+    display: flex !important;
+  }
+}
+.add-to-cart-version-b {
+  display: none;
+}
+.add-to-cart-version-b {
+  align-items: stretch;
+  background-color: transparent !important;
+  border: none !important;
+  color: #DE9272;
+  display: flex;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 16px;
+  padding: 0;
+  text-transform: uppercase;
+}
+.add-to-cart-version-b svg {
+  fill: transparent;
+  height: auto !important;
+  left: 5px;
+  position: relative;
+  stroke: #DE9272 !important;
+  width: auto !important;
+}

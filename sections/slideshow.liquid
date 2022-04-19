@@ -1,0 +1,254 @@
+<div class="slideshow-row section-id-{{ section.id }}" data-section-type="slideshow">
+  
+ {%- comment -%}
+  
+  <div class="cleaner-safer-badge" id="cleaner-safer-badge">
+    <a href="/pages/cleaner-safer-beauty">
+        <img src="{{ "cote-badge.png" | file_url }}" />
+      </a>
+  </div>  
+  
+  {%-endcomment-%}
+
+  {% unless settings.use_fullwidth_layout %}<div class="container uncontain-desktop-down">{% endunless %}
+  <div class="slideshow auto-play scaled-text-base">
+    {% for block in section.blocks %}
+
+    <div class="slide slide-{{ forloop.index }}" {{ block.shopify_attributes }}>
+      {% if block.settings.link_url != blank %}<a href="{{ block.settings.link_url }}">{% endif %}
+
+      {% if block.settings.image == blank %}
+      <div class="placeholder-image placeholder--banner {% if block.settings.heading != blank or block.settings.text != blank %}dark{% endif %}">
+        {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+        {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+      {% else %}
+      <div {% if block.settings.mobile_image != blank %}class="desktop-image"{%endif%}>
+        {% include 'responsive-image', image: block.settings.image %}
+      </div>
+      {% if block.settings.mobile_image != blank %}
+        <div class="mobile-image">
+        {% include 'responsive-image', image: block.settings.mobile_image %}
+        </div>
+        {%endif%}
+      {% endif %}
+
+      {% if block.settings.heading != blank or block.settings.text != blank %}
+      <div class="overlay-text overlay-{{ block.settings.position }}">
+        <div class="inner">
+          <div class="text">
+            <div class="scaled-text">
+              <div class="first-line-slide">{{ block.settings.heading }}</div>
+              <div class="second-line">{{ block.settings.text }}</div>
+              {% if block.settings.button_text != blank %}
+              <span class="button altcolour">{{ block.settings.button_text }}</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {% endif %}
+      {% if block.settings.link_url != blank %}</a>{% endif %}
+    </div>
+
+    {% endfor %}
+  </div>
+  {% unless settings.use_fullwidth_layout %}</div>{% endunless %}
+</div>
+
+<style type="text/css">
+  #shopify-section-{{ section.id }} {
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .cleaner-safer-badge {
+    z-index: 9;
+  }  
+  #shopify-section-{{ section.id }} .mobile-image {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+  @media screen and (max-width: 768px) {
+    #shopify-section-{{ section.id }} .mobile-image {
+    display: initial;
+    visibility: visible;
+    opacity: 1;
+  }    
+    #shopify-section-{{ section.id }} .desktop-image {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }    
+    
+  }
+  {% for block in section.blocks %}
+  .section-id-{{ section.id }} .slide-{{ forloop.index }} .overlay-text .text > div {
+    color: {{ block.settings.overlay_color }};
+    background: {{ block.settings.overlay_bg | hex_to_rgba: 0.8 }} !important;
+  }
+  
+  .section-id-{{ section.id }} .slide-{{ forloop.index }} .overlay-text .text .first-line-slide {
+    color: {{ block.settings.overlay_color }};
+    background: {{ block.settings.overlay_bg | hex_to_rgba: 0.8 }};
+  }
+  
+  
+  .section-id-{{ section.id }} .slide-{{ forloop.index }} .overlay-text .text .scaled-text > div {
+    margin-top: 10px;
+  }
+  
+
+  .section-id-{{ section.id }} .slide-{{ forloop.index }} .overlay-text .text .second-line {
+    color: {{ block.settings.second_text_color }};
+    {%if block.settings.font_family == 'body'%}
+      font-family: Lato,sans-serif;
+      font-size: clamp(16px, 1.5vw, 24px);
+    {%endif%}
+  }
+  .section-id-{{ section.id }} .slide-{{ forloop.index }} .overlay-text .text .altcolour {
+    color: {{ block.settings.button_text_color }};
+    background: {{ block.settings.button_bg }};
+    border-color: {{ block.settings.button_bg }};
+    {%if block.settings.font_family == 'body'%}
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    {%endif%}
+  }
+  {% endfor %}
+</style>
+
+
+{% schema %}
+  {
+    "name": "Slideshow",
+    "max_blocks": 8,
+    "settings": [
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "1200px wide minimum"
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile Image",
+            "info": "1200px wide minimum"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Slideshow"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Subheading",
+            "default": "Tell your story with images"
+          },
+          {
+            "type": "radio",
+            "id": "font_family",
+            "label": "Font Type",
+            "default": "title",
+            "options": [
+              {
+                "value": "title",
+                "label": "Title"
+              },
+              {
+                "value": "body",
+                "label": "Body"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button text"
+          },
+          {
+            "type": "select",
+            "id": "position",
+            "label": "Text alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "centre",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "centre"
+          },
+          {
+            "type": "color",
+            "id": "overlay_color",
+            "label": "Text color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "color",
+            "id": "second_text_color",
+            "label": "Second Text color",
+            "default": "#3E4B57"
+          },
+          {
+            "type": "color",
+            "id": "overlay_bg",
+            "label": "Overlay background",
+            "default": "#464654"
+          },
+          {
+            "type": "color",
+            "id": "button_bg",
+            "label": "Button background",
+            "default": "#83a9a8"
+          },
+          {
+            "type": "color",
+            "id": "button_text_color",
+            "label": "Button color",
+            "default": "#fff"
+          },
+          {
+            "type": "url",
+            "id": "link_url",
+            "label": "Slide link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Slideshow",
+        "category": "Image",
+        "settings": {
+        },
+        "blocks": [
+          {
+            "type": "image"
+          },
+           {
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

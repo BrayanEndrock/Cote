@@ -1,0 +1,74 @@
+/* Custom OFUNC CSS */
+
+
+/* Metafields Guru — Collection Page Bottom Description */
+div[data-section-type="collection-template"] {
+	.bottom-description {
+    	margin: 5em auto;
+    }
+}
+  
+
+/* FINAL SALE Message */
+.custom-sale-message {
+	display: inline-flex;
+}
+.final-sale-message {
+	margin-top: 1.5em; 
+}
+
+/* Clean Health Badge */
+.cleaner-safer-badge {
+  	position: absolute;
+  	img { width: 70px; }
+  	top: 0px;
+  	left: 0px;
+  	@media (min-width: 400px) {
+  		img { width: 80px; }
+	}
+  	@media (min-width: 600px) {
+  		img { width: 120px; }
+        top: 10px;
+        left: 10px;
+	}
+  	@media (min-width: 768px) {
+  		img { width: 120px; }
+	}
+  	@media (min-width: 1021px) {
+  		img { width: 150px; }
+        top: 20px;
+        left: 20px;
+	}
+}
+
+/* Top Bar */
+.Lo-Annbar-lkjm319 span {
+	vertical-align: 2px;
+	font-size: 10px !important;
+  	@media (min-width: 361px) {
+    	font-size: 12px !important;
+  	}
+  	@media (min-width: 1021px) {
+    	font-size: 14px !important;
+  	}
+}
+
+.Lo-Annbar-lkjm319-container.slick-initialized .slick-slide {
+	margin: 0 -20px;
+	min-height: 42px;
+  	@media (min-width: 768px) {
+    	margin: 0px;
+      	min-height: auto;
+    }
+}
+
+/* PREORDER */
+div[data-section-type="cart-template"] {
+	ul.item-list li .desc {
+      .backorder { display: none; }
+		.custom {
+        	font-size: 14px;
+            color: #f37d7d;
+        }
+    }
+}

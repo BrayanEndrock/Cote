@@ -1,0 +1,41 @@
+<script>
+  console.log('script loaded');
+  setTimeout(function(){
+    boldCheckoutBtnsEnable();
+  }, 4000);
+
+
+  var qtyInputs = document.getElementsByClassName("bold-qty"); //class of quantity input
+  var qtyBtnsChange = document.getElementsByClassName("bold-adjust"); //class of plus and minus buttons
+
+  for (var i = 0; i < qtyInputs.length; i++) { 
+    qtyInputs[i].onchange = function() {
+      boldUpdateCart();
+    };
+  }
+
+  for (var j = 0; j < qtyBtnsChange.length; j++) { 
+    qtyBtnsChange[j].onclick = function() {
+      boldUpdateCart();
+    };
+  }
+
+  function boldUpdateCart() {
+    var boldUpdateBtn = document.querySelector(".bold-update-cart"); //class of update cart button
+    boldUpdateBtn.click();
+  }
+  
+  function boldCheckoutBtnsEnable() {
+    var boldCheckoutBtn = document.querySelector(".bold-checkout"); //class of update cart button
+    boldCheckoutBtn.disabled = false;
+  }
+
+</script>
+
+<style>
+.bold-checkout:disabled {
+	opacity: 0.6;
+	cursor: not-allowed; 
+}
+</style>
+

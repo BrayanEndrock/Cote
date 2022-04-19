@@ -1,0 +1,90 @@
+<div class="sticky_add-to-cart_wrapper hidden">           
+    <div class="container-atc hide">                     
+        <div class="column image__wrapper">      
+            <img 
+                src="{{ product.featured_image | img_url: '56x56' }}" 
+                srcset="{{ product.featured_image | img_url: '112x112' }} 2x"          
+                alt="{{product.featured_image.alt}}"
+            >
+        </div>
+        <div class="column title__wrapper">
+            <h3>{{ product.title }}</h3>
+        </div>
+        <div class="column button-atc__wrapper">  
+            <button type="submit" name="add" id="add-to-cart">                                  
+                {{- 'products.product.add_to_cart' | t -}}            
+            </button>
+        </div>       
+    </div>
+</div>
+     
+<style>         
+    .container-atc {     
+        display: flex;
+        align-items: center;
+        justify-content: space-between;       
+        position: fixed;
+        padding: 4px 21px;         
+        bottom: 0px;                                     
+        width: 100%;
+        background-color: #EDD6B8;        
+        border: 1px solid #F2F2F2;
+        box-sizing: border-box;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04);
+        z-index: 9;      
+    }      
+    .container-atc .title__wrapper h3 {    
+        max-width: 108px;
+        font-family: "Playfair Display", serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.03em;
+        color: #000000;
+    }
+    .container-atc .button-atc__wrapper button {
+        background-color: #83A9A8;      
+        font-family: "Playfair Display", serif;
+        padding: 11px 27px;
+        font-style: normal;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.03em;
+        color: #FFFFFF;
+        border: none;    
+    }
+    .container-atc .button-atc__wrapper button:hover {      
+        background-color: #f79b7f;
+        transition-duration: .5s;     
+    }     
+</style>   
+
+<script>
+    window.onload = (event) => {
+        if ($(window).width() < 769) {         
+            let floatAddToCart = document.querySelector('.sticky_add-to-cart_wrapper');                             
+            let btnAddToBagForm = document.querySelector('.description.user-content > p:first-of-type');                                                         
+
+            document.addEventListener('scroll', function(e) {   
+                if (scrollY > btnAddToBagForm.offsetTop) {
+                    floatAddToCart.classList.remove('hidden');
+                } else {
+                    floatAddToCart.classList.add('hidden');
+                }
+            });   
+
+            $('.container-atc .button-atc__wrapper #add-to-cart').on('click',function(e) {
+                e.preventDefault();             
+                $(".input-row.quantity-submit-row button.js-go-cart-add-to-cart").trigger('click');
+                document.querySelector('.container-atc').classList.add('hidden');         
+            });            
+        } else {
+            let floatAddToCart = document.querySelector('.sticky_add-to-cart_wrapper');  
+            floatAddToCart.classList.add('hidden');                
+        }
+    };    
+</script>

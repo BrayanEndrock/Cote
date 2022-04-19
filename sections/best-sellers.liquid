@@ -1,0 +1,75 @@
+  <ul>
+      {% for link in linklists[section.settings.menu].links %}
+      <li>
+          <a href="{{ link.url }}" class="Link Link--secondary">
+              <figure>
+                  {{ link.object.image | img_url: '124x' | img_tag }}
+              </figure>
+              {{ link.title | escape }}
+          </a>
+      </li>
+      {%- endfor -%}
+  </ul>
+
+
+{% schema %}
+{
+  "name": "Best Sellers Mobile",
+  "class": "best-sellers-mobile",
+  "settings": [
+  {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
+  }
+  ],
+  "presets": [
+    {
+      "name": "Best Sellers Mobile",
+      "category": "Cote"
+    }
+  ]
+}
+{% endschema %}
+{% style %}
+@media screen and (min-width: 768px){
+    .best-sellers-mobile {
+        display: none;
+    }
+}
+.best-sellers-mobile {
+    padding: 40px 0;
+}
+.best-sellers-mobile ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(124px,1fr));
+    grid-gap: 0 22px;
+    grid-auto-flow: column;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: 0px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    margin: 0;
+}
+.best-sellers-mobile ul::-webkit-scrollbar {
+    display: none;
+}
+.best-sellers-mobile ul>*{
+    scroll-snap-align: start;    
+}
+.best-sellers-mobile ul li {
+    text-align: center;
+    list-style: none;
+    min-width: 124px;
+}
+.best-sellers-mobile ul li a {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: #F79B7F;
+}
+{% endstyle %}
