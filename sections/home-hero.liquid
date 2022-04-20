@@ -1,0 +1,148 @@
+<div class="home-feature-hero--template">
+    <div class="home-feature-hero--container">
+        <div class="main-content--wrapper">
+            <h1>{{ section.settings.title }}</h1>
+            <h2>{{ section.settings.subtitle }}</h2>  
+            <a href="{{ section.settings.url }}" class="btn btn--hero">{{ section.settings.label }}</a>
+        </div>
+        <div class="image--wrapper">
+            <img 
+                src="{{ section.settings.featured-image | img_url: '680x' }}" 
+                srcset="{{ section.settings.featured-image | img_url: '680x' }} 1x, {{ section.settings.featured-image | img_url: '1360x', scale: 2 }} 2x"
+                alt="{{ section.settings.title }} Featured Images"
+            >
+        </div>
+    </div>
+</div>  
+
+{% schema %}
+    {
+        "name": "Home Hero",
+        "class": "home-feature-hero",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "featured-image",
+                "label": "Featured Image"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Remove, Refill Remove again!"
+            },
+            {
+                "type": "text",
+                "id": "subtitle",
+                "label": "Hero Subtitle",
+                "default": "32 oz Acetone-Free Takeoff Polish Remover REFILL is now available!"    
+            },
+            {
+                "type": "url",
+                "id": "url",
+                "label": "Link"
+            },
+            {
+                "type": "text",
+                "id": "label",
+                "label": "CTA Label",
+                "default": "Shop Now"
+            }
+        ],
+        "presets": [
+            {
+                "category": "Hero",
+                "name":"Home Hero"   
+            }     
+        ]
+    }
+{% endschema %}
+
+{% stylesheet 'scss' %}
+    .home-feature-hero {
+        .home-feature-hero--template {
+            padding: 20px 0;
+            @media screen and (max-width: 768px) {
+                padding-bottom: 32px;  
+            }
+            .home-feature-hero--container {
+                align-content: center;
+                align-items: center;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                @media screen and (max-width: 768px) {
+                    flex-direction: column;
+                }
+                .main-content--wrapper {
+                    @media screen and (max-width: 768px) {
+                        order: 2;
+                        text-align: center;
+                    }
+                    h1 {
+                        color: #F69B7F;
+                        font-size: 80px;
+                        font-style: normal;
+                        font-weight: 400;
+                        letter-spacing: 0.03em;
+                        line-height: 88px;
+                        max-width: 550px;
+                        @media screen and (max-width: 768px) {
+                            font-size: 40px;
+                            line-height: 48px;
+                            margin: 0 auto;
+                            max-width: 321px;
+                        }
+                    }
+                    h2 {
+                        color: #3E4B57;
+                        font-family: 'Roboto' !important;
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 32px;
+                        margin-bottom: 24px;
+                        margin-top: 29px;
+                        max-width: 543px;
+                        @media screen and (max-width: 768px) {
+                            font-size: 24px;
+                            line-height: 32px;
+                            margin: 10px auto 16px;
+                            max-width: 319px;
+                        }
+                    }
+                    .btn--hero {
+                        background: #83A9A8;
+                        color: #FFFFFF;
+                        font-family: "Playfair Display", serif;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 24px;
+                        letter-spacing: 0.05em;
+                        padding: 11px 20px;
+                        text-align: center;
+                        text-transform: uppercase;
+                        &:hover {
+                            background: #F69B7F;
+                            color: #fff;
+                            transition-duration: 0.5s;
+                        }
+                        @media screen and (max-width: 768px) {
+                            padding: 8px 26px;
+                        }
+                    }
+                }
+                .image--wrapper {
+                    img {
+                        @media screen and (max-width: 768px) {
+                            display: block;
+                            margin: 0 auto;
+                            width: 300px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+{% endstylesheet %}

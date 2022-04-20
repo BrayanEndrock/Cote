@@ -613,6 +613,7 @@
       },
       "1478795901388": {
         "type": "slideshow",
+        "disabled": true,
         "blocks": {
           "7eae0d92-95c1-4b26-a887-63b18e4bf91a": {
             "type": "image",
@@ -1151,10 +1152,21 @@
           "coll_gridstream_toggle": false,
           "mobile_link_list": "dynamic-mobile-menu"
         }
+      },
+      "16503991697a9473ba": {
+        "type": "home-hero",
+        "settings": {
+          "featured-image": "shopify:\/\/shop_images\/main-image.png",
+          "title": "This is BIG!",
+          "subtitle": "32 oz Acetone-Free Takeoff Polish Remover REFILL is now available!",
+          "url": "https:\/\/coteshop.co\/products\/takeoff-br-non-acetone-nail-polish-remover-br-32-ounce",
+          "label": "Shop Now"
+        }
       }
     },
     "content_for_index": [
       "1637775667e2dfb5b7",
+      "16503991697a9473ba",
       "1478795901388",
       "164857500418bf7c91",
       "16401899621631ac50",
