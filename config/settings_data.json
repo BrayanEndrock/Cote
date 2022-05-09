@@ -914,7 +914,7 @@
       "1637775667e2dfb5b7": {
         "type": "best-sellers",
         "settings": {
-          "menu": "best-sellers"
+          "menu": "newmobilebestsellers"
         }
       },
       "16383974698f37d4e3": {
@@ -1151,7 +1151,9 @@
           "coll_num_per_page_int": 16,
           "coll_gridstream_mode": "grid",
           "coll_gridstream_toggle": false,
-          "mobile_link_list": "dynamic-mobile-menu"
+          "mobile_link_list": "dynamic-mobile-menu",
+          "first-card": "shopify:\/\/shop_images\/infoCard.png",
+          "second-card": "shopify:\/\/shop_images\/second-card.png"
         }
       },
       "16503991697a9473ba": {
