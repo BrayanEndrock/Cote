@@ -450,7 +450,7 @@
           "e70154b0-ca34-4b4f-bb2c-55d48a555f5b": {
             "type": "topbar",
             "settings": {
-              "heading": "FREE SHIPPING on orders over $40",
+              "heading": "FREE SHIPPING on orders over $55",
               "link_url": "shopify:\/\/collections\/best-sellers"
             }
           },
@@ -464,6 +464,7 @@
           },
           "b0af7de8-3662-4337-a623-08623f3583c3": {
             "type": "topbar",
+            "disabled": true,
             "settings": {
               "heading": "Due to heightened sanitation restrictions, all polishes treatments and sets are FINAL SALE. Thank you for your understanding.",
               "link_url": ""
