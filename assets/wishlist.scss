@@ -1,0 +1,150 @@
+/* Wishlist Feature on PDP */
+.product--template {
+    .wishlist-feature {
+        margin: 25px 0;
+        .iwishAddWrap {
+            .iWishAdd {
+                background: #83A9A8;
+                color: #FFFFFF;
+                font-family: "Playfair Display", serif;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 24px;
+                letter-spacing: 0.05em;
+                padding: 11px 20px;
+                text-align: center;
+                text-transform: uppercase;
+                &:hover {
+                    background: #F69B7F;
+                    color: #fff;
+                    transition-duration: 0.5s;
+                }
+                @media screen and (max-width: 768px) {
+                    padding: 8px 26px;
+                }
+            }
+            .iWishLoginMsg {
+                margin: 1em 0;
+                max-width: 350px;
+                a {
+                    color: #F69B7F;
+                }
+            }
+        }
+    }
+}
+
+/* Wishlist Feature on Header */
+.wishlist-link--menu {
+    margin-left: 15px;
+    @media screen and (max-width: 768px) {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+    .iWishView {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* Wishlist Feature on PLP */
+.buttons-cont.desktop {
+    .iWishAddColl {
+        background: #83A9A8;
+        border-color: #83A9A8;
+        color: #fff;
+        font-size: 12px;
+        padding: 11px 10px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        &:hover {
+            background: #F69B7F;
+            color: #fff;
+            transition-duration: 0.5s;
+        }
+    }
+}
+.buttons-cont.mobile {
+    align-items: center;
+    flex-direction: column;
+    @media screen and (max-width: 768px) {
+        display: flex !important;
+    }
+    .iWishAddColl {
+        background-color: transparent!important;
+        border: none!important;
+        color: #de9272;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: .03em;
+        line-height: 16px;
+        padding: 0;
+        text-align: center;
+        text-decoration: underline;
+        text-transform: uppercase;
+        margin-top: 15px;
+    }
+}
+
+/* Wishlist Feature Page */
+.iwishWrapper {
+    padding-top: 60px;
+    @media screen and (max-width: 768px) {
+        padding-top: 40px;
+    }
+    .iWishLoginNote {
+        a { color: #F69B7F; }
+    }
+    .iwishProducts {
+        .iwishItem {
+            form {
+                height: 488px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                @media screen and (max-width: 768px) {
+                    height: 460px;
+                }
+            }
+            .iwishMeta {
+                .iwishBuyBtn {
+                    background: #83A9A8;
+                    border-color: #83A9A8;
+                    color: #fff;
+                    font-size: 16px;
+                    padding: 11px 10px;
+                    line-height: 1.2;
+                    text-transform: uppercase;
+                    width: 137px;
+                    &:hover {
+                        background: #F69B7F;
+                        border-color: #F69B7F;
+                        color: #fff;
+                        transition-duration: 0.5s;
+                    }
+                }
+                .iwishRemoveBtn {
+                    background-color: transparent;
+                    border: solid 1px #83A9A8;
+                    color: #83A9A8;
+                    font-size: 16px;
+                    padding: 11px 10px;
+                    line-height: 1.2;
+                    text-transform: uppercase;
+                    width: 137px;   
+                    &:hover {
+                        border-color: #F69B7F;
+                        color: #F69B7F;
+                        transition-duration: 0.5s;
+                    } 
+                }
+            }
+        }
+    }
+}

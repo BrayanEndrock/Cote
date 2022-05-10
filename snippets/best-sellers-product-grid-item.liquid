@@ -48,6 +48,7 @@
                 <div class="buttons-cont desktop">
                     <button class="btn add-to-cart-ajax" data-variant-id="{{ product.selected_or_first_available_variant.id }}">Add to Cart</button>
                     <a href="{{ product_url }}" class="btn view-details">View Details</a>
+                    {% include 'iwish_v2' with 'iwishCollection' %}
                 </div>
             {% endif %}
         </div>       
@@ -57,12 +58,15 @@
     </div>
     {% if product.available %}
         <div class="buttons-cont mobile">
-            <button class="btn add-to-cart-ajax add-to-cart-version-a" data-variant-id="{{ product.selected_or_first_available_variant.id }}">Add to Cart</button>
+            {% comment %}
+                <button class="btn add-to-cart-ajax add-to-cart-version-a" data-variant-id="{{ product.selected_or_first_available_variant.id }}">Add to Cart</button>
+                <a href="{{ product_url }}" class="btn view-details">View Details</a>
+            {% endcomment %}
             <button class="btn add-to-cart-ajax add-to-cart-version-b" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
                 <u>Add to Cart</u>
                 {% render 'plus-icon-atc' %}
             </button>
-            {% comment %}<a href="{{ product_url }}" class="btn view-details">View Details</a>{% endcomment %}
+            {% include 'iwish_v2' with 'iwishCollection' %}
       </div>
     {% endif %}
 </div>
