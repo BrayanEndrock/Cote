@@ -51,43 +51,33 @@
 }
 
 /* Wishlist Feature on PLP */
-.buttons-cont.desktop {
+.wishlist-icon--wrapper {
+    border: solid 1px #83A9A8;
+    border-radius: 100%;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 2px;
+    position: absolute;
+    width: fit-content;
+    z-index: 1;
     .iWishAddColl {
-        background: #83A9A8;
-        border-color: #83A9A8;
-        color: #fff;
-        font-size: 12px;
-        padding: 11px 10px;
-        line-height: 1.2;
-        text-transform: uppercase;
-        &:hover {
-            background: #F69B7F;
-            color: #fff;
-            transition-duration: 0.5s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        flex-direction: row;
+        svg {
+            fill: #83A9A8;
         }
     }
-}
-.buttons-cont.mobile {
-    align-items: center;
-    flex-direction: column;
-    @media screen and (max-width: 768px) {
-        display: flex !important;
-    }
-    .iWishAddColl {
-        background-color: transparent!important;
-        border: none!important;
-        color: #de9272;
-        font-family: Roboto;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 700;
-        letter-spacing: .03em;
-        line-height: 16px;
-        padding: 0;
-        text-align: center;
-        text-decoration: underline;
-        text-transform: uppercase;
-        margin-top: 15px;
+    &:hover {
+        border: solid 1px #F69B7F;
+        transition-duration: 0.5s;
+        .iWishAddColl {
+            svg {
+                fill: #F69B7F;
+            }
+        }
     }
 }
 
