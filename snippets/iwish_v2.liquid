@@ -84,12 +84,19 @@
 			});
 			}
 			if (window.addEventListener) {
-			window.addEventListener("load", asyncLoadshopapps, true);
+				window.addEventListener("load", asyncLoadshopapps, true);
 			} else if (window.attachEvent) {
-			window.attachEvent("onload", asyncLoadshopapps);
+				window.attachEvent("onload", asyncLoadshopapps);
 			} else {
-			window.onload = asyncLoadshopapps;
+				window.onload = asyncLoadshopapps;
 			}
+			$(document).ready(function() {
+				setTimeout(() => {
+					$('.iwishBuyBtn').click(function() {
+						goCart.fetchAndOpenCart();
+					});
+				}, 1500);   
+			});
 		})();
 	</script>
 {% endif %}
