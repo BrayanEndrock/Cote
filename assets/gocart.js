@@ -938,14 +938,14 @@
                                     if( subtotalCart < 1) {
                                         document.getElementById('freeShippingPromo').classList.remove('hide');
                                         document.getElementById('freeShippingReached').classList.add('hide');
-                                        goal = 5500;
+                                        goal = 4000;
                                         document.querySelector('.goal').innerHTML = formatMoney(goal, this.moneyFormat);
-                                    } else if ( subtotalCart >= 1 && subtotalCart < 5500) {
+                                    } else if ( subtotalCart >= 1 && subtotalCart < 4000) {
                                         document.getElementById('freeShippingPromo').classList.remove('hide');
                                         document.getElementById('freeShippingReached').classList.add('hide');
-                                        goal = 5500 - subtotalCart;
+                                        goal = 4000 - subtotalCart;
                                         document.querySelector('.goal').innerHTML = formatMoney(goal, this.moneyFormat);
-                                    } else if(subtotalCart >= 5500) {
+                                    } else if(subtotalCart >= 4000) {
                                         document.getElementById('freeShippingPromo').classList.add('hide');
                                         document.getElementById('freeShippingReached').classList.remove('hide');
                                     }
@@ -1008,7 +1008,7 @@
                             value: function () {
                                 this.cartDrawerSubTotal.parentNode.classList.add("is-invisible"), this.clearCartDrawer(), 
                                 (this.cartDrawerContent.innerHTML = '<div class="go-cart__empty">'.concat(this.labelCartIsEmpty, "</div>")),
-                                document.querySelector('.goal').innerHTML = formatMoney(5500, this.moneyFormat);
+                                document.querySelector('.goal').innerHTML = formatMoney(4000, this.moneyFormat);
                             },
                         },
                         {
