@@ -52,11 +52,11 @@
 
 /* Wishlist Feature on PLP */
 .wishlist-icon--wrapper {
+    background-color: #fff;
     border: solid 1px #83A9A8;
     border-radius: 100%;
     margin-left: 10px;
     margin-top: 10px;
-    padding: 2px;
     position: absolute;
     width: fit-content;
     z-index: 1;
@@ -68,6 +68,11 @@
         flex-direction: row;
         svg {
             fill: #83A9A8;
+            path {
+                &:first-of-type, &:nth-of-type(2) {
+                    fill: #fff;
+                }
+            }
         }
     }
     &:hover {
@@ -76,8 +81,23 @@
         .iWishAddColl {
             svg {
                 fill: #F69B7F;
+                path {
+                    &:nth-of-type(2) {
+                        fill: #F69B7F;
+                    } 
+                }
             }
         }
+    }
+    .iwishAdded {
+        svg {
+            fill: #83A9A8;
+            path {
+                &:nth-of-type(2) {
+                    fill: #83A9A8;
+                } 
+            }
+        } 
     }
 }
 
