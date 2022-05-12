@@ -464,6 +464,7 @@
           },
           "b0af7de8-3662-4337-a623-08623f3583c3": {
             "type": "topbar",
+            "disabled": true,
             "settings": {
               "heading": "Due to heightened sanitation restrictions, all polishes treatments and sets are FINAL SALE. Thank you for your understanding.",
               "link_url": ""
@@ -1156,10 +1157,10 @@
       "16503991697a9473ba": {
         "type": "home-hero",
         "settings": {
-          "featured-image": "shopify:\/\/shop_images\/main-image.png",
-          "title": "This is BIG!",
-          "subtitle": "32 oz Acetone-Free Takeoff Polish Remover REFILL is now available!",
-          "url": "https:\/\/coteshop.co\/products\/takeoff-br-non-acetone-nail-polish-remover-br-32-ounce",
+          "featured-image": "shopify:\/\/shop_images\/MG_7093_1.png",
+          "title": "Make Waves This Summer!",
+          "subtitle": "Our New Catalina Traveler <br>Set Is Here<br> Beachy, Bold & Ultra Clean",
+          "url": "https:\/\/coteshop.co\/products\/catalina-traveler-nail-polish-set",
           "label": "Shop Now"
         }
       }
