@@ -1,16 +1,16 @@
 <div class="home-feature-hero--template">
     <div class="home-feature-hero--container">
-        <div class="main-content--wrapper">
-            <h1>{{ section.settings.title }}</h1>
-            <h2>{{ section.settings.subtitle }}</h2>  
-            <a href="{{ section.settings.url }}" class="btn btn--hero">{{ section.settings.label }}</a>
-        </div>
         <div class="image--wrapper">
             <img 
                 src="{{ section.settings.featured-image | img_url: '680x' }}" 
                 srcset="{{ section.settings.featured-image | img_url: '680x' }} 1x, {{ section.settings.featured-image | img_url: '1360x', scale: 2 }} 2x"
-                alt="{{ section.settings.title }} Featured Images"
+                alt="{{ section.settings.title }} Featured Image"
             >
+        </div>
+        <div class="main-content--wrapper">
+            <h1>{{ section.settings.title }}</h1>
+            <h2>{{ section.settings.subtitle }}</h2>  
+            <a href="{{ section.settings.url }}" class="btn btn--hero">{{ section.settings.label }}</a>
         </div>
     </div>
 </div>  
@@ -62,7 +62,7 @@
     .home-feature-hero {
         .home-feature-hero--template {
             padding: 20px 0;
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 820px) {
                 padding-bottom: 32px;  
             }
             .home-feature-hero--container {
@@ -71,11 +71,11 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
-                @media screen and (max-width: 768px) {
+                @media screen and (max-width: 820px) {
                     flex-direction: column;
                 }
                 .main-content--wrapper {
-                    @media screen and (max-width: 768px) {
+                    @media screen and (max-width: 820px) {
                         order: 2;
                         text-align: center;
                     }
@@ -87,7 +87,7 @@
                         letter-spacing: 0.03em;
                         line-height: 88px;
                         max-width: 550px;
-                        @media screen and (max-width: 768px) {
+                        @media screen and (max-width: 820px) {
                             font-size: 40px;
                             line-height: 48px;
                             margin: 0 auto;
@@ -103,8 +103,13 @@
                         line-height: 32px;
                         margin-bottom: 24px;
                         margin-top: 29px;
-                        max-width: 543px;
-                        @media screen and (max-width: 768px) {
+                        max-width: 480px;
+                        @media screen and (min-width: 821px) {
+                            br {
+                                display: none;
+                            }
+                        }
+                        @media screen and (max-width: 820px) {
                             font-size: 24px;
                             line-height: 32px;
                             margin: 10px auto 16px;
@@ -128,17 +133,16 @@
                             color: #fff;
                             transition-duration: 0.5s;
                         }
-                        @media screen and (max-width: 768px) {
+                        @media screen and (max-width: 820px) {
                             padding: 8px 26px;
                         }
                     }
                 }
                 .image--wrapper {
                     img {
-                        @media screen and (max-width: 768px) {
+                        @media screen and (max-width: 820px) {
                             display: block;
                             margin: 0 auto;
-                            width: 300px;
                         }
                     }
                 }
