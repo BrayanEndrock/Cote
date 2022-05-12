@@ -134,15 +134,11 @@
     {% if template contains 'product' %}
       <script>Shopify.Products.recordRecentlyViewed();</script>
     {% endif %}
-    <!-- End Recently Viewed Products -->
-
-    <!-- Slick Slider -->
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <!-- END: Slick Slider -->
-    
+    <!-- End Recently Viewed Products -->    
     <!-- ShareASale -->
     <script src='https://www.dwin1.com/19038.js' type='text/javascript' defer='defer'></script>
     <!-- END: ShareASale -->
+    {% render 'slick' %}
   </head>
   <body id="{{ page_title | handle }}" class="template-{{ template | split: '.' | first }}">
     <!-- Google Tag Manager (noscript) -->
@@ -214,8 +210,7 @@
       });
     </script>
 
-    {% include 'popup-klaviyo' %}
-
+    {% render 'popup-klaviyo' %}    
     <script type="text/javascript">
       $(document).ready(function() {
         setTimeout(() => {
