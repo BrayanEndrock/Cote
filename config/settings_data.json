@@ -1168,8 +1168,8 @@
         "type": "collection-template-byob",
         "settings": {
           "coll_desc_pos": "below",
-          "coll_show_sort": true,
-          "coll_show_feat": true,
+          "coll_show_sort": false,
+          "coll_show_feat": false,
           "coll_show_tags": true,
           "show_tagfilt_custom1": false,
           "tagfilt_custom1_name": "",
