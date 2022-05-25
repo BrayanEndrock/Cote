@@ -1,370 +1,126 @@
 <div data-section-type="collection-template">
  {% paginate collection.products by 10000 %}
-  
-  
-<style>
-  .cleaner-safer-banner > * {
-  background: #F4EEDE;
-  
-  
-}
-  
- 
-  .cleaner-safer-banner {
-  	display: none;
-  
-  }
-
-
-.cleaner-safer-banner .cleaner-safer-banner__mobile-row {
-    display: flex;
-    flex-direction: row;
-    column-gap: 60px;
-    margin: auto;
-}
-
-
-
- @media screen and (max-width:768px) {
-     .cleaner-safer-banner .cleaner-safer-banner__grid {
-        flex-direction: column !important;
-       row-gap: 25px;
-   }
-   
-   
-}
-  
- @media screen and (max-width:768px) {
-  .cleaner-safer-banner .cleaner-safer-banner__mobile-row {
-    max-width: 100vw;
- 
-/*display: grid; grid-template-columns: repeat(auto-fit,minmax(124px,1fr)); */
-    gap: 0 15px;
-    /*grid-auto-flow: column;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;*/
-  }
-  
-  .cleaner-safer-banner .cleaner-safer-banner__mobile-row:nth-child(2) {
-        padding-left: 24px;
-    padding-right:24px;
-    
-  }
-  
-  .cleaner-safer-banner .cleaner-safer-banner__container {
-  	overflow-x:scroll;
-  
-  }
-  
-  
-  }    
-
-  
-  
- @media screen and (max-width:768px) {
-     .cleaner-safer-banner .cleaner-safer-banner__desktop-only-copy {
-       display: none;
-     }
- }
-
-@media screen and (max-width:768px) {
-  .cleaner-safer-banner .cleaner-safer-banner__mobile-row {
-    column-gap: 15px;
-  }
-}
-
-@media screen and (max-width:768px) {
-  .cleaner-safer-banner .cleaner-safer-banner__bullet-point {
-    min-width: 86px;
-    
-  }}
-.cleaner-safer-banner .cleaner-safer-banner__grid {
-  display: flex;
-  flex-direction:row;
-  column-gap: 60px; /*might be worth excluding*/
-  margin: auto;
-
-}
-
-.cleaner-safer-banner .cleaner-safer-banner__tagline {
-  font-family: Playfair Display;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 32px;
-/* identical to box height, or 178% */
-
-  display: flex;
-  
-letter-spacing: 0.03em;
-  align-items:center;
-
-color: #3E5461;
-  padding-top: 6px;
-  text-decoration: underline;
-  text-underline-offset:7px;
-  text-decoration-color: #DED1AF;
-}
-
-.cleaner-safer-banner .cleaner-safer-banner__container {
-  padding: 27px 0;
-  display: flex;
-  margin-bottom: 0;
-  
-}
-
-.cleaner-safer-banner .cleaner-safer-banner__bullet-point {
-  text-align: center;
-  max-width: 86px;
-}
-
-.cleaner-safer-banner .cleaner-safer-banner__bullet-point p {
-margin-top: 12px;
-  margin-bottom: 0;
-  font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 16px;
-/* identical to box height, or 133% */
-
-
-text-align: center;
-letter-spacing: 0.03em;
-text-transform: capitalize;
-
-color: #3E4B57;}
-  
-.cleaner-safer-banner .cleaner-safer-banner__bullet-point img {
-      max-width: 32px;
-  display: block;
-  margin: auto;
-
-}
-  
-  .promo-banner {
-	background: #EA9F84;
-	padding: 20px 0 20px;
-    text-align: center;
-}
-  
-  .promo-banner-copy {
-    font-family: Roboto;
-font-style: normal;
-    font-size: 16px;
-line-height: 18px;
-    letter-spacing: 0.03em;
-
-color: #FFFFFF;
-    margin-bottom: 0;
-  
-}
-
-  @media screen and (max-width: 768px) {
-    .promo-banner {
-       padding: 12px 15px;
-    }
-    .promo-banner .promo-banner-copy span {
-    	display: inline ;
-    }
-}
-  
-   .promo-banner  span {
-    	display: none;
-    }
-
-
-</style>	
-    <a class="cleaner-safer-banner" href="{{section.settings.banner_link}}">
-      <div class="cleaner-safer-banner__container">
-        <div class="cleaner-safer-banner__grid">
-          <div class="cleaner-safer-banner__mobile-row">
-          <div class="cleaner-safer-banner__item cleaner-safer-banner__tagline">
-			Cleaner safer beauty
-          </div>
-          </div>
-          
-		  <div class="cleaner-safer-banner__mobile-row">
-            <div class="cleaner-safer-banner__item cleaner-safer-banner__bullet-point">
-              <img
-                src="{{ section.settings.icon-1 |  img_url: '300x300' }}"
-                width="100%"
-                alt=""
-              />
-              <p>
-                {{section.settings.text_icon-1}}</p>            
-            </div> 
-            <div class="cleaner-safer-banner__item cleaner-safer-banner__bullet-point">
-              <img
-                src="{{ section.settings.icon-2 |  img_url: '300x300' }}"
-                width="100%"
-                alt=""
-              />
-              <p>
-                {{section.settings.text_icon-2}}</p>            
-            </div> 
-
-            <div class="cleaner-safer-banner__item cleaner-safer-banner__bullet-point">
-              <img
-                src="{{ section.settings.icon-3 |  img_url: '300x300' }}"
-                width="100%"
-                alt=""
-              />
-              <p>
-                {{section.settings.text_icon-3}}</p>            
-            </div> 
-            <div class="cleaner-safer-banner__item cleaner-safer-banner__bullet-point">
-              <img
-                src="{{ section.settings.icon-4 |  img_url: '300x300' }}"
-                width="100%"
-                alt=""
-              />
-              <p>
-                {{section.settings.text_icon-4}}</p>            
-            </div> 
-            <div class="cleaner-safer-banner__item cleaner-safer-banner__bullet-point">
-              <img
-                src="{{ section.settings.icon-5 |  img_url: '300x300' }}"
-                width="100%"
-                alt=""
-              />
-              <p>
-                {{section.settings.text_icon-5}}</p>            
-            </div> 
-          </div>
-         
-        </div>
-      </div>
-    </a>
   <div class=" {% unless section.settings.banner-visible %} hide  {% endunless %} promo-banner">
-    <p class="promo-banner-copy"> {{section.settings.promobanner-copy}} </p>
-  </div>
-  
-<div class="container">
-  <div class="page-header cf">
-    {% if section.settings.coll_desc_pos == 'below' %}
-    <h1 class="majortitle">{{ collection.title | escape }}</h1>
-    {% endif %}
-
-    {% if collection.description != blank %}
-    <div class="user-content lightly-spaced-row {% if settings.lightbox_imgs %}lightboximages{% endif %}">
-      {{ collection.description }}
-    </div>
-    {% endif %}
-
-    {% if section.settings.coll_desc_pos == 'above' %}
-    <h1 class="majortitle">{{ collection.title | escape }}</h1>
-    {% endif %}
-    
-    {% comment %} Which tags should we show, and group them into categories {% endcomment %}
-    {% assign show_normal_filter = false %}
-    {% assign show_custom_filter_1 = false %}
-    {% assign show_custom_filter_2 = false %}
-
-    {% if section.settings.show_tagfilt_custom1 %}
-    {%- assign custom_tag_arr1 = section.settings.tagfilt_custom1_tags | downcase | replace: ', ',',' | split: ',' -%}
-    {%- capture filter1_html -%}
-    
-    {%- for s_tag in custom_tag_arr1 -%}
-	    {%- for c_tag in collection.all_tags -%}
-			{%- assign s_tag_lower = s_tag | downcase -%}
-			{%- assign c_tag_lower = c_tag | downcase -%}
-    
-			{%- unless tag contains 'meta-' -%}
-    			{%- if s_tag_lower == c_tag_lower -%}
-					{%- assign show_custom_filter_1 = true -%}
-						{%- if current_tags contains c_tag -%}
-							<li class="active" data-tag="{{c_tag | handleize}}">{{ c_tag | append: ' <span class="x">&times;</span>' | link_to_remove_tag: c_tag }}</li>
-						{%- else -%}
-							<li data-tag="{{c_tag | handleize}}">{{ c_tag | link_to_add_tag: c_tag }}</li>
-						{%- endif -%}
-    			{%- endif -%}
-    		{%- endunless -%}
-	    {%- endfor -%}
-    {%- endfor -%}
-    
-    {%- endcapture -%}
-    {% endif %}
-
-    {% if section.settings.show_tagfilt_custom2 %}
-    {%- assign custom_tag_arr2 = section.settings.tagfilt_custom2_tags | downcase | replace: ', ',',' | split: ',' -%}
-    {%- capture filter2_html -%}
-    {%- for tag in collection.all_tags -%}
-      {%- unless tag contains 'meta-' -%}
-      {%- assign tag_lower = tag | downcase -%}
-      {%- if custom_tag_arr2 contains tag_lower -%}
-        {%- assign show_custom_filter_2 = true -%}
-        {%- if current_tags contains tag -%}
-        <li class="active" data-tag="{{tag | handleize}}">{{ tag | append: ' <span class="x">&times;</span>' | link_to_remove_tag: tag }}</li>
-        {%- else -%}
-        <li data-tag="{{tag | handleize}}">{{ tag | link_to_add_tag: tag }}</li>
-        {%- endif -%}
-      {%- endif -%}
-      {%- endunless -%}
-    {%- endfor -%}
-    {%- endcapture -%}
-    {% endif %}
-
-    {% if section.settings.coll_show_tags %}
-    {%- capture filter_html -%}
-    {%- for tag in collection.all_tags -%}
-      {%- unless tag contains 'meta-' or custom_tag_arr1 contains tag or custom_tag_arr2 contains tag -%}
-        {%- assign show_normal_filter = true -%}
-        {%- if current_tags contains tag -%}
-        <li class="active" data-tag="{{tag | handleize}}">{{ tag | append: ' <span class="x">&times;</span>' | link_to_remove_tag: tag }}</li>
-        {%- else -%}
-        <li data-tag="{{tag | handleize}}">{{ tag | link_to_add_tag: tag }}</li>
-        {%- endif -%}
-      {%- endunless -%}
-    {%- endfor -%}
-    {%- endcapture -%}
-    {% endif %}
-
-{% if collection.title != "All" %}
-    <div class="filters">
-      {% if show_normal_filter %}
-      <a href="#" class="tags" data-toggle-target=".tags.nav-row.cat-normal">{{ 'collections.filtering.filter' | t }} <span class="state">+</span></a>
+    <p class="promo-banner-copy">{{section.settings.promobanner-copy}}</p>
+  </div>  
+  <div class="container">
+    <div class="page-header cf">
+      {% if section.settings.coll_desc_pos == 'below' %}
+        <h1 class="majortitle">{{ collection.title | escape }}</h1>
       {% endif %}
 
-      {% if show_custom_filter_1 %}
-      <a href="#" class="tags hidden" data-toggle-target=".tags.nav-row.cat-custom-1">{{ section.settings.tagfilt_custom1_name | escape }} <span class="state">+</span></a>
+      {% if collection.description != blank %}
+        <div class="user-content lightly-spaced-row {% if settings.lightbox_imgs %}lightboximages{% endif %}">
+          {{ collection.description }}
+        </div>
       {% endif %}
 
-      {% if show_custom_filter_2 %}
-      <a href="#" class="tags" data-toggle-target=".tags.nav-row.cat-custom-2">{{ section.settings.tagfilt_custom2_name | escape }} <span class="state">+</span></a>
+      {% if section.settings.coll_desc_pos == 'above' %}
+        <h1 class="majortitle">{{ collection.title | escape }}</h1>
       {% endif %}
-
-      {% if section.settings.coll_show_sort %}
-      <span class="sort tags">
-        <label for="sort-by">{{ 'collections.sorting.title' | t }}</label>
-        <span class="styled-select styled-select--small">
-          <select id="sort-by" data-initval="{{ collection.sort_by | default: collection.default_sort_by  }}">
-            {% if section.settings.coll_show_feat %}<option value="manual">{{ 'collections.sorting.featured' | t }}</option>{% endif %}
-            <option value="price-ascending">{{ 'collections.sorting.price_ascending' | t }}</option>
-            <option value="price-descending">{{ 'collections.sorting.price_descending' | t }}</option>
-<!--             <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>
-            <option value="title-descending">{{ 'collections.sorting.za' | t }}</option>
-            <option value="created-ascending">{{ 'collections.sorting.date_ascending' | t }}</option>
-            <option value="created-descending">{{ 'collections.sorting.date_descending' | t }}</option> -->
-            <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
-          </select>
-        </span>
-      </span>
-      {% endif %}
-    </div><!-- /.filters -->
-{% endif %}
     
-    <div class="social-area desktop-only">
-      {% if section.settings.coll_gridstream_toggle %}
-        <span class="view-as">
-          <span class="view-as-label">{{ 'collections.general.view' | t }}</span>
-          <a id="view-as-tiles" {% if section.settings.coll_gridstream_mode == 'grid' %}class="active"{% endif %} href="#">{{ 'collections.general.grid' | t }} <div class="fluff1"></div><div class="fluff2"></div><div class="fluff3"></div><div class="fluff4"></div></a>
-          <a id="view-as-stream" {% if section.settings.coll_gridstream_mode == 'stream' %}class="active"{% endif %} href="#">{{ 'collections.general.list' | t }} <div class="fluff1"></div><div class="fluff2"></div></a>
-        </span>
+      {% comment %} Which tags should we show, and group them into categories {% endcomment %}
+      {% assign show_normal_filter = false %}
+      {% assign show_custom_filter_1 = false %}
+      {% assign show_custom_filter_2 = false %}
+
+      {% if section.settings.show_tagfilt_custom1 %}
+        {%- assign custom_tag_arr1 = section.settings.tagfilt_custom1_tags | downcase | replace: ', ',',' | split: ',' -%}
+        {%- capture filter1_html -%}
+          {%- for s_tag in custom_tag_arr1 -%}
+            {%- for c_tag in collection.all_tags -%}
+              {%- assign s_tag_lower = s_tag | downcase -%}
+              {%- assign c_tag_lower = c_tag | downcase -%}
+            
+              {%- unless tag contains 'meta-' -%}
+                {%- if s_tag_lower == c_tag_lower -%}
+                  {%- assign show_custom_filter_1 = true -%}
+                  {%- if current_tags contains c_tag -%}
+                    <li class="active" data-tag="{{c_tag | handleize}}">{{ c_tag | append: ' <span class="x">&times;</span>' | link_to_remove_tag: c_tag }}</li>
+                  {%- else -%}
+                    <li data-tag="{{c_tag | handleize}}">{{ c_tag | link_to_add_tag: c_tag }}</li>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endunless -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        {%- endcapture -%}
       {% endif %}
-    </div>
-  </div><!-- /.page-header -->
-</div><!-- /.container -->
+
+      {% if section.settings.show_tagfilt_custom2 %}
+        {%- assign custom_tag_arr2 = section.settings.tagfilt_custom2_tags | downcase | replace: ', ',',' | split: ',' -%}
+        {%- capture filter2_html -%}
+          {%- for tag in collection.all_tags -%}
+            {%- unless tag contains 'meta-' -%}
+              {%- assign tag_lower = tag | downcase -%}
+              {%- if custom_tag_arr2 contains tag_lower -%}
+                {%- assign show_custom_filter_2 = true -%}
+                {%- if current_tags contains tag -%}
+                  <li class="active" data-tag="{{tag | handleize}}">{{ tag | append: ' <span class="x">&times;</span>' | link_to_remove_tag: tag }}</li>
+                {%- else -%}
+                  <li data-tag="{{tag | handleize}}">{{ tag | link_to_add_tag: tag }}</li>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endunless -%}
+          {%- endfor -%}
+        {%- endcapture -%}
+      {% endif %}
+
+      {% if section.settings.coll_show_tags %}
+        {%- capture filter_html -%}
+          {%- for tag in collection.all_tags -%}
+            {%- unless tag contains 'meta-' or custom_tag_arr1 contains tag or custom_tag_arr2 contains tag -%}
+              {%- assign show_normal_filter = true -%}
+              {%- if current_tags contains tag -%}
+                <li class="active" data-tag="{{tag | handleize}}">{{ tag | append: ' <span class="x">&times;</span>' | link_to_remove_tag: tag }}</li>
+              {%- else -%}
+                <li data-tag="{{tag | handleize}}">{{ tag | link_to_add_tag: tag }}</li>
+              {%- endif -%}
+            {%- endunless -%}
+          {%- endfor -%}
+        {%- endcapture -%}
+      {% endif %}
+      {% if collection.title != "All" %}
+        <div class="filters">
+          {% if show_normal_filter %}
+            <a href="#" class="tags" data-toggle-target=".tags.nav-row.cat-normal">{{ 'collections.filtering.filter' | t }} <span class="state">+</span></a>
+          {% endif %}
+          {% if show_custom_filter_1 %}
+            <a href="#" class="tags hidden" data-toggle-target=".tags.nav-row.cat-custom-1">{{ section.settings.tagfilt_custom1_name | escape }} <span class="state">+</span></a>
+          {% endif %}
+          {% if show_custom_filter_2 %}
+            <a href="#" class="tags" data-toggle-target=".tags.nav-row.cat-custom-2">{{ section.settings.tagfilt_custom2_name | escape }} <span class="state">+</span></a>
+          {% endif %}
+          {% if section.settings.coll_show_sort %}
+            <span class="sort tags">
+              <label for="sort-by">{{ 'collections.sorting.title' | t }}</label>
+              <span class="styled-select styled-select--small">
+                <select id="sort-by" data-initval="{{ collection.sort_by | default: collection.default_sort_by  }}">
+                  {% if section.settings.coll_show_feat %}<option value="manual">{{ 'collections.sorting.featured' | t }}</option>{% endif %}
+                  <option value="price-ascending">{{ 'collections.sorting.price_ascending' | t }}</option>
+                  <option value="price-descending">{{ 'collections.sorting.price_descending' | t }}</option>
+          <!--             <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>
+                  <option value="title-descending">{{ 'collections.sorting.za' | t }}</option>
+                  <option value="created-ascending">{{ 'collections.sorting.date_ascending' | t }}</option>
+                  <option value="created-descending">{{ 'collections.sorting.date_descending' | t }}</option> -->
+                  <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
+                </select>
+              </span>
+            </span>
+          {% endif %}
+        </div><!-- /.filters -->
+      {% endif %}
+      <div class="social-area desktop-only">
+        {% if section.settings.coll_gridstream_toggle %}
+          <span class="view-as">
+            <span class="view-as-label">{{ 'collections.general.view' | t }}</span>
+            <a id="view-as-tiles" {% if section.settings.coll_gridstream_mode == 'grid' %}class="active"{% endif %} href="#">{{ 'collections.general.grid' | t }} <div class="fluff1"></div><div class="fluff2"></div><div class="fluff3"></div><div class="fluff4"></div></a>
+            <a id="view-as-stream" {% if section.settings.coll_gridstream_mode == 'stream' %}class="active"{% endif %} href="#">{{ 'collections.general.list' | t }} <div class="fluff1"></div><div class="fluff2"></div></a>
+          </span>
+        {% endif %}
+      </div>
+    </div><!-- /.page-header -->
+  </div><!-- /.container -->
 
 <!-- TOP COLOR FILTER MENU for ALL COLORS -->
 {% if collection.title == "Non Toxic Nail Polish" %}
@@ -440,9 +196,40 @@ color: #FFFFFF;
     <div class="collection-listing{% if section.settings.coll_gridstream_mode == 'stream' %}-stream{% endif %} cf">
       <div class="product-list">
         {% for product in collection.products %}
-        {% include 'bold-product' with product, hide_action: 'skip' %}
-        {% include 'product-block' with product, include_quick_buy_markup: include_quick_buy_markup %}
+          {% include 'bold-product' with product, hide_action: 'skip' %}
+          {% include 'product-block' with product, include_quick_buy_markup: include_quick_buy_markup %}
         {% endfor %}
+        {% if collection.handle == 'best-sellers' %}
+          <div class="product-block fixed-width info-card--wrapper">
+            <div class="block-inner">
+              <img 
+                src="{{ section.settings.first-card | img_url: '233x389' }}"
+                srcset="{{ section.settings.first-card | img_url: '233x389' }} 1x, {{ section.settings.first-card  | img_url: '466x778', scale: 2 }} 2x" 
+                alt="{{ section.settings.first-card.alt | escape }}"
+              >
+            </div>
+          </div>
+        {% elsif collection.handle == 'nail-tools-treatments' or collection.handle == 'nail-polish-gift-set' %}
+          <div class="product-block fixed-width info-card--wrapper">
+            <div class="block-inner">
+              <img 
+                src="{{ section.settings.second-card | img_url: '233x389' }}"
+                srcset="{{ section.settings.second-card | img_url: '233x389' }} 1x, {{ section.settings.second-card  | img_url: '466x778', scale: 2 }} 2x" 
+                alt="{{ section.settings.second-card.alt | escape }}"
+              >
+            </div>
+          </div>
+        {% else %}
+          <div class="product-block fixed-width info-card--wrapper">
+            <div class="block-inner">
+              <img 
+                src="{{ section.settings.first-card | img_url: '233x389' }}"
+                srcset="{{ section.settings.first-card | img_url: '233x389' }} 1x, {{ section.settings.first-card  | img_url: '466x778', scale: 2 }} 2x" 
+                alt="{{ section.settings.first-card.alt | escape }}"
+              >
+            </div>
+          </div>
+        {% endif %}
       </div>
     </div>
       <script>
@@ -623,65 +410,15 @@ if (params.has('kw')) {
         "label": "Show toggle for grid and list views",
         "default": true
       },
-		{
+        {
           "type": "image_picker",
-          "id": "icon-1",
-          "label": "Image Mark 1"
+          "id": "first-card",
+          "label": "First Info Card"
         },
         {
-          "type": "html",
-          "id": "text_icon-1",
-          "label": "Text 1"
-        },
-		{
           "type": "image_picker",
-          "id": "icon-2",
-          "label": "Image Mark 2"
-        },
-        {
-          "type": "html",
-          "id": "text_icon-2",
-          "label": "Text 2"
-        },
-		{
-          "type": "image_picker",
-          "id": "icon-3",
-          "label": "Image Mark 3"
-        },
-        {
-          "type": "html",
-          "id": "text_icon-3",
-          "label": "Text 3"
-        },
-		{
-          "type": "image_picker",
-          "id": "icon-4",
-          "label": "Image Mark 4"
-        },
-        {
-          "type": "html",
-          "id": "text_icon-4",
-          "label": "Text 4"
-        },
-		{
-          "type": "image_picker",
-          "id": "icon-5",
-          "label": "Image Mark 5"
-        },
-        {
-          "type": "html",
-          "id": "text_icon-5",
-          "label": "Text 5"
-        },
-        {
-          "type": "checkbox",
-          "id": "banner-visible",
-          "label": "Display Banner"
-        },
-        {
-          "type": "html",
-          "id": "promobanner-copy",
-          "label": "Banner Copy"
+          "id": "second-card",
+          "label": "Second Info Card"
         }
     ]
   }

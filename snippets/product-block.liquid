@@ -13,6 +13,9 @@
 <div data-product-id="{{ product.id }}" class="product-block detail-mode-{{ settings.prod_hov_type }} {% if settings.prod_thumb_variable_width %}variable-width{% else %}fixed-width{% endif %}">
   <div class="block-inner">
     <div class="image-cont {% if show_hover_image %}with-secondary-image {% if product.featured_image.aspect_ratio == product.images[1].aspect_ratio %}same-aspect-ratio{% endif %}{% endif %}">
+      <div class="wishlist-icon--wrapper">
+        {% include 'iwish_v2' with 'iwishCollection' %}
+      </div>
       <a class="product-link" href="{{ product_url }}">
         <div class="image-label-wrap">
           {%- if settings.prod_thumb_variable_width -%}
@@ -32,11 +35,11 @@
             {% include 'responsive-image', image: product.featured_image, manual_image_load: manual_image_load %} 
           </div>        
           {% if show_hover_image %}
-            <div class="secondary-image lazyload{% if manual_image_load %}--manual{% endif %} rimage-background rimage-background--atop"
+            <div 
+              class="secondary-image lazyload{% if manual_image_load %}--manual{% endif %} rimage-background rimage-background--atop"
               data-bgset="{% include 'bgset', image: product.images[1] %}"
               data-sizes="auto"
-              data-parent-fit="contain"
-            ></div>
+              data-parent-fit="contain"></div>
           {% endif %}
           {% include 'product-label' with product %}
         </div>
@@ -70,12 +73,14 @@
     </a>
     {% if product.available %}
       <div class="buttons-cont mobile">
+        {% comment %}
         <button class="btn add-to-cart-ajax add-to-cart-version-a" data-variant-id="{{ product.selected_or_first_available_variant.id }}">Add to Cart</button>
+          <a href="{{ product_url }}" class="btn view-details">View Details</a>
+        {% endcomment %}
         <button class="btn add-to-cart-ajax add-to-cart-version-b" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
           <u>Add to Cart</u>
           {% render 'plus-icon-atc' %}
         </button>
-        {% comment %}<a href="{{ product_url }}" class="btn view-details">View Details</a>{% endcomment %}
       </div>
     {% endif %}
   </div>

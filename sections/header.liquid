@@ -99,6 +99,7 @@
         <span class="beside-svg">({{ cart.item_count }})</span>
         {% include 'svg-cart' %}
       </a> -->
+      <div class="wishlist-link--menu">{% include 'iwish_v2' with 'iwishlink' %}</div>
       {%- include "go-cart-button" -%}
     </div>
 
@@ -145,7 +146,7 @@
               {% endif %}
             </div>
           {% endif %}
-
+          <div class="wishlist-link--menu">{% include 'iwish_v2' with 'iwishlink' %}</div>
           {% include 'currencies-switcher' %}
 
           {%- comment -%}
@@ -158,6 +159,7 @@
             </a>
           </div>
           {%- endcomment -%}
+
           {%- include "go-cart-button" -%}
         </div><!-- /.utils -->
       </div><!-- /.util-area -->

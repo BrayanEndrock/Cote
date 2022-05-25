@@ -1,6 +1,5 @@
 <!-- <div itemscope itemtype="http://schema.org/Product" data-section-type="product-template"> -->
-
-<div>
+<div class="product--template" id="product-template--{{ product.handle }}">
   <meta itemprop="name" content="{{ product.title }}" />
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
   <meta itemprop="image" content="http:{{ product.featured_image.src | product_img_url: 'grande' | remove: 'http:' | remove: 'https:' }}" />
@@ -249,12 +248,14 @@
                 </span> -->
                 <button type="submit" name="add" data-add-to-cart class="js-go-cart-add-to-cart">                   
                   {{- 'products.product.add_to_cart' | t -}} 
-                </button>  
+                </button> 
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
               </div>
-
+              {%- comment -%} Wishlist Feature on PDP {%- endcomment -%}
+              <div class="wishlist-feature">{% include 'iwish_v2' with 'iwishproduct' %}</div>
+              {%- comment -%} END: Wishlist Feature on PDP {%- endcomment -%}
               <img class="image-custom-product" src="{{ "New_Icons.png" | asset_img_url: 'master' }}" alt="">
 
               {% capture backorder_message %}{{ 'products.product.backorder' | t }}{% endcapture %}

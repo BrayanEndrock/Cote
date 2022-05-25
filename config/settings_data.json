@@ -554,8 +554,8 @@
           "text_icon-4": "hand poured in the USA",
           "icon-5": "shopify:\/\/shop_images\/free-shipping.png",
           "text_icon-5": "FREE shipping <span class=\"cleaner-safer-banner__desktop-only-copy\">on orders over $40<\/span>",
-          "banner-visible": false,
-          "promobanner-copy": "Use code\n<strong>AFTERPAYDAY<\/strong>\nat checkout and get 30% off polishes and treatments!"
+          "first-card": "shopify:\/\/shop_images\/infoCard.png",
+          "second-card": "shopify:\/\/shop_images\/second-card.png"
         }
       },
       "cross-page-promos": {
@@ -914,7 +914,7 @@
       "1637775667e2dfb5b7": {
         "type": "best-sellers",
         "settings": {
-          "menu": "best-sellers"
+          "menu": "newmobilebestsellers"
         }
       },
       "16383974698f37d4e3": {
@@ -1151,7 +1151,9 @@
           "coll_num_per_page_int": 16,
           "coll_gridstream_mode": "grid",
           "coll_gridstream_toggle": false,
-          "mobile_link_list": "dynamic-mobile-menu"
+          "mobile_link_list": "dynamic-mobile-menu",
+          "first-card": "shopify:\/\/shop_images\/infoCard.png",
+          "second-card": "shopify:\/\/shop_images\/second-card.png"
         }
       },
       "16503991697a9473ba": {
