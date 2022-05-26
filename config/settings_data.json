@@ -544,16 +544,6 @@
           "coll_num_per_page_int": 40,
           "coll_gridstream_mode": "grid",
           "coll_gridstream_toggle": false,
-          "icon-1": "shopify:\/\/shop_images\/cote-recycles.png",
-          "text_icon-1": "côte recycles <span class=\"cleaner-safer-banner__desktop-only-copy\">all of its used polish bottles<\/span>",
-          "icon-2": "shopify:\/\/shop_images\/vegan.png",
-          "text_icon-2": "vegan",
-          "icon-3": "shopify:\/\/shop_images\/cruelty-free.png",
-          "text_icon-3": "cruelty-free",
-          "icon-4": "shopify:\/\/shop_images\/hand-poured.png",
-          "text_icon-4": "hand poured in the USA",
-          "icon-5": "shopify:\/\/shop_images\/free-shipping.png",
-          "text_icon-5": "FREE shipping <span class=\"cleaner-safer-banner__desktop-only-copy\">on orders over $40<\/span>",
           "first-card": "shopify:\/\/shop_images\/infoCard.png",
           "second-card": "shopify:\/\/shop_images\/second-card.png"
         }
