@@ -1,7 +1,11 @@
 <div data-section-type="collection-template">
  {% paginate collection.products by 10000 %}
-  <div class=" {% unless section.settings.banner-visible %} hide  {% endunless %} promo-banner">
-    <p class="promo-banner-copy">{{section.settings.promobanner-copy}}</p>
+ {{ 'promo-banner-plp.css' | asset_url | stylesheet_tag }}
+  <div class="{% unless section.settings.promo-banner %}hide{% endunless %} promo-banner--wrapper">
+    <div class="promo-banner--container">
+      <div class="fake-button">{{ section.settings.summer-sale }}</div>
+      <h4>{{ section.settings.discount }}</h4>
+    </div>
   </div>  
   <div class="container">
     <div class="page-header cf">
@@ -410,16 +414,34 @@ if (params.has('kw')) {
         "label": "Show toggle for grid and list views",
         "default": true
       },
-        {
-          "type": "image_picker",
-          "id": "first-card",
-          "label": "First Info Card"
-        },
-        {
-          "type": "image_picker",
-          "id": "second-card",
-          "label": "Second Info Card"
-        }
+      {
+        "type": "image_picker",
+        "id": "first-card",
+        "label": "First Info Card"
+      },
+      {
+        "type": "image_picker",
+        "id": "second-card",
+        "label": "Second Info Card"
+      },
+      {
+        "type": "checkbox",
+        "id": "promo-banner",
+        "label": "Show Promo Banner",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "summer-sale",
+        "label": "Summer Sale Copy",
+        "default": "Shop Côte’s Summer Sale"
+      },
+      {
+        "type": "text",
+        "id": "discount",
+        "label": "Discount",
+        "default": "Enjoy 25% off sitewide!"
+      }
     ]
   }
 {% endschema %}
