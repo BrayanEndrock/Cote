@@ -450,7 +450,7 @@
           "e70154b0-ca34-4b4f-bb2c-55d48a555f5b": {
             "type": "topbar",
             "settings": {
-              "heading": "FREE SHIPPING on orders over $55",
+              "heading": "FREE SHIPPING on orders over $40",
               "link_url": "shopify:\/\/collections\/best-sellers"
             }
           },
@@ -544,16 +544,6 @@
           "coll_num_per_page_int": 40,
           "coll_gridstream_mode": "grid",
           "coll_gridstream_toggle": false,
-          "icon-1": "shopify:\/\/shop_images\/cote-recycles.png",
-          "text_icon-1": "côte recycles <span class=\"cleaner-safer-banner__desktop-only-copy\">all of its used polish bottles<\/span>",
-          "icon-2": "shopify:\/\/shop_images\/vegan.png",
-          "text_icon-2": "vegan",
-          "icon-3": "shopify:\/\/shop_images\/cruelty-free.png",
-          "text_icon-3": "cruelty-free",
-          "icon-4": "shopify:\/\/shop_images\/hand-poured.png",
-          "text_icon-4": "hand poured in the USA",
-          "icon-5": "shopify:\/\/shop_images\/free-shipping.png",
-          "text_icon-5": "FREE shipping <span class=\"cleaner-safer-banner__desktop-only-copy\">on orders over $40<\/span>",
           "first-card": "shopify:\/\/shop_images\/infoCard.png",
           "second-card": "shopify:\/\/shop_images\/second-card.png"
         }
@@ -1159,11 +1149,29 @@
       "16503991697a9473ba": {
         "type": "home-hero",
         "settings": {
-          "featured-image": "shopify:\/\/shop_images\/main-image.png",
-          "title": "This is BIG!",
-          "subtitle": "32 oz Acetone-Free Takeoff Polish Remover REFILL is now available!",
-          "url": "https:\/\/coteshop.co\/products\/takeoff-br-non-acetone-nail-polish-remover-br-32-ounce",
+          "featured-image": "shopify:\/\/shop_images\/MG_7093_1.png",
+          "title": "Make Waves This Summer!",
+          "subtitle": "Our New Catalina Traveler <br>Set Is Here<br> Beachy, Bold & Ultra Clean",
+          "url": "https:\/\/coteshop.co\/products\/catalina-traveler-nail-polish-set",
           "label": "Shop Now"
+        }
+      },
+      "collection-template-byob": {
+        "type": "collection-template-byob",
+        "settings": {
+          "coll_desc_pos": "below",
+          "coll_show_sort": true,
+          "coll_show_feat": true,
+          "coll_show_tags": true,
+          "show_tagfilt_custom1": false,
+          "tagfilt_custom1_name": "",
+          "tagfilt_custom1_tags": "",
+          "show_tagfilt_custom2": false,
+          "tagfilt_custom2_name": "",
+          "tagfilt_custom2_tags": "",
+          "coll_num_per_page_int": 16,
+          "coll_gridstream_mode": "grid",
+          "coll_gridstream_toggle": true
         }
       }
     },

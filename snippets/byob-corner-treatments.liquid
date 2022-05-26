@@ -1,0 +1,67 @@
+<div class="corner-treatments-wrapper">     
+    {% if product.tags contains 'best-seller' %}      
+      <div class="badge best-seller"><h5>Best Seller</h5></div>
+    {% endif %} 
+    {% if product.tags contains 'new-arrivals' %}                                                                                        
+      <div class="badge new-arrivals"><h5>New Arrivals</h5></div>
+    {% endif %}
+    {% if product.tags contains 'back-in-stock' %}                                                                                                          
+      <div class="badge back-in-stock"><h5>Back In Stock</h5></div>
+    {% endif %}                           
+  </div>
+  
+  <style>
+    /* Corner Treatments On PLP */
+    .corner-treatments-wrapper {
+      align-content: center;
+      align-items: flex-end;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      right: 0;
+      text-align: center; 
+      z-index: 1;          
+    }
+    .corner-treatments-wrapper .badge {
+      border-radius: 100%;
+      width: 70px;
+      height: 70px;
+    }
+    .corner-treatments-wrapper .badge h5 {
+      color: #FFFFFF;
+      font-family: 'Lato';
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 14px;
+      margin: 30% auto 0;
+      max-width: 60px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .corner-treatments-wrapper .badge.best-seller {
+      background-color: #83A9A8;   
+    }
+    .corner-treatments-wrapper .badge.new-arrivals {
+      background-color: #DE9272;
+      backdrop-filter: blur(4px);     
+    }
+    .corner-treatments-wrapper .badge.back-in-stock {
+      background-color: #595D5E;     
+    }
+    @media screen and (max-width: 768px) {      
+      .corner-treatments-wrapper {
+        margin-bottom: 15px;             
+      }
+      .corner-treatments-wrapper .badge {
+        height: 60px;
+        width: 60px;    
+      }
+      .corner-treatments-wrapper .badge h5 {
+        font-size: 10px;
+        line-height: 12px;
+      }
+    }   
+  </style> 

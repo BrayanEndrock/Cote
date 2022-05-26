@@ -1,0 +1,143 @@
+{%- comment -%} Styles for Build Your Own Bundle {%- endcomment -%}
+{{ 'byob.scss.css' | asset_url | stylesheet_tag }}
+
+<!-- /sections/collection-template-byob.liquid -->
+<div id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-grid-type="{{ section.settings.collection_products_grid }}">
+    {% include 'collection-filter-byob' %}   
+</div>
+   
+{% schema %}
+    {
+        "name": "Collection pages",
+        "settings": [
+            {
+                "type": "select",
+                "id": "coll_desc_pos",
+                "label": "Description position",
+                "options": [
+                    {
+                        "value": "below",
+                        "label": "Below collection title"
+                    },
+                    {
+                        "value": "above",
+                        "label": "Above collection title"
+                    }
+                ]
+            },
+            {
+                "type": "checkbox",
+                "id": "coll_show_sort",
+                "label": "Show 'sort by' dropdown",
+                "default": true
+            },
+            {
+                "type": "checkbox",
+                "id": "coll_show_feat",
+                "label": "Show 'Featured' in sort by",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "coll_show_tags",
+                "label": "Show ungrouped tags",
+                "default": true
+            },
+            {
+                "type": "header",
+                "content": "Tag group 1"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_tagfilt_custom1",
+                "label": "Show",
+                "default": false
+            },
+            {
+                "type": "text",
+                "id": "tagfilt_custom1_name",
+                "label": "Name"
+            },
+            {
+                "type": "text",
+                "id": "tagfilt_custom1_tags",
+                "label": "Tags to include",
+                "info": "Separate with commas"
+            },
+            {
+                "type": "header",
+                "content": "Tag group 2"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_tagfilt_custom2",
+                "label": "Show",
+                "default": false
+            },
+            {
+                "type": "text",
+                "id": "tagfilt_custom2_name",
+                "label": "Name"
+            },
+            {
+                "type": "text",
+                "id": "tagfilt_custom2_tags",
+                "label": "Tags to include",
+                "info": "Separate with commas"
+            },
+            {
+                "type": "header",
+                "content": "Layout"
+            },
+            {
+                "type": "range",
+                "id": "coll_num_per_page_int",
+                "min": 16,
+                "max": 40,
+                "step": 8,
+                "label": "Number of products to show per page",
+                "default": 16
+            },
+            {
+                "type": "select",
+                "id": "coll_gridstream_mode",
+                "label": "Show products in a grid or a list",
+                "options": [
+                    {
+                        "value": "grid",
+                        "label": "Grid"
+                    },
+                    {
+                        "value": "stream",
+                        "label": "List"
+                    }
+                ],
+                "default": "grid"
+            },
+            {
+                "type": "checkbox",
+                "id": "coll_gridstream_toggle",
+                "label": "Show toggle for grid and list views",
+                "default": true
+            }
+        ]
+    }
+{% endschema %}   
+  
+<script>
+    window.addEventListener("load", () => {
+        window.onscroll = function() { myFunction() }; 
+        const header = document.querySelector('#build-your-kit-sticky');
+        let sticky = header.offsetTop;
+
+        /*function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else { 
+                header.classList.remove("sticky");    
+            } 
+        }*/
+        let widthBar = header.offsetWidth;
+        header.style.maxWidth = widthBar+'px';
+    });
+</script>

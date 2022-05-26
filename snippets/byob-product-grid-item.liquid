@@ -1,0 +1,105 @@
+<!-- /snippets/byob-product-grid-item.liquid -->
+{% unless width %}
+  {%- assign width = 240 -%}
+{% endunless %}
+
+{% unless height %}
+  {%- assign height = 250 -%}
+{% endunless %}
+
+{% assign sold_out = true %}
+
+{% if product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+{% assign sold_oos = false %}
+
+{% if product.variants[0].inventory_quantity < 1  and product.variants[0].inventory_policy == 'continue' %}
+  {% assign sold_oos = true %}
+{% endif %}
+
+{% capture img_id_class %}ProductImage-{{ product.featured_image.id }}{% endcapture %}     
+{% capture img_wrapper_id %}ProductImageWrapper-{{ product.featured_image.id }}{% endcapture %}
+{%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+{% assign cart_count_product = 0 %}
+{% assign cart_count_product_subs = 0 %}
+
+{% if cart.item_count > 0 %}
+  {% for line_item in cart.items %}
+    {% if line_item.variant_id == product.selected_or_first_available_variant.id %}
+      {% assign cart_count_product = line_item.quantity %}
+    {% endif %}
+    {% assign variant_id = line_item.variant_id | strip %}
+    {% if variant_id %}
+      {% assign cart_count_product_subs = line_item.quantity %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{%- unless cart_collection_items_wholesale -%}
+  {%- assign cart_collection_items_wholesale = 0 -%}
+{%- endunless -%}    
+
+<div class="byob-product-block product-block grid-product {% if sold_out %}is-sold-out{% endif %} {% for tag in parent.tags %}{{ tag | handle }}{% endfor %}" data-image-render="{{ product.metafields.byob.render-product.value }}" data-product-type="{{ product.type }}" data-first-variant-id="{{ product.variants.first.id }}">
+  <div class="block-inner">
+    <input name="updates--{{ product.variants.first.id }}" type="hidden" data-count-onetime="{{ cart_count_product }}" data-count-subscription="{{ cart_count_product_subs }}" data-id="{{ product.variants.first.id }}" data-name="{{ product.title }}" data-price="{{ product.price | money_without_trailing_zeros | remove: '$' }}" value="{{ cart_count_product }}" class="product_byob_quantity" />
+
+    <div class="grid-product__wrapper {% if cart_count_product > 0 %}showBtnDelete{% endif %}" data-id="{{ product.variants.first.id }}">
+      <span class="hide cart-count-product" data-id="{{ product.variants.first.id }}">+{{ cart_count_product }}</span>
+      <div class="grid-product__image-wrapper">      
+        <div id="{{ img_wrapper_id }}" class="product--wrapper">
+          {% include 'byob-corner-treatments' %}
+          <img 
+            class="product--image lazyload {{ img_id_class }}"
+            data-srcset="{{ product.featured_image | img_url: '302x' }} 1x, {{ product.featured_image | img_url: '604x' }} 2x"
+            data-widths="[180, 370, 590, 740, 900, 1080, 1296, 1512, 1728, 2048]"
+            data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+            data-sizes="auto"
+            alt="{{ product.featured_image.alt | escape }}"
+          >
+        </div>
+        <noscript>
+          <img class="grid-product__image" src="{{ product.featured_image.src | img_url: '1024x' }}" alt="{{ product.featured_image.alt | escape }}">
+        </noscript>
+        {%- comment -%}
+          Corner Treatments for BYOB Grid:
+        {%- endcomment -%}
+        <div class="hide options-products">
+          <div class="option-contain">       
+            <a href="{{ product.url }}" class="btn btn--byob-primary" data-id="{{ product.handle }}" data-title="{{ product.title }}">View Details</a>   
+            {% if product.available %}  
+              <button type="button" class="btn btn--byob-primary remove-cta addtocart-btn{% if cart_collection_items_wholesale >= 56 %} hide{% endif %}" data-id="{{ product.variants.first.id }}" data-product-count="{{ cart_count_product }}" data-price="{{ product.price | money_without_trailing_zeros | remove: '$' }}" data-image-render="{{ product.metafields.byob.render-product.value }}" data-product-type="{{ product.type }}" >Add</button>
+              <button type="button" class="btn btn--byob-primary deletetocart-btn hide" data-price="{{ product.price | money_without_trailing_zeros | remove: '$' }}" data-id="{{ product.variants.first.id }}">Remove</button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <span class="grid-product__title">{{ product.title }}</span>
+      <div class="price-wrap product-price">
+        {% if product.compare_at_price_max > product.price %}
+          <del>{{ product.compare_at_price | money_without_trailing_zeros }}</del>
+          <span class="sale-price">{{ product.price | money_without_trailing_zeros }}</span>
+        {% else %}
+          <span class="price amount">{% if template.suffix == 'byok-w' %}<strong>Retail price per unit:</strong> {{ product.price | divided_by: 10 | plus: 400 | money }}{%else%}{{ product.price | money_without_trailing_zeros }}{%endif%}</span>
+        {% endif %}
+      </div>
+      {% if section.settings.product_vendor_enable %}
+        <p class="grid-product__vendor">{{ product.vendor }}</p>
+      {% endif %}
+      <div class="options-products options-footer">
+        <div class="ctas-mobile--wrapper"> 
+          <button type="button" class="btn btn--byob-mobile remove-cta hide-desktop mob addtocart-btn large--hide" data-image-render="{{ product.metafields.byob.render-product.value }}" data-id="{{ product.variants.first.id }}" data-product-count="{{ cart_count_product }}" data-price="{{ product.price | money_without_trailing_zeros | remove: '$' }}">
+            Add
+            <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.00016 0.833313C10.6822 0.833313 13.6668 3.81798 13.6668 7.49998C13.6668 11.182 10.6822 14.1666 7.00016 14.1666C3.31816 14.1666 0.333496 11.182 0.333496 7.49998C0.333496 3.81798 3.31816 0.833313 7.00016 0.833313ZM7.00016 4.16665C6.87934 4.16665 6.7626 4.21041 6.67154 4.28982C6.58048 4.36924 6.52126 4.47894 6.50483 4.59865L6.50016 4.66665V6.99998H4.16683C4.04015 7.00002 3.9182 7.04814 3.82563 7.13463C3.73307 7.22111 3.67678 7.33951 3.66815 7.4659C3.65951 7.59229 3.69917 7.71724 3.77912 7.81551C3.85906 7.91378 3.97333 7.97804 4.09883 7.99531L4.16683 7.99998H6.50016V10.3333C6.5002 10.46 6.54833 10.5819 6.63481 10.6745C6.7213 10.7671 6.83969 10.8234 6.96608 10.832C7.09247 10.8406 7.21742 10.801 7.31569 10.721C7.41397 10.6411 7.47823 10.5268 7.4955 10.4013L7.50016 10.3333V7.99998H9.8335C9.96018 7.99994 10.0821 7.95182 10.1747 7.86533C10.2673 7.77885 10.3235 7.66045 10.3322 7.53406C10.3408 7.40767 10.3012 7.28272 10.2212 7.18445C10.1413 7.08618 10.027 7.02191 9.90149 7.00465L9.8335 6.99998H7.50016V4.66665C7.50016 4.53404 7.44748 4.40686 7.35372 4.31309C7.25995 4.21932 7.13277 4.16665 7.00016 4.16665Z" fill="#3E4B57"/>
+            </svg>
+          </button>
+          <button type="button" class="btn btn--byob-mobile hide-desktop deletetocart-btn large--hide" data-id="{{ product.variants.first.id }}">Remove</button>
+          <a href="{{ product.url }}" class="q btn btn--byob-mobile showmore-btn byobBtn large--hide" data-id="{{ product.handle }}" data-title="{{ product.title }}">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
