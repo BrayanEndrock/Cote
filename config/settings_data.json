@@ -545,7 +545,10 @@
           "coll_gridstream_mode": "grid",
           "coll_gridstream_toggle": false,
           "first-card": "shopify:\/\/shop_images\/infoCard.png",
-          "second-card": "shopify:\/\/shop_images\/second-card.png"
+          "second-card": "shopify:\/\/shop_images\/second-card.png",
+          "promo-banner": true,
+          "summer-sale": "Shop Côte’s Summer Sale",
+          "discount": "Enjoy 25% off sitewide 5\/26 - 6\/5!"
         }
       },
       "cross-page-promos": {
@@ -1143,17 +1146,10 @@
           "coll_gridstream_toggle": false,
           "mobile_link_list": "dynamic-mobile-menu",
           "first-card": "shopify:\/\/shop_images\/infoCard.png",
-          "second-card": "shopify:\/\/shop_images\/second-card.png"
-        }
-      },
-      "16503991697a9473ba": {
-        "type": "home-hero",
-        "settings": {
-          "featured-image": "shopify:\/\/shop_images\/MG_7093_1.png",
-          "title": "Make Waves This Summer!",
-          "subtitle": "Our New Catalina Traveler <br>Set Is Here<br> Beachy, Bold & Ultra Clean",
-          "url": "https:\/\/coteshop.co\/products\/catalina-traveler-nail-polish-set",
-          "label": "Shop Now"
+          "second-card": "shopify:\/\/shop_images\/second-card.png",
+          "promo-banner": true,
+          "summer-sale": "Shop Côte’s Summer Sale",
+          "discount": "Enjoy 25% off sitewide 5\/26 - 6\/5!"
         }
       },
       "collection-template-byob": {
@@ -1173,11 +1169,22 @@
           "coll_gridstream_mode": "grid",
           "coll_gridstream_toggle": true
         }
+      },
+      "165359579207188df3": {
+        "type": "home-hero-v2",
+        "settings": {
+          "hero": "shopify:\/\/shop_images\/Hero.png",
+          "mobile-hero": "shopify:\/\/shop_images\/hero_mob.png",
+          "title": "Shop Côte's Summer Sale!",
+          "subtitle": "<strong>25% OFF<\/strong> sitewide!",
+          "url": "https:\/\/coteshop.co\/collections\/non-toxic-nail-polish",
+          "label": "Shop Now"
+        }
       }
     },
     "content_for_index": [
       "1637775667e2dfb5b7",
-      "16503991697a9473ba",
+      "165359579207188df3",
       "1478795901388",
       "164857500418bf7c91",
       "16401899621631ac50",
