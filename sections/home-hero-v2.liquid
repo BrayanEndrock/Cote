@@ -1,0 +1,153 @@
+<div class="home-feature-hero--template">
+    <div class="home-feature-hero--container">
+        <div class="main-content--wrapper">
+            <h1>{{ section.settings.title }}</h1>
+            <h2>{{ section.settings.subtitle }}</h2>
+            <a href="{{ section.settings.url }}" class="btn btn--hero">{{ section.settings.label }}</a>
+        </div>
+    </div>
+</div>
+
+<style>  
+    .home-feature-hero--template {
+      background-image: url({{ section.settings.hero | img_url: 'master' }}); 
+      background-position: initial; 
+      background-repeat: no-repeat;    
+      background-size: cover;
+      height: 544px;              
+    } 
+    @media (min-width: 481px) and (max-width: 768px) {
+        .home-feature-hero--template {
+            background-image: url({{ section.settings.mobile-hero | img_url: 'master' }});     
+            background-size: cover;
+            background-position: top; 
+            height: 910px;         
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .home-feature-hero--template {
+            background-image: url({{ section.settings.mobile-hero | img_url: 'master' }});     
+            background-size: cover;
+            background-position: top;
+            height: 620px;         
+        }
+    } 
+  </style>
+
+{% schema %}
+    {
+        "name": "Home Hero V2", 
+        "class": "home-feature-hero-v2",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "hero",
+                "label": "Hero"
+            },
+            {
+                "type": "image_picker",
+                "id": "mobile-hero",
+                "label": "Mobile Hero"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Shop Côte's Summer Sale!"
+            },
+            {
+                "type": "text",
+                "id": "subtitle",
+                "label": "Hero Subtitle",
+                "default": "<strong>25% off</strong> sitewide!"    
+            },
+            {
+                "type": "url",
+                "id": "url",
+                "label": "Link"
+            },
+            {
+                "type": "text",
+                "id": "label",
+                "label": "CTA Label",
+                "default": "Shop Now"
+            }
+        ],
+        "presets": [
+            {
+                "category": "Hero",
+                "name":"Home Hero V2"   
+            }     
+        ]
+    }
+{% endschema %}
+
+
+{% stylesheet 'scss' %}
+    .home-feature-hero-v2 {
+        .home-feature-hero--template {
+            @media screen and (max-width: 768px) {
+                align-items: flex-end; 
+                display: flex;
+                justify-content: center;
+            }
+            .home-feature-hero--container {
+                padding: 89px 0 0 129px;
+                @media screen and (max-width: 768px) {
+                    padding: 0 0 56px 0;
+                }
+                .main-content--wrapper {
+                    h1 {
+                        color: #FFFFFF;
+                        font-size: 64px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 85px;
+                        margin: 0;
+                        max-width: 450px;
+                        padding: 0;
+                        @media screen and (max-width: 768px) {
+                            color: #F69B7F;
+                            font-size: 48px;
+                            line-height: 64px;
+                            max-width: 310px;
+                        }
+                    }
+                    h2 {
+                        color: #FFF;
+                        font-family: 'Roboto' !important;
+                        font-size: 32px;
+                        font-style: normal;
+                        line-height: 40px;
+                        margin-bottom: 40px;
+                        margin-top: 30px;
+                        @media screen and (max-width: 768px) {
+                            color: #36414C;
+                            margin-bottom: 34px;
+                            margin-top: 16px;
+                        }
+                    }
+                    .btn--hero {
+                        background: #83A9A8;
+                        color: #FFFFFF;
+                        font-family: "Playfair Display", serif;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 24px;
+                        letter-spacing: 0.05em;
+                        padding: 8px 48px;
+                        text-align: center;
+                        text-transform: uppercase;
+                        &:hover {
+                            background: #fff;
+                            border: 1px solid #83A9A8;
+                            color: #83A9A8;
+                            transition-duration: 0.5s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+{% endstylesheet %}
