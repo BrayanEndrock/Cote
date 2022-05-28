@@ -35,10 +35,7 @@
     assign show_lable_by_tag = section.settings.show_lable_by_tag
     assign product_item_type = section.settings.product_item_type
 -%}
-
-
-{%- paginate collection.products by products_per_page -%}         
-
+{%- paginate collection.products by products_per_page -%}
     <div class="build-your-kit wrapper" id="build-your-kit-sticky">
         <h1 class="byob-title large--hide medium--hide">{{ collection.title | escape }}</h1>
         <img 
@@ -246,21 +243,6 @@
                         {%- endcapture -%}
                     {% endif %}
        
-                    {% if section.settings.coll_show_tags %}
-                        {%- capture filter_html -%}
-                            {%- for tag in collection.all_tags -%}
-                                {%- unless tag contains 'meta-' or custom_tag_arr1 contains tag or custom_tag_arr2 contains tag -%}
-                                    {%- assign show_normal_filter = true -%}
-                                    {%- if current_tags contains tag -%}
-                                        <li class="active" data-tag="{{tag | handleize}}">{{ tag | append: ' <span class="x">&times;</span>' | link_to_remove_tag: tag }}</li>
-                                    {%- else -%}
-                                        <li data-tag="{{tag | handleize}}">{{ tag | link_to_add_tag: tag }}</li>
-                                    {%- endif -%}
-                                {%- endunless -%}
-                            {%- endfor -%}
-                        {%- endcapture -%}
-                    {% endif %}
-       
                     {% if collection.title != "All" %}
                         <div class="filters">
                             {% if section.settings.coll_show_sort %}
@@ -310,8 +292,22 @@
                 }).appendTo('#color_menu');
             </script>
             <!-- END: TOP COLOR FILTER MENU --> 
-            
-            <div class="multi-tag-row">
+            Hola
+            {% if section.settings.coll_show_tags %}
+                {%- capture filter_html -%}
+                    {%- for tag in collection.all_tags -%}
+                        {%- unless tag contains 'meta-' or custom_tag_arr1 contains tag or custom_tag_arr2 contains tag -%}
+                            {%- assign show_normal_filter = true -%}
+                            {%- if current_tags contains tag -%}
+                                <li class="active" data-tag="{{tag | handleize}}">{{ tag | append: ' <span class="x">&times;</span>' | link_to_remove_tag: tag }}</li>
+                            {%- else -%}
+                                <li data-tag="{{tag | handleize}}">{{ tag | link_to_add_tag: tag }}</li>
+                            {%- endif -%}
+                        {%- endunless -%}
+                    {%- endfor -%}
+                {%- endcapture -%}
+            {% endif %}
+            <div class="byob-filters--wrapper">
                 <div class="tags nav-row">
                     <ul>{{ filter_html }}</ul>
                 </div>

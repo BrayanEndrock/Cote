@@ -1,11 +1,9 @@
 {%- comment -%} Styles for Build Your Own Bundle {%- endcomment -%}
 {{ 'byob.scss.css' | asset_url | stylesheet_tag }}
-
 <!-- /sections/collection-template-byob.liquid -->
 <div id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-grid-type="{{ section.settings.collection_products_grid }}">
     {% include 'collection-filter-byob' %}   
-</div>
-   
+</div> 
 {% schema %}
     {
         "name": "Collection pages",
@@ -122,8 +120,7 @@
             }
         ]
     }
-{% endschema %}   
-  
+{% endschema %}
 <script>
     window.addEventListener("load", () => {
         window.onscroll = function() { myFunction() }; 
