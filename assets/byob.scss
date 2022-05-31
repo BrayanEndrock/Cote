@@ -1263,3 +1263,153 @@
     text-align: center !important;
   }
 }
+
+/* BYOB Custom Filters */
+$SHEERS: #f7e1d2;
+$NEUTRALS: #d2b48c;
+$GREYS: #778899;
+$PINKS: #ffc1cc;
+$CORALS: #fa9370;
+$YELLOWS: #ffd464;
+$REDS: #ed1f4c;
+$PURPLES: #c8a2c8;
+$BLUES: #6495ed;
+$GREENS: #adffad;
+$DEEPS: #4c0013;
+$METALLICS: #aa8067;
+$GLITTERS: #c0c0c0;
+$NEONS: #ff3c8b;
+$GOLDS: #b88917;
+$SILVERS: #aaa9ad;
+$MEN: #000;
+$PROTECTIVE_BASE: #e8cbc3;
+$QUICK_DRY: #dcdcdc;
+$SMOOTHING_BASE: #e1e1e1;
+$STRENGTHENING-BASE: #fbe2fb;
+$TREATMENTS: #ddc4c6;
+
+.byob-filters--wrapper {
+  margin-bottom: 50px;
+  .byob-tags {
+    border: none;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    .byob-color--list {
+      margin: 0;
+      display: inline-block;
+      a {
+        text-transform: uppercase;
+        @media (min-width: 767px) {
+          padding: 8px 20px;
+        }
+        &:before {
+          width: 20px;
+          height: 20px;
+          vertical-align: -3px;
+          margin-right: 4px;
+          display: inline-block;
+          content: "";
+          -webkit-mask: url(https://cdn.shopify.com/s/files/1/0447/4049/files/icon-cote.svg?v=1594265702) no-repeat 50% 50%;
+          mask: url(https://cdn.shopify.com/s/files/1/0447/4049/files/icon-cote.svg?v=1594265702) no-repeat 50% 50%;
+          -webkit-mask-size: contain;
+          mask-size: contain;
+          /* IE */
+          @media all and (-ms-high-contrast: none) {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+      li.active {
+        a {
+          align-items: center;
+          color: #f79b7f;
+          display: flex;
+          svg {
+            fill: #f79b7f;
+            height: 20px;
+            margin-left: 5px;
+            width: 20px;
+          }
+        }
+      }
+      li[data-tag="sheers"] a:before {
+        background: $SHEERS;
+      }
+      li[data-tag="neutrals"] a:before {
+        background: $NEUTRALS;
+      }
+      li[data-tag="greys"] a:before {
+        background: $GREYS;
+      }
+      li[data-tag="pinks"] a:before {
+        background: $PINKS;
+      }
+      li[data-tag="corals"] a:before {
+        background: $CORALS;
+      }
+      li[data-tag="yellows"] a:before {
+        background: $YELLOWS;
+      }
+      li[data-tag="reds"] a:before {
+        background: $REDS;
+      }
+      li[data-tag="purples"] a:before {
+        background: $PURPLES;
+      }
+      li[data-tag="blues"] a:before {
+        background: $BLUES;
+      }
+      li[data-tag="greens"] a:before {
+        background: $GREENS;
+      }
+      li[data-tag="deeps"] a:before {
+        background: $DEEPS;
+      }
+      li[data-tag="metallics"] a:before {
+        background: $METALLICS;
+      }
+      li[data-tag="glitters"] a:before {
+        background: $GLITTERS;
+      }
+      li[data-tag="neons"] a:before {
+        background: $NEONS;
+      }
+      li[data-tag="golds"] a:before {
+        background: $GOLDS;
+      }
+      li[data-tag="silvers"] a:before {
+        background: $SILVERS;
+      }
+      li[data-tag="men"] a:before {
+        background: $MEN;
+      }
+      li[data-tag="protective-base"] a:before {
+        background: $PROTECTIVE_BASE;
+      }
+      li[data-tag="quick-dry"] a:before {
+        background: $QUICK_DRY;
+      }
+      li[data-tag="smoothing-base"] a:before {
+        background: $SMOOTHING_BASE;
+      }
+      li[data-tag="strengthening-base"] a:before {
+        background: $STRENGTHENING-BASE;
+      }
+      li[data-tag="treatments"] a:before {
+        background: $TREATMENTS;
+      }
+      li[data-tag="all-polish"], 
+      li[data-tag="back-in-stock"],
+      li[data-tag="best-seller"],
+      li[data-tag="byob"],
+      li[data-tag="nail-polish"],
+      li[data-tag="new-arrivals"],
+      li[data-tag="treatment"],
+      li[data-tag="strengthen"] {
+        display: none;
+      }
+    }
+  }
+}

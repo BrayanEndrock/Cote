@@ -267,7 +267,7 @@
        
             <!-- TOP COLOR FILTER MENU for ALL COLORS -->
             {% assign excluded_tags = "Non Toxic" | split: "," %}    
-            <div class="multi-tag-row">
+            <div class="multi-tag-row hide">
                 <div class="tags nav-row cat-custom-1">
                     <ul id="color_menu">      
                         {%- for coll in collections -%}   
@@ -291,15 +291,14 @@
                     return x < y ? -1 : 1; 
                 }).appendTo('#color_menu');
             </script>
-            <!-- END: TOP COLOR FILTER MENU --> 
-            Hola
+            <!-- END: TOP COLOR FILTER MENU -->
             {% if section.settings.coll_show_tags %}
                 {%- capture filter_html -%}
                     {%- for tag in collection.all_tags -%}
                         {%- unless tag contains 'meta-' or custom_tag_arr1 contains tag or custom_tag_arr2 contains tag -%}
                             {%- assign show_normal_filter = true -%}
                             {%- if current_tags contains tag -%}
-                                <li class="active" data-tag="{{tag | handleize}}">{{ tag | append: ' <span class="x">&times;</span>' | link_to_remove_tag: tag }}</li>
+                                <li class="active" data-tag="{{tag | handleize}}">{{ tag | append: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"/></svg>' | link_to_remove_tag: tag }}</li>
                             {%- else -%}
                                 <li data-tag="{{tag | handleize}}">{{ tag | link_to_add_tag: tag }}</li>
                             {%- endif -%}
@@ -308,11 +307,10 @@
                 {%- endcapture -%}
             {% endif %}
             <div class="byob-filters--wrapper">
-                <div class="tags nav-row">
-                    <ul>{{ filter_html }}</ul>
+                <div class="tags nav-row byob-tags">
+                    <ul class="byob-color--list">{{ filter_html }}</ul>
                 </div>
             </div>
-    
             <div class="byob-wrapper--container">
                 <div class="collection-listing{% if section.settings.coll_gridstream_mode == 'stream' %}-stream{% endif %} cf">
                     <div class="product-list byob-product-list">    
