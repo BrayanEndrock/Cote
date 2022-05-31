@@ -373,7 +373,6 @@
             if (typeBundle == 4) {
                 document.querySelector('.selectorMobile.choose-products').classList.add('active-five');
                 document.querySelector('.byob-dynamic-discount').innerText = '15% Off';
-                document.querySelector('.byob-sticky').style.top = '272px';
                 url_coupon =  "/discount/BYOB4?redirect=/collections/build-your-own-bundle";
                 if (document.querySelector('.selectorMobile.choose-products').classList.contains('active-eight')) {
                     document.querySelector('.selectorMobile.choose-products.active-eight').classList.remove('active-eight');
@@ -381,7 +380,6 @@
             } else {
                 document.querySelector('.selectorMobile.choose-products').classList.add('active-eight');
                 document.querySelector('.byob-dynamic-discount').innerText = '30% Off'; 
-                document.querySelector('.byob-sticky').style.top = '360px';
                 url_coupon = "/discount/BYOB9?redirect=/collections/build-your-own-bundle";
                 if (document.querySelector('.selectorMobile.choose-products').classList.contains('active-five')) {
                     document.querySelector('.selectorMobile.choose-products.active-five').classList.remove('active-five');

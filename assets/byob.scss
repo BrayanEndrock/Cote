@@ -902,7 +902,7 @@
     border-color: #f6f6f6;
     width: 100%;
     position: sticky;
-    top: 0;
+    top: 101px;
     z-index: 5;
     .close-icon {
       position: absolute;
@@ -1429,13 +1429,13 @@ $TREATMENTS: #ddc4c6;
   min-width: 100%;
   position: sticky;
   right: .5px;
-  top: 272px;
+  top: 0px;
   width: 100%;
   z-index: 10;
   margin: 0 0 0 1px !important;
 }
 .byob-mobile-dynamic-components--wrapper {
-  margin: 30px 0 40px 2px !important;
+  margin: 30px 0 40px 2px;
 }
 .byob-mobile-dynamic-filter-wrapper {
   background-color: #fff;
