@@ -179,7 +179,7 @@
     {%- comment -%} Collection Template {%- endcomment -%}   
     <div class="byob-collection-template-grid" data-section-type="collection-template">
         {% paginate collection.products by 10000 %}
-            <div class="container">
+            <div class="container medium-down--hide">  
                 <div class="page-header cf">
                     {% if section.settings.coll_desc_pos == 'below' %}
                         <h1 class="majortitle small--hide">{{ collection.title | escape }}</h1>
@@ -306,7 +306,8 @@
                     {%- endfor -%}
                 {%- endcapture -%}
             {% endif %}
-            <div class="byob-filters--wrapper">
+            {% include 'byob-mobile-dynamic-filter' %}
+            <div class="byob-filters--wrapper medium-down--hide">
                 <div class="tags nav-row byob-tags">
                     <ul class="byob-color--list">{{ filter_html }}</ul>
                 </div>

@@ -1296,8 +1296,10 @@ $TREATMENTS: #ddc4c6;
     margin-left: auto;
     margin-right: auto;
     .byob-color--list {
-      margin: 0;
-      display: inline-block;
+      @media screen and (min-width: 769px) {
+        display: inline-block;
+        margin: 0;
+      }
       a {
         text-transform: uppercase;
         @media (min-width: 767px) {
@@ -1409,6 +1411,101 @@ $TREATMENTS: #ddc4c6;
       li[data-tag="treatment"],
       li[data-tag="strengthen"] {
         display: none;
+      }
+    }
+  }
+}
+.medium-down--hide {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+.medium-up--hide {
+  @media screen and (min-width: 769px) {
+    display: none !important;
+  }
+}
+.byob-sticky {
+  min-width: 100%;
+  position: sticky;
+  right: .5px;
+  top: 278px;
+  width: 100%;
+  z-index: 10;
+  margin: 0 0 0 1px !important;
+}
+.byob-mobile-dynamic-components--wrapper {
+  margin: 30px 0 40px 2px !important;
+}
+.byob-mobile-dynamic-filter-wrapper {
+  background-color: #fff;
+  .byob-filter-by-color-container {
+    border: 1px solid #C7CBCF;
+    box-sizing: border-box;
+    height: 46px;
+    padding: 12px 0;
+    .byob-filter-by-color {
+      color: #36414C;
+      font-family: 'Lato';
+      font-weight: 600;
+      font-size: 14px;
+      font-style: normal;
+      letter-spacing: 0.03em;
+      line-height: 17px;
+      text-align: center;
+      svg {
+        height: 20px;
+        fill: #36414C;
+        vertical-align: sub;
+        width: 20px;
+      }
+    }
+    .byob-color-swatches-container {
+      margin-top: 0;
+      margin-bottom: 0;
+      opacity: 0;
+      .byob-color-swatches-slider {
+        .slick-prev, .slick-next {
+          height: 16px;
+          width: 16px;
+          svg {
+            fill: #36414C;
+            height: 16px;
+            opacity: 1;
+            width: 16px;
+          }
+        }
+        .slick-prev {
+          left: -20px;
+        }
+        li {
+          text-align: center;
+          width: auto !important;
+          margin-right: 15px;
+          a {
+            color: #636B74;
+            font-family: 'Lato';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            line-height: 16px;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            svg {
+              width: 15px;
+              height: 15px;
+            }
+          }
+        }
+        li.active {
+          a {
+            color: #f79b7f;
+          }
+        }
       }
     }
   }
