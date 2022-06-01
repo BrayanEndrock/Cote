@@ -1,0 +1,160 @@
+<section class="home-feature-influencer-program-banner--template">
+    <div class="home-feature-influencer-program-banner--wrapper">
+        <div class="banner--wrapper" id="bannerWrapper">
+            <div class="content--wrapper">
+                <h2>{{ section.settings.title }}</h2>
+                <div class="copy">{{ section.settings.copy }}</div>
+                <a href="{{ section.settings.link }}" class="btn--influencer" target="_blank">{{ section.settings.label }}</a>
+            </div>
+            <div class="image--wrapper">
+                <figure>
+                    <img
+                        class="lazyload"   
+                        src="{{ section.settings.image | img_url: '488x428' }}"
+                        srcset="{{ section.settings.image | img_url: '488x428' }} 1x, {{ section.settings.image | img_url: '976x856', scale: 2 }} 2x" 
+                        alt="{{ section.settings.title }} Featured Image"
+                    >
+                </figure>
+            </div>
+        </div> 
+        <a id="anchorTrigger" href="{{ section.settings.link }}" target="_blank"></a>
+    </div>
+</section>
+
+<script type="text/javascript">
+    const bannerWrapper = document.getElementById('bannerWrapper');
+    let anchor = document.getElementById('anchorTrigger');
+    bannerWrapper.addEventListener('click', event => {
+        anchor.click();
+    });
+</script>
+
+<style>
+    .home-feature-influencer-program-banner {
+        background-color: #EA9F84;
+        padding: 52px 48px 0;
+    }
+    .banner--wrapper {
+        align-items: center;
+        background-color: #F3F3F3;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 65px;
+    }
+    .banner--wrapper .content--wrapper h2 {
+        color: #F69B7F;
+        font-size: 48px;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+        line-height: 64px;
+        margin: 0 0 12px;
+        max-width: 591px;
+        padding: 0;
+    }
+    .banner--wrapper .content--wrapper .copy {
+        margin-bottom: 45px;
+    }
+    .banner--wrapper .content--wrapper .copy p {
+        color: #747474;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+        line-height: 24px;
+        margin: 0;
+        max-width: 510px;
+        padding: 0;
+    }
+    .banner--wrapper .content--wrapper .btn--influencer {
+        background-color: #83A9A8;
+        color: #FFFFFF;
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+        line-height: 20px;
+        padding: 18px 35px;
+        text-transform: uppercase;
+    }
+    .banner--wrapper .content--wrapper .btn--influencer:hover {
+        background-color: #F69B7F;
+        transition-duration: 0.5s;
+    }
+    .banner--wrapper .image--wrapper figure img {
+        display: block;
+        margin: 0 auto;
+    }
+    @media screen and (max-width: 768px) {
+        .home-feature-influencer-program-banner {
+            padding: 16px 16px 0;
+        }
+        .banner--wrapper {
+            flex-direction: column;
+            padding: 0;
+        }
+        .banner--wrapper .content--wrapper {
+          text-align: center;  
+        }
+        .banner--wrapper .content--wrapper h2 {
+            font-size: 28px;
+            line-height: 40px;
+            margin: 0 auto 7px;
+            max-width: 314px;
+        }
+        .banner--wrapper .content--wrapper .copy {
+            margin-bottom: 25px;
+        }
+        .banner--wrapper .content--wrapper .copy p {
+            font-size: 14px;
+            line-height: 24px;
+            max-width: 309px;
+        }
+        .banner--wrapper .content--wrapper .btn--influencer {
+            position: relative;
+        }
+    }
+</style>
+
+{% schema %}
+    {
+        "name":"Home - Influencer",
+        "class":"home-feature-influencer-program-banner",
+        "settings": [
+            {
+                "type": "url",
+                "id": "link",
+                "label": "Link"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Join the Cleaner Safer Beauty Movement!"
+            },
+            {
+                "type": "richtext",
+                "id": "copy",
+                "label": "Main Copy"
+            },
+            {
+                "type": "text",
+                "id": "label",
+                "label": "CTA Label",
+                "default": "Apply Now"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Featured Image"
+            }
+        ],   
+        "presets": [
+            {
+                "name":"Influencer Program",
+                "category": "Home"
+            }
+        ]
+    }
+{% endschema %}
