@@ -1170,13 +1170,13 @@
           "coll_gridstream_toggle": true
         }
       },
-      "165359579207188df3": {
+      "165360806615cbc17b": {
         "type": "home-hero-v2",
         "settings": {
           "hero": "shopify:\/\/shop_images\/Hero.png",
           "mobile-hero": "shopify:\/\/shop_images\/hero_mob.png",
           "title": "Shop Côte's Summer Sale!",
-          "subtitle": "<strong>25% OFF<\/strong> sitewide!",
+          "subtitle": "<strong>25% off<\/strong> sitewide!",
           "url": "https:\/\/coteshop.co\/collections\/non-toxic-nail-polish",
           "label": "Shop Now"
         }
@@ -1184,7 +1184,7 @@
     },
     "content_for_index": [
       "1637775667e2dfb5b7",
-      "165359579207188df3",
+      "165360806615cbc17b",
       "1478795901388",
       "164857500418bf7c91",
       "16401899621631ac50",
