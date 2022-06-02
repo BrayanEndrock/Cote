@@ -1180,6 +1180,16 @@
           "url": "https:\/\/coteshop.co\/collections\/non-toxic-nail-polish",
           "label": "Shop Now"
         }
+      },
+      "165409402538a5ae55": {
+        "type": "home-feature-influencer-program-banner",
+        "settings": {
+          "link": "https:\/\/community.aspireiq.com\/onboarding_form\/Brand%20Ambassdor?clientId=Lz6aSDsi9k3lI0j1VDBhk6HaX2SL9VV6",
+          "title": "Join the Cleaner Safer Beauty Movement!",
+          "copy": "<p>As a Côte Ambassador, you will earn 10% cash commission on every new customer order, gain early access to new product launches, receive product discounts and more!<br\/><br\/>If Cleaner Safer Beauty is your way of life, <strong>apply now<\/strong>!<\/p>",
+          "label": "Apply Now",
+          "image": "shopify:\/\/shop_images\/influencer-banner.png"
+        }
       }
     },
     "content_for_index": [
@@ -1196,6 +1206,7 @@
       "1569286208490",
       "1535418865798",
       "1554133674054",
+      "165409402538a5ae55",
       "16419166950eab2145",
       "1535431770220",
       "1589226160863",
