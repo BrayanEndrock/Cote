@@ -544,6 +544,7 @@
           "coll_num_per_page_int": 40,
           "coll_gridstream_mode": "grid",
           "coll_gridstream_toggle": false,
+          "mobile_link_list": "dynamic-mobile-menu",
           "first-card": "shopify:\/\/shop_images\/infoCard.png",
           "second-card": "shopify:\/\/shop_images\/second-card.png",
           "promo-banner": true,
