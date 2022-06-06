@@ -546,7 +546,7 @@
           "coll_gridstream_toggle": false,
           "first-card": "shopify:\/\/shop_images\/infoCard.png",
           "second-card": "shopify:\/\/shop_images\/second-card.png",
-          "promo-banner": true,
+          "promo-banner": false,
           "summer-sale": "Shop Côte’s Summer Sale",
           "discount": "Enjoy 25% off sitewide 5\/26 - 6\/5!"
         }
@@ -798,8 +798,8 @@
       "1535421423900": {
         "type": "featured-collection",
         "settings": {
-          "title": "Spring '22 Collection",
-          "collection": "spring-collection",
+          "title": "Summer '22 Collection",
+          "collection": "summer-22-collection",
           "use_carousel": true,
           "background_color": "#83a9a8"
         }
@@ -1147,7 +1147,7 @@
           "mobile_link_list": "dynamic-mobile-menu",
           "first-card": "shopify:\/\/shop_images\/infoCard.png",
           "second-card": "shopify:\/\/shop_images\/second-card.png",
-          "promo-banner": true,
+          "promo-banner": false,
           "summer-sale": "Shop Côte’s Summer Sale",
           "discount": "Enjoy 25% off sitewide 5\/26 - 6\/5!"
         }
@@ -1170,21 +1170,20 @@
           "coll_gridstream_toggle": true
         }
       },
-      "165360806615cbc17b": {
-        "type": "home-hero-v2",
+      "1654537835cebaf6fd": {
+        "type": "home-hero",
         "settings": {
-          "hero": "shopify:\/\/shop_images\/Hero.png",
-          "mobile-hero": "shopify:\/\/shop_images\/hero_mob.png",
-          "title": "Shop Côte's Summer Sale!",
-          "subtitle": "<strong>25% off<\/strong> sitewide!",
-          "url": "https:\/\/coteshop.co\/collections\/non-toxic-nail-polish",
+          "featured-image": "shopify:\/\/shop_images\/MG_7093_1.png",
+          "title": "Make Waves This Summer!",
+          "subtitle": "Our New Catalina Traveler Set Is Here Beachy, Bold & Ultra Clean",
+          "url": "https:\/\/coteshop.co\/products\/catalina-traveler-nail-polish-set",
           "label": "Shop Now"
         }
       }
     },
     "content_for_index": [
       "1637775667e2dfb5b7",
-      "165360806615cbc17b",
+      "1654537835cebaf6fd",
       "1478795901388",
       "164857500418bf7c91",
       "16401899621631ac50",
