@@ -27,38 +27,67 @@
             infinite: true  
         });
         $('.byob-filter-by-color').click(function() {
-            $('.byob-filter-by-color-container').css('height', '101px');
-            $('.byob-color-swatches-container').css('opacity', '1');
-        });
-        $(window).bind('scroll', function() {
-            if ($(window).scrollTop() > 10) {
-                $('.byob-mobile-dynamic-components--wrapper').addClass('byob-sticky');
-                $('.byob-filter-by-color-container').css('height', '101px');
-                $('.byob-color-swatches-container').css('opacity', '1');
-            } else {
-                $('.byob-mobile-dynamic-components--wrapper').removeClass('byob-sticky');
+            if ($('.byob-filter-by-color-container').css('height') != '46px') {
+                $('.byob-filter-by-color-container').removeClass('active');
                 $('.byob-filter-by-color-container').css('height', '46px');
                 $('.byob-color-swatches-container').css('opacity', '0');
+            } else {
+                $('.byob-filter-by-color-container').addClass('active');
+                $('.byob-filter-by-color-container').css('height', '101px');
+                $('.byob-color-swatches-container').css('opacity', '1');
             }
         });
         let lastScroll = $(window).scrollTop();
-        $(window).scroll(function() {
+        
+        const byobFilterByColorContainer = document.querySelector('.byob-filter-by-color-container');
+        let byobFilterByColorContainerOffsetTop = byobFilterByColorContainer.offsetTop;
+        $(window).resize(function() {
+            byobFilterByColorContainerOffsetTop = byobFilterByColorContainer.offsetTop;
+        });
+        function styckyMobileDynamicComponents() {
             const currentScroll = $(window).scrollTop(); 
-            if (currentScroll > lastScroll) {
-                // scroll down
-                $('.byob-mobile-link-list--wrapper').css('display', 'none');
-                $('.byob-filter-by-color-container').css('height', '101px');
-                $('.byob-color-swatches-container').css('opacity', '1');
-                $('.build-your-kit.wrapper').css('top', '100px');
+            if ($( document ).width() < 769) {
+                if (currentScroll > lastScroll) {
+                    // scroll down
+                    $('.byob-mobile-link-list--wrapper').css('display', 'none'),
+                    $('.byob-filter-by-color-container').css('height', '101px'),
+                    $('.byob-color-swatches-container').css('opacity', '1'),
+                    $('.build-your-kit.wrapper').css('top', '100px');
+                } else {
+                    // scroll up
+                    $('.byob-mobile-link-list--wrapper').css('display', 'block'),
+                    $('.byob-filter-by-color-container').css('height', '46px'),
+                    $('.byob-color-swatches-container').css('opacity', '0'),
+                    $('.build-your-kit.wrapper').css('top', '45px');
+                }
+
+                if ($(window).scrollTop() > 10) {
+                    $('.byob-mobile-dynamic-components--wrapper').addClass('byob-sticky');
+                } else {
+                    $('.byob-mobile-dynamic-components--wrapper').removeClass('byob-sticky');
+                }
+                
+                if (window.pageYOffset > byobFilterByColorContainerOffsetTop) {
+                    $('.byob-mobile-dynamic-components--wrapper').css('z-index', '55'),
+                    $('.build-your-kit.wrapper').css('position', 'sticky'),
+                    $('.build-your-kit.wrapper').css('animation-name', 'animation-down'),
+                    $('.build-your-kit.wrapper').css('animation-duration', '.2s');
+                } else {
+                    $('.build-your-kit.wrapper').css('position', 'static'),
+                    $('.build-your-kit.wrapper').css('animation-name', ''),
+                    $('.build-your-kit.wrapper').css('animation-duration', '');
+                }
             } else {
-                // scroll up
-                $('.byob-mobile-link-list--wrapper').css('display', 'block');
-                $('.byob-filter-by-color-container').css('height', '46px');
-                $('.byob-color-swatches-container').css('opacity', '0');
-                $('.build-your-kit.wrapper').css('top', '45px');
+                $('.build-your-kit.wrapper').css('top', ''),
+                $('.build-your-kit.wrapper').css('position', 'sticky');
             }
             // scroll update
             lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+        }
+
+        $(window).scroll(function() {
+            styckyMobileDynamicComponents();
         });
+        styckyMobileDynamicComponents();
     });
 </script>

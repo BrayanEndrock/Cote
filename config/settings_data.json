@@ -772,7 +772,8 @@
           "e449c8c1-9477-4585-bbd0-8c93fa47420d",
           "011e271a-2004-4ac6-a391-18c2106d8626"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "1535418692457": {
         "type": "text-image-overlay",
@@ -909,7 +910,8 @@
       },
       "go-cart": {
         "type": "go-cart",
-        "settings": {}
+        "settings": {
+        }
       },
       "1637775667e2dfb5b7": {
         "type": "best-sellers",

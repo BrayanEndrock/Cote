@@ -904,6 +904,7 @@
     position: sticky;
     top: 101px;
     z-index: 5;
+    transition: all .3s;
     .close-icon {
       position: absolute;
       right: 20px;
@@ -1433,9 +1434,16 @@ $TREATMENTS: #ddc4c6;
   width: 100%;
   z-index: 10;
   margin: 0 0 0 1px !important;
+  margin: 0 !important;
 }
 .byob-mobile-dynamic-components--wrapper {
   margin: 30px 0 40px 2px;
+}
+
+/* The animation code */
+@keyframes animation-down {
+  from { top: -100%; }
+  to { top: 0px; }
 }
 .byob-mobile-dynamic-filter-wrapper {
   background-color: #fff;
@@ -1444,6 +1452,8 @@ $TREATMENTS: #ddc4c6;
     box-sizing: border-box;
     height: 46px;
     padding: 12px 0;
+    transition: all .3s;
+    overflow: hidden;
     .byob-filter-by-color {
       color: #36414C;
       font-family: 'Lato';
