@@ -37,55 +37,109 @@
                 $('.byob-color-swatches-container').css('opacity', '1');
             }
         });
-        let lastScroll = $(window).scrollTop();
-        
+        let lastScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        function getOffset( el ) {
+            var _x = 0,
+            _y = 0;
+            while( el && el.tagName.toLowerCase() != 'body' && !isNaN( el.offsetLeft ) && !isNaN(el.offsetTop ) ) {
+                _x += el.offsetLeft - el.scrollLeft;
+                _y += el.offsetTop - el.scrollTop;
+                el = el.offsetParent;
+            }
+            return { top: _y, left: _x };
+        }   
         const byobFilterByColorContainer = document.querySelector('.byob-filter-by-color-container');
-        let byobFilterByColorContainerOffsetTop = byobFilterByColorContainer.offsetTop;
-        $(window).resize(function() {
-            byobFilterByColorContainerOffsetTop = byobFilterByColorContainer.offsetTop;
-        });
+        let byobFilterByColorContainerOffsetTop = getOffset(byobFilterByColorContainer).top;
+        window.addEventListener('resize', function(event) {
+            byobFilterByColorContainerOffsetTop = getOffset(document.querySelector('.byob-filter-by-color-container')).top;
+            //console.log('byobFilterByColorContainerOffsetTop',byobFilterByColorContainerOffsetTop);
+        }, true);
         function styckyMobileDynamicComponents() {
-            const currentScroll = $(window).scrollTop(); 
-            if ($( document ).width() < 769) {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            let buildYourKitWrapper = document.querySelector('.build-your-kit.wrapper');
+            //console.log('currentScroll',currentScroll,'lastScroll',lastScroll,'byobFilterByColorContainerOffsetTop',byobFilterByColorContainerOffsetTop);
+            if (window.innerWidth < 769) {
+                let byobMobileLinkListWrapper = document.querySelector('.byob-mobile-link-list--wrapper'),
+                    byobMobileDynamicComponentsWrapper = document.querySelector('.byob-mobile-dynamic-components--wrapper'),
+                    byobColorSwatchesContainer = document.querySelector('.byob-color-swatches-container');
                 if (currentScroll > lastScroll) {
-                    // scroll down
-                    $('.byob-mobile-link-list--wrapper').css('display', 'none'),
-                    $('.byob-filter-by-color-container').css('height', '101px'),
-                    $('.byob-color-swatches-container').css('opacity', '1'),
-                    $('.build-your-kit.wrapper').css('top', '100px');
+                    //console.log('scroll down');
+                    if (byobMobileLinkListWrapper) {
+                        byobMobileLinkListWrapper.style.display = 'none';
+                    }
+                    if (byobFilterByColorContainer) {
+                        byobFilterByColorContainer.style.height = '101px';
+                    }
+                    if (byobColorSwatchesContainer) {
+                        byobColorSwatchesContainer.style.opacity = '1';
+                    }
+                    if (buildYourKitWrapper) {
+                        buildYourKitWrapper.style.top = '100px';
+                    }
+
+                    if (currentScroll > byobFilterByColorContainerOffsetTop) {
+                        if (byobMobileDynamicComponentsWrapper) {
+                            byobMobileDynamicComponentsWrapper.style.zIndex = '55';
+                        }
+                        if (buildYourKitWrapper) {
+                            buildYourKitWrapper.style.position = 'sticky';
+                            buildYourKitWrapper.style.animationName = 'animation-down';
+                            buildYourKitWrapper.style.animationDuration = '.2s';
+                        }
+                    }
                 } else {
-                    // scroll up
-                    $('.byob-mobile-link-list--wrapper').css('display', 'block'),
-                    $('.byob-filter-by-color-container').css('height', '46px'),
-                    $('.byob-color-swatches-container').css('opacity', '0'),
-                    $('.build-your-kit.wrapper').css('top', '45px');
+                    //console.log('scroll up');
+                    if (byobMobileLinkListWrapper) {
+                        byobMobileLinkListWrapper.style.display = 'block';
+                    }
+                    if (byobFilterByColorContainer && byobFilterByColorContainer.classList.contains('active') == false) {
+                        byobFilterByColorContainer.style.height = '46px';
+                    }
+                    if (byobFilterByColorContainer && byobFilterByColorContainer.classList.contains('active') == false && byobColorSwatchesContainer) {
+                        byobColorSwatchesContainer.style.opacity = '0';
+                    }
+                    if (byobFilterByColorContainer && byobFilterByColorContainer.classList.contains('active') == false && buildYourKitWrapper) {
+                        buildYourKitWrapper.style.top = '45px';
+                    }
+
+                    if (currentScroll <= byobFilterByColorContainerOffsetTop + 30 && currentScroll >= byobFilterByColorContainerOffsetTop) {
+                        if (byobMobileDynamicComponentsWrapper) {
+                            byobMobileDynamicComponentsWrapper.style.zIndex = '55';
+                        }
+                        if (buildYourKitWrapper) {
+                            buildYourKitWrapper.style.position = 'sticky';
+                            buildYourKitWrapper.style.animationName = 'animation-up';
+                            buildYourKitWrapper.style.animationDuration = '.2s';
+                        }
+                    } else if (currentScroll < byobFilterByColorContainerOffsetTop) {
+                        if (buildYourKitWrapper) {
+                            buildYourKitWrapper.style.position = 'static';
+                            buildYourKitWrapper.style.animationName = '';
+                            buildYourKitWrapper.style.animationDuration = '';
+                        }
+                    }
                 }
 
-                if ($(window).scrollTop() > 10) {
-                    $('.byob-mobile-dynamic-components--wrapper').addClass('byob-sticky');
+                if (currentScroll > 10) {
+                    if (byobMobileDynamicComponentsWrapper) {
+                        byobMobileDynamicComponentsWrapper.classList.add('byob-sticky');
+                    }
                 } else {
-                    $('.byob-mobile-dynamic-components--wrapper').removeClass('byob-sticky');
-                }
-                
-                if (window.pageYOffset > byobFilterByColorContainerOffsetTop) {
-                    $('.byob-mobile-dynamic-components--wrapper').css('z-index', '55'),
-                    $('.build-your-kit.wrapper').css('position', 'sticky'),
-                    $('.build-your-kit.wrapper').css('animation-name', 'animation-down'),
-                    $('.build-your-kit.wrapper').css('animation-duration', '.2s');
-                } else {
-                    $('.build-your-kit.wrapper').css('position', 'static'),
-                    $('.build-your-kit.wrapper').css('animation-name', ''),
-                    $('.build-your-kit.wrapper').css('animation-duration', '');
+                    if (byobMobileDynamicComponentsWrapper) {
+                        byobMobileDynamicComponentsWrapper.classList.remove('byob-sticky');
+                    }
                 }
             } else {
-                $('.build-your-kit.wrapper').css('top', ''),
-                $('.build-your-kit.wrapper').css('position', 'sticky');
+                if (buildYourKitWrapper) {
+                    buildYourKitWrapper.style.top = '';
+                    buildYourKitWrapper.style.position = 'sticky';
+                }
             }
             // scroll update
             lastScroll = currentScroll <= 0 ? 0 : currentScroll;
         }
 
-        $(window).scroll(function() {
+        document.addEventListener('scroll', function(e) {
             styckyMobileDynamicComponents();
         });
         styckyMobileDynamicComponents();

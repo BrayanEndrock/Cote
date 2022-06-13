@@ -661,8 +661,8 @@
         });
 
         function configProductAfterClick(variantId, minus = false){
-
-            let productsSelectorInput = document.querySelector(`.grid-product input[name='updates--${variantId}']`);
+            
+            let productsSelectorInput = document.querySelector(`.grid-product input[name='updates--${variantId}']`);console.log('productsSelectorInput',productsSelectorInput);
             let gridProduct = document.querySelector(`.grid-product[data-first-variant-id="${variantId}"]`);
             let count = productsSelectorInput.getAttribute('data-count-onetime');
             if (minus) {
@@ -770,9 +770,10 @@
 
             console.log(`type bundle ${typeBundle}`);
 
-            let variantId = e.target.getAttribute('data-id'),
-                productPrice = e.target.getAttribute('data-price'),
-                imageProduct = e.target.getAttribute('data-image-render'),
+            let target = e.currentTarget,
+                variantId = target.getAttribute('data-id'),
+                productPrice = target.getAttribute('data-price'),
+                imageProduct = target.getAttribute('data-image-render'),
                 myNodeList = document.querySelectorAll('.choose-products .contain-item-bundle'),
                 productsSelector = document.querySelectorAll('.grid-product');
 
@@ -828,11 +829,12 @@
 
             // console.log(typeBundle);
 
-            let variantId = e.target.getAttribute('data-id');
-            let productPrice = e.target.getAttribute('data-price');
-            let imageProduct = e.target.getAttribute('data-image-render');
-            let myNodeList = document.querySelectorAll('.choose-products .contain-item-bundle');
-            let productsSelector = document.querySelectorAll('.grid-product');
+            let target = e.currentTarget,
+                variantId = target.getAttribute('data-id'),
+                productPrice = target.getAttribute('data-price'),
+                imageProduct = target.getAttribute('data-image-render'),
+                myNodeList = document.querySelectorAll('.choose-products .contain-item-bundle'),
+                productsSelector = document.querySelectorAll('.grid-product');
 
 
 
