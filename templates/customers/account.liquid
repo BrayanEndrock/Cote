@@ -6,6 +6,14 @@
 <div id="customer_sidebar">
   <div id="customer_detail" class="group">
     <h5 class="name">{{ customer.name }}</h5>
+<!-- Begin ReCharge code -->
+<p id="rc_link_container">
+    <a href="/tools/recurring/login">Manage Subscriptions</a>
+</p>
+<!-- End ReCharge code -->
+
+
+
     <p class="email note">{{ customer.email }}</p>
     <div class="address note">
       {% if customer.default_address != nil %}
