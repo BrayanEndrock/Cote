@@ -175,13 +175,14 @@
     grid-template-rows: 18px 48px 18px;
     justify-content: center;
     align-items: center;
+    justify-items: center;
     column-gap: 8px;
     text-align: center;
     row-gap: 8px;
     width: inherit;
     @media screen and (max-width: 768px) {
       column-gap: 45px;
-      grid-template-rows: 18px 48px 13px;
+      /*grid-template-rows: 18px 48px 13px;*/
       /*justify-content: end;*/
     }
     .five-option {
@@ -910,6 +911,9 @@
       right: 20px;
       top: 10px;
     }
+    h1 {
+      margin-bottom: 15px;
+    }
     h2 {
       font-size: 18px !important;
       margin: 19px auto;
@@ -919,8 +923,11 @@
       text-transform: capitalize;
     }
     .choose-quantity {
-      grid-template-columns: 76px 76px 76px 76px !important;
+      /*grid-template-columns: 76px 76px 76px 76px !important;*/
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: inherit;
       row-gap: 0;
+      margin-bottom: 10px;
       .quantity-option {
         border-radius: 48px !important;
         height: 34px !important;
@@ -1434,11 +1441,10 @@ $TREATMENTS: #ddc4c6;
   top: 0px;
   width: 100%;
   z-index: 10;
-  margin: 0 0 0 1px !important;
-  margin: 0 !important;
+  margin: 0 0 40px !important;
 }
 .byob-mobile-dynamic-components--wrapper {
-  margin: 30px 0 40px 2px;
+  margin: 0 0 40px 2px;
 }
 
 /* The animation code */
