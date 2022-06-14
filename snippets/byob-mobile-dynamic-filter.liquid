@@ -52,21 +52,17 @@
     }   
     const byobFilterByColorContainer = document.querySelector('.byob-filter-by-color-container');
     let byobFilterByColorContainerOffsetTop = getOffset(byobFilterByColorContainer).top;
-    window.addEventListener('resize', function(event) {
-        byobFilterByColorContainerOffsetTop = getOffset(document.querySelector('.byob-filter-by-color-container')).top;
-        //console.log('byobFilterByColorContainerOffsetTop',byobFilterByColorContainerOffsetTop);
-    }, true);
     function styckyMobileDynamicComponents() {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
         let buildYourKitWrapper = document.querySelector('.build-your-kit.wrapper');
-        //console.log('currentScroll',currentScroll,'lastScroll',lastScroll,'byobFilterByColorContainerOffsetTop',byobFilterByColorContainerOffsetTop);
+        console.log('currentScroll',currentScroll,'lastScroll',lastScroll,'byobFilterByColorContainerOffsetTop',byobFilterByColorContainerOffsetTop);
         if (window.innerWidth < 769) {
             let byobMobileLinkListWrapper = document.querySelector('.byob-mobile-link-list--wrapper'),
                 byobMobileDynamicComponentsWrapper = document.querySelector('.byob-mobile-dynamic-components--wrapper'),
                 byobColorSwatchesContainer = document.querySelector('.byob-color-swatches-container');
             if (currentScroll < lastScroll) {
-                //console.log('scroll up');
-                //console.log('currentScroll',currentScroll,'lastScrollUp - 40',lastScrollUp - 50);
+                console.log('scroll up');
+                console.log('currentScroll',currentScroll,'lastScrollUp - 40',lastScrollUp - 50);
                 if (currentScroll <= lastScrollUp - 50) {
                     if (byobMobileLinkListWrapper) {
                         byobMobileLinkListWrapper.style.display = 'none';
@@ -83,23 +79,45 @@
                             buildYourKitWrapper.querySelector('h1').style.display = 'none';
                         }
                     }
+
+                    if (currentScroll > byobFilterByColorContainerOffsetTop) {
+                        console.log('sticky');
+                        if (byobMobileDynamicComponentsWrapper) {
+                            byobMobileDynamicComponentsWrapper.style.zIndex = '55';
+                        }
+                        if (buildYourKitWrapper) {
+                            buildYourKitWrapper.style.transition = '';
+                            buildYourKitWrapper.style.transform = '';
+
+                            buildYourKitWrapper.style.position = 'sticky';
+                            buildYourKitWrapper.style.animationName = 'animation-down';
+                            buildYourKitWrapper.style.animationDuration = '.2s';
+                        }
+                    }
+
                     lastScrollUp = currentScroll;
                     lastScrollDown = currentScroll;
                 }
 
                 if (currentScroll <= byobFilterByColorContainerOffsetTop + 30 && currentScroll >= byobFilterByColorContainerOffsetTop) {
-                    //console.log('sticky');
+                    console.log('sticky');
                     if (byobMobileDynamicComponentsWrapper) {
                         byobMobileDynamicComponentsWrapper.style.zIndex = '55';
                     }
                     if (buildYourKitWrapper) {
+                        buildYourKitWrapper.style.transition = '';
+                        buildYourKitWrapper.style.transform = '';
+
                         buildYourKitWrapper.style.position = 'sticky';
                         buildYourKitWrapper.style.animationName = 'animation-up';
                         buildYourKitWrapper.style.animationDuration = '.2s';
                     }
                 } else if (currentScroll < byobFilterByColorContainerOffsetTop) {
-                    //console.log('static');
+                    console.log('static');
                     if (buildYourKitWrapper) {
+                        buildYourKitWrapper.style.transition = '';
+                        buildYourKitWrapper.style.transform = '';
+
                         buildYourKitWrapper.style.position = 'static';
                         buildYourKitWrapper.style.animationName = '';
                         buildYourKitWrapper.style.animationDuration = '';
@@ -118,8 +136,8 @@
                     }
                 }
             } else {
-                //console.log('scroll down');
-                //console.log('currentScroll',currentScroll,'lastScrollDown + 40',lastScrollDown + 50);
+                console.log('scroll down');
+                console.log('currentScroll',currentScroll,'lastScrollDown + 40',lastScrollDown + 50);
                 if (currentScroll >= lastScrollDown + 50) {
                     if (byobMobileLinkListWrapper) {
                         byobMobileLinkListWrapper.style.display = 'block';
@@ -138,23 +156,28 @@
                             buildYourKitWrapper.querySelector('h1').style.display = '';
                         }
                     }
+
+                    if (currentScroll > byobFilterByColorContainerOffsetTop) {
+                        console.log('sticky');
+                        if (byobMobileDynamicComponentsWrapper) {
+                            byobMobileDynamicComponentsWrapper.style.zIndex = '55';
+                        }
+                        if (buildYourKitWrapper) {
+                            buildYourKitWrapper.style.position = 'sticky';
+                            buildYourKitWrapper.style.transition = 'all 0.2s ease';
+                            buildYourKitWrapper.style.transform = 'translateY(-100%)';
+                        }
+                    }
                     lastScrollUp = currentScroll;
                     lastScrollDown = currentScroll;
                 }
 
-                if (currentScroll > byobFilterByColorContainerOffsetTop) {
-                    //console.log('sticky');
-                    if (byobMobileDynamicComponentsWrapper) {
-                        byobMobileDynamicComponentsWrapper.style.zIndex = '55';
-                    }
+                if (currentScroll < byobFilterByColorContainerOffsetTop) {
+                    console.log('static');
                     if (buildYourKitWrapper) {
-                        buildYourKitWrapper.style.position = 'sticky';
-                        buildYourKitWrapper.style.animationName = 'animation-down';
-                        buildYourKitWrapper.style.animationDuration = '.2s';
-                    }
-                } else if (currentScroll < byobFilterByColorContainerOffsetTop) {
-                    //console.log('static');
-                    if (buildYourKitWrapper) {
+                        buildYourKitWrapper.style.transition = '';
+                        buildYourKitWrapper.style.transform = '';
+
                         buildYourKitWrapper.style.position = 'static';
                         buildYourKitWrapper.style.animationName = '';
                         buildYourKitWrapper.style.animationDuration = '';
@@ -177,7 +200,11 @@
         } else {
             if (buildYourKitWrapper) {
                 buildYourKitWrapper.style.top = '';
-                buildYourKitWrapper.style.position = 'sticky';
+                buildYourKitWrapper.style.transition = '';
+                buildYourKitWrapper.style.transform = '';
+                buildYourKitWrapper.style.position = '';
+                buildYourKitWrapper.style.animationName = '';
+                buildYourKitWrapper.style.animationDuration = '';
             }
         }
         // scroll update
@@ -187,6 +214,11 @@
     document.addEventListener('scroll', function(e) {
         styckyMobileDynamicComponents();
     });
+    window.addEventListener('resize', function(event) {
+        byobFilterByColorContainerOffsetTop = getOffset(document.querySelector('.byob-filter-by-color-container')).top;
+        //console.log('byobFilterByColorContainerOffsetTop',byobFilterByColorContainerOffsetTop);
+        styckyMobileDynamicComponents();
+    }, true);
     styckyMobileDynamicComponents();
     
     $(document).ready(function() {
