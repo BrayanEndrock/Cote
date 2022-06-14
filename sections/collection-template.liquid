@@ -1,4 +1,4 @@
-<div data-section-type="collection-template">
+<div data-section-type="collection-template" id="collection--{{ collection.handle }}">
  {% paginate collection.products by 10000 %}
  {{ 'promo-banner-plp.css' | asset_url | stylesheet_tag }}
   <div class="{% unless section.settings.promo-banner %}hide{% endunless %} promo-banner--wrapper">
@@ -8,6 +8,95 @@
     </div>
   </div>  
   <div class="container">
+    {% unless collection.handle == 'nail-tools-treatments' or collection.handle == 'nail-polish-gift-set' %}
+      <div class="mobile-dynamic-components--wrapper medium-up--hide">
+        <div class="mobile-link-list--wrapper">
+          {%- assign linklist = linklists[section.settings.mobile_link_list] -%}
+          <ul class="linklist">
+            {%- for link in linklist.links -%}
+              <li class="linklist">
+                <a href="{{ link.url }}">{{ link.title | escape }}</a>
+              </li> 
+            {%- endfor -%}
+          </ul>
+        </div>
+        {%- comment -%} Dynamic mobile filter {%- endcomment -%}
+        <div class="mobile-dynamic-filter-wrapper">
+          <div class="filter-by-color-container">
+            <div class="filter-by-color">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.47814 13.125C7.47814 12.9592 7.5438 12.8003 7.66067 12.6831C7.77754 12.5658 7.93605 12.5 8.10132 12.5H11.8404C12.0057 12.5 12.1642 12.5658 12.2811 12.6831C12.3979 12.8003 12.4636 12.9592 12.4636 13.125C12.4636 13.2908 12.3979 13.4497 12.2811 13.5669C12.1642 13.6842 12.0057 13.75 11.8404 13.75H8.10132C7.93605 13.75 7.77754 13.6842 7.66067 13.5669C7.5438 13.4497 7.47814 13.2908 7.47814 13.125ZM4.98541 9.375C4.98541 9.20924 5.05106 9.05027 5.16793 8.93306C5.2848 8.81585 5.44331 8.75 5.60859 8.75H14.3332C14.4984 8.75 14.6569 8.81585 14.7738 8.93306C14.8907 9.05027 14.9563 9.20924 14.9563 9.375C14.9563 9.54076 14.8907 9.69973 14.7738 9.81694C14.6569 9.93415 14.4984 10 14.3332 10H5.60859C5.44331 10 5.2848 9.93415 5.16793 9.81694C5.05106 9.69973 4.98541 9.54076 4.98541 9.375ZM2.49268 5.625C2.49268 5.45924 2.55833 5.30027 2.6752 5.18306C2.79207 5.06585 2.95058 5 3.11586 5H16.8259C16.9912 5 17.1497 5.06585 17.2665 5.18306C17.3834 5.30027 17.4491 5.45924 17.4491 5.625C17.4491 5.79076 17.3834 5.94973 17.2665 6.06694C17.1497 6.18415 16.9912 6.25 16.8259 6.25H3.11586C2.95058 6.25 2.79207 6.18415 2.6752 6.06694C2.55833 5.94973 2.49268 5.79076 2.49268 5.625Z" fill="#36414C"/>
+              </svg>
+              Filter By Color
+            </div>
+            <div class="multi-tag-row color-swatches-container">
+              <div class="tags cat-custom-1">
+                <ul class="color-swatches-slider" id="mobile-color_menu"> 
+                  <li data-tag="sheers" class="swatch-item">
+                    <a href="/collections/sheer-nail-polish">Sheers</a>
+                  </li>
+                  <li data-tag="neutrals" class="swatch-item">
+                    <a href="/collections/neutral-nail-polish">Neutrals</a>
+                  </li>
+                  <li data-tag="greys" class="swatch-item">
+                    <a href="/collections/grey-nail-polish">Greys</a>
+                  </li>
+                  <li data-tag="pinks" class="swatch-item">
+                    <a href="/collections/pink-nail-polish">Pinks</a>
+                  </li> 
+                  <li data-tag="corals" class="swatch-item">
+                    <a href="/collections/coral-nail-polish">Corals</a>
+                  </li> 
+                  <li data-tag="yellows" class="swatch-item">
+                    <a href="/collections/yellow-nail-polish">Yellows</a>
+                  </li>
+                  <li data-tag="reds" class="swatch-item">
+                    <a href="/collections/red-nail-polish">Reds</a>
+                  </li> 
+                  <li data-tag="purples" class="swatch-item">
+                    <a href="/collections/purple-nail-polish">Purples</a>
+                  </li>  
+                  <li data-tag="blues" class="swatch-item">
+                    <a href="/collections/blue-nail-polish">Blues</a>
+                  </li>  
+                  <li data-tag="greens" class="swatch-item">
+                    <a href="/collections/green-nail-polish">Greens</a>
+                  </li> 
+                  <li data-tag="deeps" class="swatch-item">
+                    <a href="/collections/deep-nail-polish">Deeps</a>
+                  </li>  
+                  <li data-tag="metallics" class="swatch-item">
+                    <a href="/collections/metallic-nail-polish">Metallics</a>
+                  </li> 
+                  <li data-tag="glitters" class="swatch-item">
+                    <a href="/collections/glitter-nail-polish">Glitters</a>
+                  </li> 
+                  <li data-tag="neons" class="swatch-item">
+                    <a href="/collections/neon-nail-polish">Neons</a>
+                  </li>
+                  <li data-tag="golds" class="swatch-item">
+                    <a href="/collections/gold-nail-polish">Golds</a>
+                  </li>
+                  <li data-tag="silvers" class="swatch-item">
+                    <a href="/collections/silver-nail-polish">Silvers</a>
+                  </li>         
+                </ul>
+              </div>
+            </div>
+            <script>
+              jQuery('#mobile-color_menu li')
+                .sort(function(a, b) { 
+                  var x = parseInt(a.getAttribute('data-order'));
+                  var y = parseInt(b.getAttribute('data-order'));
+                  return x < y ? -1 : 1; 
+              })
+              .appendTo('#mobile-color_menu');
+            </script>
+          </div>
+        </div>
+        {%- comment -%} END: Dynamic mobile filter {%- endcomment -%}
+      </div>
+    {% endunless %}
     <div class="page-header cf">
       {% if section.settings.coll_desc_pos == 'below' %}
         <h1 class="majortitle">{{ collection.title | escape }}</h1>
@@ -415,6 +504,11 @@ if (params.has('kw')) {
         "default": true
       },
       {
+        "type": "link_list",
+        "id": "mobile_link_list",
+        "label" : "Mobile Main Menu"
+      },
+      {
         "type": "image_picker",
         "id": "first-card",
         "label": "First Info Card"
@@ -445,3 +539,185 @@ if (params.has('kw')) {
     ]
   }
 {% endschema %}
+
+{% javascript %}
+  $('.color-swatches-slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    dots: false,
+    prevArrow:"<button type='button' class='slick-prev pull-left'><svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='8' r='8' fill='#3E4B57'/><path d='M10 4L6 8L10 12' stroke='white'/></svg></button>",
+    nextArrow:"<button type='button' class='slick-next pull-right'><svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='8' r='8' transform='rotate(-180 8 8)' fill='#3E4B57'/><path d='M6 12L10 8L6 4' stroke='white'/></svg></button>",
+    infinite: true  
+  });
+  $(document).ready(function() {
+    $('.filter-by-color').click(function() {
+      $('.filter-by-color-container').css('height', '101px');
+      $('.color-swatches-container').css('opacity', '1');
+    });
+    $(window).bind('scroll', function() {
+      if ($(window).scrollTop() > 60) {
+        $('.mobile-dynamic-components--wrapper').addClass('sticky');
+        $('.filter-by-color-container').css('height', '101px');
+        $('.color-swatches-container').css('opacity', '1');
+      } else {
+        $('.mobile-dynamic-components--wrapper').removeClass('sticky');
+        $('.filter-by-color-container').css('height', '46px');
+        $('.color-swatches-container').css('opacity', '0');
+      }
+    });
+    let lastScroll = $(window).scrollTop();
+    $(window).scroll(function() {
+      const currentScroll = $(window).scrollTop(); 
+      if (currentScroll > lastScroll){
+        // scroll down
+        $('.mobile-link-list--wrapper').css('display', 'none');
+        $('.filter-by-color-container').css('height', '101px');
+        $('.color-swatches-container').css('opacity', '1');
+      } else {
+        // scroll up
+        $('.mobile-link-list--wrapper').css('display', 'block');
+        $('.filter-by-color-container').css('height', '46px');
+        $('.color-swatches-container').css('opacity', '0');
+      }
+      // scroll update
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    });
+  });
+{% endjavascript %}
+
+{% stylesheet 'scss' %}
+  .medium-down--hide {
+    @media (max-width: 768px) {
+      display: none !important;
+    }
+  }
+  .medium-up--hide {
+    @media screen and (min-width: 769px) {
+      display: none !important;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .dynamic-filter-collection-template {
+      .collection-template {
+        .container {
+          padding-left: 6px;
+          padding-right: 6px;
+        }
+      }
+    }
+    .info-card--wrapper {
+      .block-inner {
+        img {
+          height: 290px;
+        }
+      }
+    }
+  }
+  .mobile-link-list--wrapper {
+    background-color: #fff;
+    padding: 21px 0;
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(124px,1fr));
+      grid-gap: 0 5px;
+      grid-auto-flow: column;
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: transparent transparent;
+      scrollbar-width: 0px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      margin: 0;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      >* {
+        scroll-snap-align: start;    
+      }
+      li {
+        text-align: center;
+        list-style: none;
+        min-width: 126px;
+        a {
+          font-family: 'Lato';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+          letter-spacing: 0.03em;
+          color: #636B74;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .sticky {
+    min-width: 100%;
+    position: fixed;
+    right: .5px;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  .mobile-dynamic-filter-wrapper {
+    background-color: #fff;
+    .filter-by-color-container {
+      border: 1px solid #C7CBCF;
+      box-sizing: border-box;
+      height: 46px;
+      padding: 12px 0;
+      .filter-by-color {
+        color: #36414C;
+        font-family: 'Lato';
+        font-weight: 600;
+        font-size: 14px;
+        font-style: normal;
+        letter-spacing: 0.03em;
+        line-height: 17px;
+        text-align: center;
+        svg {
+          height: 20px;
+          fill: #36414C;
+          vertical-align: sub;
+          width: 20px;
+        }
+      }
+      .color-swatches-container {
+        margin-top: 0;
+        margin-bottom: 0;
+        opacity: 0;
+        .color-swatches-slider {
+          .slick-prev, .slick-next {
+            height: 16px;
+            width: 16px;
+            svg {
+              fill: #36414C;
+              height: 16px;
+              opacity: 1;
+              width: 16px;
+            }
+          }
+          .slick-prev {
+            left: -20px;
+          }
+          .swatch-item {
+            text-align: center;
+            width: 85px !important;
+            a {
+              color: #636B74;
+              font-family: 'Lato';
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              letter-spacing: 0.03em;
+              line-height: 16px;
+              text-transform: capitalize;
+            }
+          }
+        }
+      }
+    }
+  }
+{% endstylesheet %}

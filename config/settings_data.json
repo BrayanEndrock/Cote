@@ -544,6 +544,7 @@
           "coll_num_per_page_int": 40,
           "coll_gridstream_mode": "grid",
           "coll_gridstream_toggle": false,
+          "mobile_link_list": "dynamic-mobile-menu",
           "first-card": "shopify:\/\/shop_images\/infoCard.png",
           "second-card": "shopify:\/\/shop_images\/second-card.png",
           "promo-banner": false,
@@ -1179,6 +1180,16 @@
           "url": "https:\/\/coteshop.co\/products\/catalina-traveler-nail-polish-set",
           "label": "Shop Now"
         }
+      },
+      "165409402538a5ae55": {
+        "type": "home-feature-influencer-program-banner",
+        "settings": {
+          "link": "https:\/\/cote.aspireiq.com\/join\/Brand%20Ambassdor?clientId=Lz6aSDsi9k3lI0j1VDBhk6HaX2SL9VV6",
+          "title": "Become a Côte Ambassador!",
+          "copy": "<p>Join the Cleaner Safer Beauty Movement!<\/p><p>As a Côte Ambassador, you will earn 10% cash commission, gain early access to new product launches, receive product discounts and more!<br\/><br\/>If Cleaner Safer Beauty is your way of life!<\/p>",
+          "label": "Apply Now",
+          "image": "shopify:\/\/shop_images\/influencer-banner.png"
+        }
       }
     },
     "content_for_index": [
@@ -1195,6 +1206,7 @@
       "1569286208490",
       "1535418865798",
       "1554133674054",
+      "165409402538a5ae55",
       "16419166950eab2145",
       "1535431770220",
       "1589226160863",
