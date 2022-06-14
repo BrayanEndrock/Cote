@@ -547,7 +547,7 @@
           "mobile_link_list": "dynamic-mobile-menu",
           "first-card": "shopify:\/\/shop_images\/infoCard.png",
           "second-card": "shopify:\/\/shop_images\/second-card.png",
-          "promo-banner": true,
+          "promo-banner": false,
           "summer-sale": "Shop Côte’s Summer Sale",
           "discount": "Enjoy 25% off sitewide 5\/26 - 6\/5!"
         }
@@ -799,8 +799,8 @@
       "1535421423900": {
         "type": "featured-collection",
         "settings": {
-          "title": "Spring '22 Collection",
-          "collection": "spring-collection",
+          "title": "Summer '22 Collection",
+          "collection": "summer-22-collection",
           "use_carousel": true,
           "background_color": "#83a9a8"
         }
@@ -1148,7 +1148,7 @@
           "mobile_link_list": "dynamic-mobile-menu",
           "first-card": "shopify:\/\/shop_images\/infoCard.png",
           "second-card": "shopify:\/\/shop_images\/second-card.png",
-          "promo-banner": true,
+          "promo-banner": false,
           "summer-sale": "Shop Côte’s Summer Sale",
           "discount": "Enjoy 25% off sitewide 5\/26 - 6\/5!"
         }
@@ -1171,18 +1171,17 @@
           "coll_gridstream_toggle": true
         }
       },
-      "165360806615cbc17b": {
-        "type": "home-hero-v2",
+      "1654537835cebaf6fd": {
+        "type": "home-hero",
         "settings": {
-          "hero": "shopify:\/\/shop_images\/Hero.png",
-          "mobile-hero": "shopify:\/\/shop_images\/hero_mob.png",
-          "title": "Shop Côte's Summer Sale!",
-          "subtitle": "<strong>25% off<\/strong> sitewide!",
-          "url": "https:\/\/coteshop.co\/collections\/non-toxic-nail-polish",
+          "featured-image": "shopify:\/\/shop_images\/MG_7093_1.png",
+          "title": "Make Waves This Summer!",
+          "subtitle": "Our New Catalina Traveler Set Is Here Beachy, Bold & Ultra Clean",
+          "url": "https:\/\/coteshop.co\/products\/catalina-traveler-nail-polish-set",
           "label": "Shop Now"
         }
       },
-      "165409402538a5ae55": {
+      "16552145322c0ea9e8": {
         "type": "home-feature-influencer-program-banner",
         "settings": {
           "link": "https:\/\/cote.aspireiq.com\/join\/Brand%20Ambassdor?clientId=Lz6aSDsi9k3lI0j1VDBhk6HaX2SL9VV6",
@@ -1195,7 +1194,7 @@
     },
     "content_for_index": [
       "1637775667e2dfb5b7",
-      "165360806615cbc17b",
+      "1654537835cebaf6fd",
       "1478795901388",
       "164857500418bf7c91",
       "16401899621631ac50",
@@ -1207,7 +1206,7 @@
       "1569286208490",
       "1535418865798",
       "1554133674054",
-      "165409402538a5ae55",
+      "16552145322c0ea9e8",
       "16419166950eab2145",
       "1535431770220",
       "1589226160863",

@@ -143,7 +143,7 @@
           {% endif %}
           <div class="product-form section">
             {% if product.available %}
-              {% form 'product', product, class: 'form', data-product-id: product.id %}
+              {% form 'product', product, data-productid: product.id, class: 'form', data-product-id: product.id %}
                 <div class="input-row">
                   {% if product.variants.size > 1 %}
                     <div class="option-selectors">
@@ -178,14 +178,14 @@
                         {% endif %}
                       {% endfor %}
                     </div>
-                    <select name="id" class="original-selector">
+                    <select name="id" data-productid="{{ product.id }}" class="original-selector">
                       {% for variant in product.variants %}
                         {% include 'bold-variant' with variant, hide_action: 'skip' %}
                         <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %} data-stock="{% if variant.inventory_management == 'shopify' and variant.inventory_quantity <= 0 %}out{% endif %}">{{ variant.title | escape }}</option>
                       {% endfor %}
                     </select>
                   {% else %}
-                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
+                    <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}" />
                     {% unless product.has_only_default_variant %}
                       <div class="singleopt">
                         {% for option in product.options %}
