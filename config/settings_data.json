@@ -1173,6 +1173,7 @@
       },
       "1654537835cebaf6fd": {
         "type": "home-hero",
+        "disabled": true,
         "settings": {
           "featured-image": "shopify:\/\/shop_images\/MG_7093_1.png",
           "title": "Make Waves This Summer!",
@@ -1190,10 +1191,22 @@
           "label": "Apply Now",
           "image": "shopify:\/\/shop_images\/influencer-banner.png"
         }
+      },
+      "1655310789346adcc0": {
+        "type": "home-hero-v2",
+        "settings": {
+          "hero": "shopify:\/\/shop_images\/new-hero_9e974010-a141-4189-941b-a32f7b930f55.png",
+          "mobile-hero": "shopify:\/\/shop_images\/mobile-new-hero.png",
+          "title": "Non-Toxic Polish For Everyone.",
+          "subtitle": "Long-lasting, chip-resistant, high-shine",
+          "url": "\/collections\/non-toxic-nail-polish",
+          "label": "Shop Now"
+        }
       }
     },
     "content_for_index": [
       "1637775667e2dfb5b7",
+      "1655310789346adcc0",
       "1654537835cebaf6fd",
       "1478795901388",
       "164857500418bf7c91",

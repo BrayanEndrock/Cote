@@ -1,15 +1,23 @@
-<div class="home-feature-hero--template">
+<div class="home-feature-hero--template-v2" id="bannerWrapper">
     <div class="home-feature-hero--container">
         <div class="main-content--wrapper">
             <h1>{{ section.settings.title }}</h1>
             <h2>{{ section.settings.subtitle }}</h2>
-            <a href="{{ section.settings.url }}" class="btn btn--hero">{{ section.settings.label }}</a>
+            <a href="{{ section.settings.url }}" id="anchorTrigger" class="btn btn--hero">{{ section.settings.label }}</a>
         </div>
     </div>
 </div>
 
+<script type="text/javascript">
+    const bannerWrapper = document.getElementById('bannerWrapper');
+    let anchor = document.getElementById('anchorTrigger');
+    bannerWrapper.addEventListener('click', event => {
+        anchor.click();
+    });
+</script>
+
 <style>  
-    .home-feature-hero--template {
+    .home-feature-hero--template-v2 {
       background-image: url({{ section.settings.hero | img_url: 'master' }}); 
       background-position: initial; 
       background-repeat: no-repeat;    
@@ -17,7 +25,7 @@
       height: 544px;              
     } 
     @media (min-width: 481px) and (max-width: 768px) {
-        .home-feature-hero--template {
+        .home-feature-hero--template-v2 {
             background-image: url({{ section.settings.mobile-hero | img_url: 'master' }});     
             background-size: cover;
             background-position: top; 
@@ -25,7 +33,7 @@
         }
     }
     @media screen and (max-width: 480px) {
-        .home-feature-hero--template {
+        .home-feature-hero--template-v2 {
             background-image: url({{ section.settings.mobile-hero | img_url: 'master' }});     
             background-size: cover;
             background-position: top;
@@ -85,44 +93,46 @@
 
 {% stylesheet 'scss' %}
     .home-feature-hero-v2 {
-        .home-feature-hero--template {
+        .home-feature-hero--template-v2 {
+            cursor: pointer;
             @media screen and (max-width: 768px) {
                 align-items: flex-end; 
                 display: flex;
                 justify-content: center;
             }
             .home-feature-hero--container {
-                padding: 89px 0 0 129px;
+                padding: 130px 0 0 129px;
                 @media screen and (max-width: 768px) {
-                    padding: 0 0 56px 0;
+                    padding: 0;
                 }
                 .main-content--wrapper {
                     h1 {
                         color: #FFFFFF;
-                        font-size: 64px;
+                        font-size: 48px;
                         font-style: normal;
                         font-weight: 400;
-                        line-height: 85px;
+                        line-height: 64px;
                         margin: 0;
                         max-width: 450px;
                         padding: 0;
                         @media screen and (max-width: 768px) {
-                            color: #F69B7F;
-                            font-size: 48px;
+                            color: #FFFFFF;
+                            font-size: 40px;
                             line-height: 64px;
+                            margin-bottom: 70px;
                             max-width: 310px;
                         }
                     }
                     h2 {
                         color: #FFF;
                         font-family: 'Roboto' !important;
-                        font-size: 32px;
+                        font-size: 20px;
                         font-style: normal;
-                        line-height: 40px;
-                        margin-bottom: 40px;
-                        margin-top: 30px;
+                        line-height: 23px;
+                        margin-bottom: 36px;
+                        margin-top: 26px;
                         @media screen and (max-width: 768px) {
-                            color: #36414C;
+                            color: #FFFFFF;
                             margin-bottom: 34px;
                             margin-top: 16px;
                         }
