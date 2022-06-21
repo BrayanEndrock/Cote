@@ -69,7 +69,8 @@
         <div class="hide options-products">
           <div class="option-contain desktop">       
             {% if product.available %}
-              <a href="{{ product.url }}" class="btn btn--byob-primary" data-id="{{ product.handle }}" data-title="{{ product.title }}">View Details</a>   
+              <a href="{{ product.url }}" style="display:none;" class="btn btn--byob-primary" data-id="{{ product.handle }}" data-title="{{ product.title }}">View Details</a>
+              <button data-modal="modal-byob-{{ product.id }}" class="btn btn--byob-primary showmore-btn" data-id="{{ product.handle }}" data-title="{{ product.title }}">View Details</button>
               <button type="button" class="btn btn--byob-primary remove-cta addtocart-btn{% if cart_collection_items_wholesale >= 56 %} hide{% endif %}" data-id="{{ product.variants.first.id }}" data-product-count="{{ cart_count_product }}" data-price="{{ product.price | money_without_trailing_zeros | remove: '$' }}" data-image-render="{{ product.metafields.byob.render-product.value }}" data-product-type="{{ product.type }}" >Add</button>
               <button type="button" class="btn btn--byob-primary deletetocart-btn hide" data-price="{{ product.price | money_without_trailing_zeros | remove: '$' }}" data-id="{{ product.variants.first.id }}">Remove</button>
             {% endif %}
@@ -101,8 +102,116 @@
             <button type="button" class="btn btn--byob-mobile hide hide-desktop deletetocart-btn large--hide" data-id="{{ product.variants.first.id }}">Remove</button>
           {% endif %}
           {% include 'product-label' with product %}
-          <a href="{{ product.url }}" class="q btn btn--byob-mobile showmore-btn byobBtn large--hide" data-id="{{ product.handle }}" data-title="{{ product.title }}">View Details</a>
+          <button data-modal="modal-byob-{{ product.id }}" class="q btn btn--byob-mobile showmore-btn byobBtn large--hide" data-id="{{ product.handle }}" data-title="{{ product.title }}">View Details</button>
+          <a href="{{ product.url }}" style="display:none;" class="q btn btn--byob-mobile showmore-btn byobBtn large--hide" data-id="{{ product.handle }}" data-title="{{ product.title }}">View Details</a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal-byob modal-byob-{{ product.id }}">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-body">
+        <span class="close">&times;</span>
+        
+        <div class="product-detail spaced-row container cf">
+          <div class="gallery gallery-layout-{{ section.settings.prod_gall_thumbs_under }} layout-column-half-left {% if product.images.size > 1 %}has-thumbnails{% endif %}">
+            {% assign lightbox_size = 'master' %}
+            <div class="main-image">
+              {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+              <a class="shows-lightbox" title="{{ featured_image.alt | escape }}" href="{{ featured_image | product_img_url: lightbox_size }}" data-full-size-url="{{ featured_image | product_img_url: 'master' }}">
+                {% include 'responsive-image', image: featured_image %}
+              </a>
+            </div>
+            {% if product.images.size > 1 %}
+              <div class="thumbnails">
+                {% for image in product.images %}
+                  <a {% if forloop.first %} class="active" {% endif %} title="{{ image.alt | escape }}" href="{{ image | product_img_url: lightbox_size }}" data-full-size-url="{{ image | product_img_url: 'master' }}">
+                    {% include 'responsive-image', image: image %}
+                  </a>
+                {% endfor %}
+              </div>
+            {% endif %}
+      
+            <div class="mobile-slideshow">
+              <div class="slideshow" data-slick='{"adaptiveHeight":true}'>
+                {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+                <div class="slide" data-full-size-url="{{ featured_image | product_img_url: 'master' }}">
+                  {% include 'responsive-image', image: featured_image %}
+                </div>
+                {% for image in product.images %}
+                  {% unless image contains featured_image %}
+                    <div class="slide" data-full-size-url="{{ image | product_img_url: 'master' }}">
+                      {% include 'responsive-image', image: image %}
+                    </div>
+                  {% endunless %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+      
+          <div class="detail layout-column-half-right">
+      
+            {% include 'product-label' with product %}
+      
+            <h3 class="title">{{ product.title }}</h3>
+            <div class="theme-product-reviews">
+              <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}" data-product-title="{{ product.title | escape }}" data-product-type="{{ product.type }}" style="display: block;">{{ product.metafields.stamped.badge }}</span>
+              <!--<a href="#shopify-product-reviews"><span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span></a>-->
+            </div>
+            {% assign variant = product.selected_or_first_available_variant  %}
+            <h4 class="h4-style price-area">
+              {% if product.variants.size == 1 and product.compare_at_price_max > product.price_min %}
+                <span class="was-price theme-money">{{ variant.compare_at_price | money }}</span>
+              {% endif %}
+              <span class="price theme-money">{{ variant.price | money }}</span>
+            </h4>
+      
+            <div id="product-price-selector">
+              {% if settings.prod_show_vendor or settings.prod_show_sku %}
+                <div class="lightly-spaced-row">
+                  {%- if settings.prod_show_vendor -%}
+                    {%- comment -%}
+                      Do we have a collection that has the same name as our product vendor name?
+                      If we do, let's have the vendor link point to it.
+                      If not, we will point to the automatic vendor collection.
+                    {%- endcomment -%}
+                    {%- assign product_vendor_handle = product.vendor | handle -%}
+                    {%- if collections[product_vendor_handle].handle == product_vendor_handle -%}
+                      {%- assign vendor_url = collections[product_vendor_handle].url -%}
+                    {%- else -%}
+                      {%- assign vendor_url = product.vendor | url_for_vendor -%}
+                    {%- endif -%}
+                    <div class="vendor">{{ 'products.product.vendor' | t }} {{ product.vendor | link_to: vendor_url }}</div>
+                  {%- endif -%}
+                  {%- if settings.prod_show_sku -%}
+                    <div class="sku {% if product.selected_or_first_available_variant.sku == blank %}sku--no-sku{% endif %}">{{ 'products.product.sku' | t }} <span class="sku__value">{{ product.selected_or_first_available_variant.sku }}</span></div>
+                  {%- endif -%}
+                </div>
+              {% endif %}
+      
+              <div class="product-form section">
+                {% if product.available %}
+                  <button type="button" class="btn btn--byob-mobile addtocart-btn" data-image-render="{{ product.metafields.byob.render-product.value }}" data-id="{{ product.variants.first.id }}" data-product-count="{{ cart_count_product }}" data-price="{{ product.price | money_without_trailing_zeros | remove: '$' }}">
+                    Add
+                  </button>
+                  <img class="image-custom-product" src="{{ "New_Icons.png" | asset_img_url: 'master' }}" alt="">
+                {% else %}
+                  <p><em>{{ 'products.product.product_unavailable' | t }}</em></p>
+                {% endif %}
+              </div>
+      
+              <div class="description user-content">
+                {{ product.description }}
+              </div>
+              {% comment %} Add code to show under the description on the line below this one, if beside the image {% endcomment %}
+              <!-- Underneath the description -->
+            </div>
+          </div>
+        </div><!-- /.product-detail -->
+
       </div>
     </div>
   </div>

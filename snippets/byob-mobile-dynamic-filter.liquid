@@ -16,6 +16,17 @@
     </div>
 </div>
 <script type="text/javascript">
+    const getMobileOS = () => {
+        const ua = navigator.userAgent
+        if (/android/i.test(ua)) {
+            return "Android"
+        }
+        else if ((/iPad|iPhone|iPod/.test(ua)) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+            return "iOS"
+        }
+        return "Other"
+    }
+    const os = getMobileOS();
     document.querySelector(".byob-filter-by-color").addEventListener("click", (e) => {
         if (document.querySelector(".byob-filter-by-color-container") && document.querySelector(".byob-filter-by-color-container").style.height != '46px') {
             document.querySelector(".byob-filter-by-color-container").classList.remove("active");
@@ -49,21 +60,24 @@
             el = el.offsetParent;
         }
         return { top: _y, left: _x };
-    }   
+    }
+    const byobCollectionTemplateGrid = document.querySelector('.byob-collection-template-grid');
     const byobFilterByColorContainer = document.querySelector('.byob-filter-by-color-container');
-    let byobFilterByColorContainerOffsetTop = getOffset(byobFilterByColorContainer).top;
+    let byobFilterByColorContainerOffsetTop = getOffset(byobCollectionTemplateGrid).top;
     function styckyMobileDynamicComponents() {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
         let buildYourKitWrapper = document.querySelector('.build-your-kit.wrapper');
-        console.log('currentScroll',currentScroll,'lastScroll',lastScroll,'byobFilterByColorContainerOffsetTop',byobFilterByColorContainerOffsetTop);
+        //console.log('currentScroll',currentScroll,'lastScroll',lastScroll,'byobFilterByColorContainerOffsetTop',byobFilterByColorContainerOffsetTop);
         if (window.innerWidth < 769) {
+            let ss = 50;
+            //if (os == 'iOS') { ss = 0; } console.log('ss',ss);
             let byobMobileLinkListWrapper = document.querySelector('.byob-mobile-link-list--wrapper'),
                 byobMobileDynamicComponentsWrapper = document.querySelector('.byob-mobile-dynamic-components--wrapper'),
                 byobColorSwatchesContainer = document.querySelector('.byob-color-swatches-container');
             if (currentScroll < lastScroll) {
-                console.log('scroll up');
-                console.log('currentScroll',currentScroll,'lastScrollUp - 40',lastScrollUp - 50);
-                if (currentScroll <= lastScrollUp - 50) {
+                //console.log('scroll up');
+                //console.log('currentScroll',currentScroll,'lastScrollUp - ' + ss,lastScrollUp - ss);
+                if (currentScroll <= lastScrollUp - ss) {
                     if (byobMobileLinkListWrapper) {
                         byobMobileLinkListWrapper.style.display = 'none';
                     }
@@ -80,8 +94,9 @@
                         }
                     }
 
+                    //console.log('currentScroll',currentScroll,'byobFilterByColorContainerOffsetTop',byobFilterByColorContainerOffsetTop);
                     if (currentScroll > byobFilterByColorContainerOffsetTop) {
-                        console.log('sticky');
+                        //console.log('sticky');
                         if (byobMobileDynamicComponentsWrapper) {
                             byobMobileDynamicComponentsWrapper.style.zIndex = '55';
                         }
@@ -99,21 +114,8 @@
                     lastScrollDown = currentScroll;
                 }
 
-                if (currentScroll <= byobFilterByColorContainerOffsetTop + 30 && currentScroll >= byobFilterByColorContainerOffsetTop) {
-                    console.log('sticky');
-                    if (byobMobileDynamicComponentsWrapper) {
-                        byobMobileDynamicComponentsWrapper.style.zIndex = '55';
-                    }
-                    if (buildYourKitWrapper) {
-                        buildYourKitWrapper.style.transition = '';
-                        buildYourKitWrapper.style.transform = '';
-
-                        buildYourKitWrapper.style.position = 'sticky';
-                        buildYourKitWrapper.style.animationName = 'animation-up';
-                        buildYourKitWrapper.style.animationDuration = '.2s';
-                    }
-                } else if (currentScroll < byobFilterByColorContainerOffsetTop) {
-                    console.log('static');
+                if (currentScroll < byobFilterByColorContainerOffsetTop) {
+                    //console.log('static');
                     if (buildYourKitWrapper) {
                         buildYourKitWrapper.style.transition = '';
                         buildYourKitWrapper.style.transform = '';
@@ -136,9 +138,9 @@
                     }
                 }
             } else {
-                console.log('scroll down');
-                console.log('currentScroll',currentScroll,'lastScrollDown + 40',lastScrollDown + 50);
-                if (currentScroll >= lastScrollDown + 50) {
+                //console.log('scroll down');
+                //console.log('currentScroll',currentScroll,'lastScrollDown + ' + ss,lastScrollDown + ss);
+                if (currentScroll >= lastScrollDown + ss) {
                     if (byobMobileLinkListWrapper) {
                         byobMobileLinkListWrapper.style.display = 'block';
                     }
@@ -158,14 +160,16 @@
                     }
 
                     if (currentScroll > byobFilterByColorContainerOffsetTop) {
-                        console.log('sticky');
+                        //console.log('sticky');
                         if (byobMobileDynamicComponentsWrapper) {
                             byobMobileDynamicComponentsWrapper.style.zIndex = '55';
                         }
                         if (buildYourKitWrapper) {
-                            buildYourKitWrapper.style.position = 'sticky';
-                            buildYourKitWrapper.style.transition = 'all 0.2s ease';
-                            buildYourKitWrapper.style.transform = 'translateY(-100%)';
+                            if (buildYourKitWrapper.style.position = 'sticky') {
+                                buildYourKitWrapper.style.position = 'sticky';
+                                buildYourKitWrapper.style.transition = 'all 0.2s ease';
+                                buildYourKitWrapper.style.transform = 'translateY(-100%)';
+                            }
                         }
                     }
                     lastScrollUp = currentScroll;
@@ -173,7 +177,7 @@
                 }
 
                 if (currentScroll < byobFilterByColorContainerOffsetTop) {
-                    console.log('static');
+                    //console.log('static');
                     if (buildYourKitWrapper) {
                         buildYourKitWrapper.style.transition = '';
                         buildYourKitWrapper.style.transform = '';
@@ -215,12 +219,21 @@
         styckyMobileDynamicComponents();
     });
     window.addEventListener('resize', function(event) {
-        byobFilterByColorContainerOffsetTop = getOffset(document.querySelector('.byob-filter-by-color-container')).top;
+        byobFilterByColorContainerOffsetTop = getOffset(document.querySelector('.byob-collection-template-grid')).top;
         //console.log('byobFilterByColorContainerOffsetTop',byobFilterByColorContainerOffsetTop);
         styckyMobileDynamicComponents();
     }, true);
+    var ready = (callback) => {
+        if (document.readyState != "loading") callback();
+        else document.addEventListener("DOMContentLoaded", callback);
+    }
+    ready(() => { 
+        /* Do things after DOM has fully loaded */ 
+        byobFilterByColorContainerOffsetTop = getOffset(document.querySelector('.byob-collection-template-grid')).top;
+        styckyMobileDynamicComponents();
+    });
     styckyMobileDynamicComponents();
-    
+
     $(document).ready(function() {
         $('.byob-color-swatches-slider').slick({
             slidesToShow: 3,
