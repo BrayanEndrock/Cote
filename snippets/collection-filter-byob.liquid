@@ -423,8 +423,8 @@
             target.closest('.modal-byob').style.display = "none";
             return false;
         }
-        target = event.target.closest(".modal-byob");
-        if (target == null) {
+        target = event.target;
+        if (target.classList.contains("modal-byob")) {
             document.querySelectorAll(".modal-byob").forEach(modal => { modal.style.display = "none" });
             return false;
         }
