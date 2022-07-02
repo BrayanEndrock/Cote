@@ -334,29 +334,37 @@
   });*/
   $(document).ready(function() {
     $('.filter-by-color').click(function() {
-      //$('.filter-by-color-container').css('height', '101px');
-      //$('.color-swatches-container').css('opacity', '1');
+      $('.filter-by-color-container').css('height', '403px');
+      $('.color-swatches-container').css('opacity', '1');
+    });
+    $('.close-icon__wrapper svg').click(function() {
+      $('.filter-by-color-container').css('height', '46px');
+        $('.color-swatches-container').css('opacity', '0');
     });
     $(window).bind('scroll', function() {
       if ($(window).scrollTop() > 60) {
         $('.mobile-dynamic-components--wrapper').addClass('sticky');
-        //$('.filter-by-color-container').css('height', '101px'); $('.color-swatches-container').css('opacity', '1');
+        $('.filter-by-color-container').css('height', '403px'); 
+        $('.color-swatches-container').css('opacity', '1');
       } else {
         $('.mobile-dynamic-components--wrapper').removeClass('sticky');
-        //$('.filter-by-color-container').css('height', '46px'); $('.color-swatches-container').css('opacity', '0');
+        $('.filter-by-color-container').css('height', '403px'); 
+        $('.color-swatches-container').css('opacity', '0');
       }
     });
     let lastScroll = $(window).scrollTop();
     $(window).scroll(function() {
       const currentScroll = $(window).scrollTop(); 
       if (currentScroll > lastScroll){
-        // scroll down $('.filter-by-color-container').css('height', '101px');
-        //$('.mobile-link-list--wrapper').css('display', 'none');
-        //$('.color-swatches-container').css('opacity', '1');
+        // scroll down 
+        $('.filter-by-color-container').css('height', '403px');
+        $('.mobile-link-list--wrapper').css('display', 'none');
+        $('.color-swatches-container').css('opacity', '1');
       } else {
-        // scroll up $('.filter-by-color-container').css('height', '46px');
-        //$('.mobile-link-list--wrapper').css('display', 'block');
-        //$('.color-swatches-container').css('opacity', '0');
+        // scroll up
+        $('.filter-by-color-container').css('height', '46px');
+        $('.mobile-link-list--wrapper').css('display', 'block');
+        $('.color-swatches-container').css('opacity', '0');
       }
       // scroll update
       lastScroll = currentScroll <= 0 ? 0 : currentScroll;
@@ -444,7 +452,7 @@
     .filter-by-color-container {
       border: 1px solid #C7CBCF;
       box-sizing: border-box;
-      //height: 46px;
+      height: 46px;
       padding: 12px 0 0;
       .filter-by-color {
         color: #36414C;
@@ -465,7 +473,7 @@
       .color-swatches-container {
         margin-top: 0;
         margin-bottom: 0;
-        opacity: 1;
+        opacity: 0;
         .color-swatches-slider {
           align-items: center;
           display: flex;
