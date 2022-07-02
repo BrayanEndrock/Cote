@@ -540,52 +540,6 @@ if (params.has('kw')) {
   }
 {% endschema %}
 
-{% javascript %}
-  $('.color-swatches-slider').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    dots: false,
-    prevArrow:"<button type='button' class='slick-prev pull-left'><svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='8' r='8' fill='#3E4B57'/><path d='M10 4L6 8L10 12' stroke='white'/></svg></button>",
-    nextArrow:"<button type='button' class='slick-next pull-right'><svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='8' r='8' transform='rotate(-180 8 8)' fill='#3E4B57'/><path d='M6 12L10 8L6 4' stroke='white'/></svg></button>",
-    infinite: true  
-  });
-  $(document).ready(function() {
-    $('.filter-by-color').click(function() {
-      $('.filter-by-color-container').css('height', '101px');
-      $('.color-swatches-container').css('opacity', '1');
-    });
-    $(window).bind('scroll', function() {
-      if ($(window).scrollTop() > 60) {
-        $('.mobile-dynamic-components--wrapper').addClass('sticky');
-        $('.filter-by-color-container').css('height', '101px');
-        $('.color-swatches-container').css('opacity', '1');
-      } else {
-        $('.mobile-dynamic-components--wrapper').removeClass('sticky');
-        $('.filter-by-color-container').css('height', '46px');
-        $('.color-swatches-container').css('opacity', '0');
-      }
-    });
-    let lastScroll = $(window).scrollTop();
-    $(window).scroll(function() {
-      const currentScroll = $(window).scrollTop(); 
-      if (currentScroll > lastScroll){
-        // scroll down
-        $('.mobile-link-list--wrapper').css('display', 'none');
-        $('.filter-by-color-container').css('height', '101px');
-        $('.color-swatches-container').css('opacity', '1');
-      } else {
-        // scroll up
-        $('.mobile-link-list--wrapper').css('display', 'block');
-        $('.filter-by-color-container').css('height', '46px');
-        $('.color-swatches-container').css('opacity', '0');
-      }
-      // scroll update
-      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
-    });
-  });
-{% endjavascript %}
-
 {% stylesheet 'scss' %}
   .medium-down--hide {
     @media (max-width: 768px) {
@@ -666,7 +620,7 @@ if (params.has('kw')) {
     .filter-by-color-container {
       border: 1px solid #C7CBCF;
       box-sizing: border-box;
-      height: 46px;
+      /*height: 46px;*/
       padding: 12px 0;
       .filter-by-color {
         color: #36414C;
@@ -687,8 +641,12 @@ if (params.has('kw')) {
       .color-swatches-container {
         margin-top: 0;
         margin-bottom: 0;
-        opacity: 0;
+        opacity: 1;
         .color-swatches-slider {
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
           .slick-prev, .slick-next {
             height: 16px;
             width: 16px;
@@ -704,7 +662,6 @@ if (params.has('kw')) {
           }
           .swatch-item {
             text-align: center;
-            width: 85px !important;
             a {
               color: #636B74;
               font-family: 'Lato';
