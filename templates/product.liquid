@@ -2,49 +2,44 @@
 <div itemscope itemtype="http://schema.org/Product" style="display: none">
   <meta itemprop="url" content="{{ shop.url }}{{ product.selected_or_first_available_variant.url }}" />
   <meta itemprop="image" content="https:{{ product.selected_or_first_available_variant.image.src | product_img_url: 'grande' }}" />
-
   <!-- Product Title & Description -->
   <h1 itemprop="name">{{ product.title }}</h1>
   <div class="product-description" itemprop="description">
     {{ product.description }}
   </div>
-
   <!-- BEGIN Offer itemscope -->
   <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
     <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
     <meta itemprop="price" content="{{ product.selected_or_first_available_variant.price | money_without_currency | remove: ',' }}" />
     <meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition"/>
     {% if product.selected_or_first_available_variant.available %}
-    <link itemprop="availability" href="http://schema.org/InStock" />
+      <link itemprop="availability" href="http://schema.org/InStock" />
     {% else %}
-    <link itemprop="availability" href="http://schema.org/OutOfStock" />
+      <link itemprop="availability" href="http://schema.org/OutOfStock" />
     {% endif %}
   </div>
 </div>
-
-
 <!-- spurit_po-added -->
 {% include 'spurit_po-product-snippet' %}
 <!-- /spurit_po-added -->
 {% comment %}
   The contents of the product.liquid template can be found in /sections/product-template.liquid
 {% endcomment %}
-
 {% section 'product-template' %}
 {% include 'float-add-to-cart' %}          
-
 <script type="application/json" id="ProductJson-{{ product.id }}">
-  
-{%- include 'saw_product_json' with product -%}
-{{- saw_json -}}
-
+  {%- include 'saw_product_json' with product -%}
+  {{- saw_json -}}
 </script>
 
-<!--Start Stamped.io Auto Installation--><div id="stamped-main-widget" class="stamped-main-widget" data-widget-style="standard" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}">{{ product.metafields.stamped.reviews }}</div><!--End Stamped.io Auto Installation-->
+<!--Start Stamped.io Auto Installation-->
+<div id="stamped-main-widget" class="stamped-main-widget" data-widget-style="standard" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}">
+  {{ product.metafields.stamped.reviews }}
+</div>
+<!--End Stamped.io Auto Installation-->
 
 <script text="text/javascript">
   var _learnq = _learnq || [];
-
   var item = {
     Name: {{ product.title|json }},
     ProductID: {{ product.id|json }},
@@ -55,7 +50,6 @@
     Price: {{ product.price|money|json }},
     CompareAtPrice: {{ product.compare_at_price_max|money|json }}
   };
-
   _learnq.push(['track', 'Viewed Product', item]);
   _learnq.push(['trackViewedItem', {
     Title: item.Name,
@@ -70,57 +64,60 @@
     }
   }]);
 </script>
+
 {% assign current_variant = product.selected_or_first_available_variant %}
+
 <script type="application/ld+json">
-{
-       "@context": "http://schema.org/",
-       "@type": "Product",
-       "url": "{{shop.secure_url | escape}}{{ product.url | escape }}",
-       "name": "{{ product.title | escape }}",
-       "image": "https:{{ product.featured_image.src | img_url: 'master' }}",
-       "description": "{{ product.description | escape }}",
-       "brand": {
-           "name": "{{ product.vendor }}"
-       },           
-       "sku": "{{ product.variants.first.sku }}",
-       "mpn": "{{ product.variants.first.sku }}",
-       "offers": {
-           "@type": "Offer",
-           "priceCurrency": "{{ shop.currency }}",
-           "price": "{{ current_variant.price | divided_by: 100.00 }}",
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "url": "{{shop.secure_url | escape}}{{ product.url | escape }}",
+    "name": "{{ product.title | escape }}",
+    "image": "https:{{ product.featured_image.src | img_url: 'master' }}",
+    "description": "{{ product.description | escape }}",
+    "brand": {
+      "name": "{{ product.vendor }}"
+    },           
+    "sku": "{{ product.variants.first.sku }}",
+    "mpn": "{{ product.variants.first.sku }}",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "{{ shop.currency }}",
+      "price": "{{ current_variant.price | divided_by: 100.00 }}",
       "priceValidUntil": "{{ 'now' | date: '%s' | plus: days_price_valid_until | date: '%Y-%m-%d'}}",
-           "availability": "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
-           "seller": {
-               "@type": "Organization",
-                "name": "{{ shop.name }}"
-           },
-           "url": "{{shop.secure_url | escape}}{{ product.url | escape }}"
-       }
-      {% if product.metafields.stamped.reviews_count and product.metafields.stamped.reviews_count != "0" %},"aggregateRating": {
-"@type": "AggregateRating",
-"ratingValue": {{ product.metafields.stamped.reviews_average | round:2 }},
-"reviewCount": {{ product.metafields.stamped.reviews_count }},
-"bestRating": 5,
-"worstRating": 1
-},
-"review": {
-"@type": "Review",
-"reviewRating": {
-"@type": "Rating",
-"ratingValue": "5",
-"bestRating": "5"
-},
-"author": {
-"@type": "Organization",
-"name": "{{shop.name}}"
-}
-}
-{% endif %}
-}
+      "availability": "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+      "seller": {
+        "@type": "Organization",
+        "name": "{{ shop.name }}"
+      },
+      "url": "{{shop.secure_url | escape}}{{ product.url | escape }}"
+    }
+    {% if product.metafields.stamped.reviews_count and product.metafields.stamped.reviews_count != "0" %},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": {{ product.metafields.stamped.reviews_average | round:2 }},
+        "reviewCount": {{ product.metafields.stamped.reviews_count }},
+        "bestRating": 5,
+        "worstRating": 1
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "{{shop.name}}"
+        }
+      }
+    {% endif %}
+  }
 </script>
+
 <script type="text/javascript">
   var _learnq = _learnq || [];
-
   var item = {
     Name: {{ product.title|json }},
     ProductID: {{ product.id|json }},
@@ -131,7 +128,6 @@
     Price: {{ product.price|money|json }},
     CompareAtPrice: {{ product.compare_at_price_max|money|json }}
   };
-
   _learnq.push(['track', 'Viewed Product', item]);
   _learnq.push(['trackViewedItem', {
     Title: item.Name,

@@ -1,0 +1,15 @@
+.rc_container_wrapper {
+    border: solid 1px #ededed;
+    padding: 50px 16px 21px;
+}
+.rc-radio__label {
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    margin-left: 12px;
+}
+.rc_popup {
+    display: none !important;
+}
