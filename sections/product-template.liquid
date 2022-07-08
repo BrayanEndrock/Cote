@@ -1,4 +1,5 @@
 <!-- <div itemscope itemtype="http://schema.org/Product" data-section-type="product-template"> -->
+{{ 'product-template.css' | asset_url | stylesheet_tag }}
 <div class="product--template" id="product-template--{{ product.handle }}">
   <meta itemprop="name" content="{{ product.title }}" />
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />

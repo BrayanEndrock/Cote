@@ -24,13 +24,12 @@
         <div class="mobile-dynamic-filter-wrapper">
           <div class="filter-by-color-container">
             <div class="filter-by-color">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.47814 13.125C7.47814 12.9592 7.5438 12.8003 7.66067 12.6831C7.77754 12.5658 7.93605 12.5 8.10132 12.5H11.8404C12.0057 12.5 12.1642 12.5658 12.2811 12.6831C12.3979 12.8003 12.4636 12.9592 12.4636 13.125C12.4636 13.2908 12.3979 13.4497 12.2811 13.5669C12.1642 13.6842 12.0057 13.75 11.8404 13.75H8.10132C7.93605 13.75 7.77754 13.6842 7.66067 13.5669C7.5438 13.4497 7.47814 13.2908 7.47814 13.125ZM4.98541 9.375C4.98541 9.20924 5.05106 9.05027 5.16793 8.93306C5.2848 8.81585 5.44331 8.75 5.60859 8.75H14.3332C14.4984 8.75 14.6569 8.81585 14.7738 8.93306C14.8907 9.05027 14.9563 9.20924 14.9563 9.375C14.9563 9.54076 14.8907 9.69973 14.7738 9.81694C14.6569 9.93415 14.4984 10 14.3332 10H5.60859C5.44331 10 5.2848 9.93415 5.16793 9.81694C5.05106 9.69973 4.98541 9.54076 4.98541 9.375ZM2.49268 5.625C2.49268 5.45924 2.55833 5.30027 2.6752 5.18306C2.79207 5.06585 2.95058 5 3.11586 5H16.8259C16.9912 5 17.1497 5.06585 17.2665 5.18306C17.3834 5.30027 17.4491 5.45924 17.4491 5.625C17.4491 5.79076 17.3834 5.94973 17.2665 6.06694C17.1497 6.18415 16.9912 6.25 16.8259 6.25H3.11586C2.95058 6.25 2.79207 6.18415 2.6752 6.06694C2.55833 5.94973 2.49268 5.79076 2.49268 5.625Z" fill="#36414C"/>
-              </svg>
+              {% render 'filter-icon' %}
               Filter By Color
             </div>
             <div class="multi-tag-row color-swatches-container">
               <div class="tags cat-custom-1">
+                {% render 'close-icon' %}
                 <ul class="color-swatches-slider" id="mobile-color_menu"> 
                   <li data-tag="sheers" class="swatch-item">
                     <a href="/collections/sheer-nail-polish">Sheers</a>
@@ -84,13 +83,11 @@
               </div>
             </div>
             <script>
-              jQuery('#mobile-color_menu li')
-                .sort(function(a, b) { 
-                  var x = parseInt(a.getAttribute('data-order'));
-                  var y = parseInt(b.getAttribute('data-order'));
-                  return x < y ? -1 : 1; 
-              })
-              .appendTo('#mobile-color_menu');
+              jQuery('#mobile-color_menu li').sort(function(a, b) { 
+                var x = parseInt(a.getAttribute('data-order'));
+                var y = parseInt(b.getAttribute('data-order'));
+                return x < y ? -1 : 1; 
+              }).appendTo('#mobile-color_menu');
             </script>
           </div>
         </div>
@@ -383,10 +380,10 @@
 {% endpaginate %}
 </div>
 <script>
-const params = new URLSearchParams(window.location.search)
-if (params.has('kw')) {
+  const params = new URLSearchParams(window.location.search)
+  if (params.has('kw')) {
     document.querySelector('.majortitle').innerHTML = params.get('kw');
-}  
+  }  
 </script>
 
 {% schema %}
@@ -541,7 +538,7 @@ if (params.has('kw')) {
 {% endschema %}
 
 {% javascript %}
-  $('.color-swatches-slider').slick({
+  /*$('.color-swatches-slider').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: true,
@@ -549,40 +546,44 @@ if (params.has('kw')) {
     prevArrow:"<button type='button' class='slick-prev pull-left'><svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='8' r='8' fill='#3E4B57'/><path d='M10 4L6 8L10 12' stroke='white'/></svg></button>",
     nextArrow:"<button type='button' class='slick-next pull-right'><svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='8' cy='8' r='8' transform='rotate(-180 8 8)' fill='#3E4B57'/><path d='M6 12L10 8L6 4' stroke='white'/></svg></button>",
     infinite: true  
-  });
+  });*/
   $(document).ready(function() {
     $('.filter-by-color').click(function() {
-      $('.filter-by-color-container').css('height', '101px');
+      $('.filter-by-color-container').css('height', '403px');
       $('.color-swatches-container').css('opacity', '1');
+    });
+    $('.close-icon__wrapper svg').click(function() {
+      $('.filter-by-color-container').css('height', '46px');
+        $('.color-swatches-container').css('opacity', '0');
     });
     $(window).bind('scroll', function() {
       if ($(window).scrollTop() > 60) {
         $('.mobile-dynamic-components--wrapper').addClass('sticky');
-        $('.filter-by-color-container').css('height', '101px');
-        $('.color-swatches-container').css('opacity', '1');
+        /*$('.filter-by-color-container').css('height', '403px'); 
+        $('.color-swatches-container').css('opacity', '1');*/
       } else {
         $('.mobile-dynamic-components--wrapper').removeClass('sticky');
-        $('.filter-by-color-container').css('height', '46px');
-        $('.color-swatches-container').css('opacity', '0');
+        /*$('.filter-by-color-container').css('height', '403px'); 
+        $('.color-swatches-container').css('opacity', '0');*/
       }
     });
-    let lastScroll = $(window).scrollTop();
+    /*let lastScroll = $(window).scrollTop();
     $(window).scroll(function() {
       const currentScroll = $(window).scrollTop(); 
       if (currentScroll > lastScroll){
-        // scroll down
+        // scroll down 
+        $('.filter-by-color-container').css('height', '403px');
         $('.mobile-link-list--wrapper').css('display', 'none');
-        $('.filter-by-color-container').css('height', '101px');
         $('.color-swatches-container').css('opacity', '1');
       } else {
         // scroll up
-        $('.mobile-link-list--wrapper').css('display', 'block');
         $('.filter-by-color-container').css('height', '46px');
+        $('.mobile-link-list--wrapper').css('display', 'block');
         $('.color-swatches-container').css('opacity', '0');
       }
       // scroll update
       lastScroll = currentScroll <= 0 ? 0 : currentScroll;
-    });
+    });*/
   });
 {% endjavascript %}
 
@@ -601,8 +602,8 @@ if (params.has('kw')) {
     .dynamic-filter-collection-template {
       .collection-template {
         .container {
-          padding-left: 6px;
-          padding-right: 6px;
+          padding-left: 15px;
+          padding-right: 15px;
         }
       }
     }
@@ -667,7 +668,7 @@ if (params.has('kw')) {
       border: 1px solid #C7CBCF;
       box-sizing: border-box;
       height: 46px;
-      padding: 12px 0;
+      padding: 12px 0 0;
       .filter-by-color {
         color: #36414C;
         font-family: 'Lato';
@@ -689,6 +690,11 @@ if (params.has('kw')) {
         margin-bottom: 0;
         opacity: 0;
         .color-swatches-slider {
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin: 1em 1.5em;
           .slick-prev, .slick-next {
             height: 16px;
             width: 16px;
@@ -703,8 +709,10 @@ if (params.has('kw')) {
             left: -20px;
           }
           .swatch-item {
-            text-align: center;
-            width: 85px !important;
+            list-style: none;
+            margin-bottom: 15px;
+            text-align: left;
+            width: 50%;
             a {
               color: #636B74;
               font-family: 'Lato';
@@ -714,6 +722,9 @@ if (params.has('kw')) {
               letter-spacing: 0.03em;
               line-height: 16px;
               text-transform: capitalize;
+            }
+            &:nth-of-type(16), &:last-of-type {
+              margin-bottom: 0;
             }
           }
         }
