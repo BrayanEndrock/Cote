@@ -1,190 +1,120 @@
 /* Colors Hex Grid */
 $SHEERS: #f7e1d2;
-$NEUTRALS: #d2b48c;
+$NEUTRALS: #D2B48C;
 $GREYS: #778899;
-$PINKS: #ffc1cc;
-$CORALS: #fa9370;
-$YELLOWS: #ffd464;
-$REDS: #ed1f4c;
-$PURPLES: #c8a2c8;
-$BLUES: #6495ed;
-$GREENS: #adffad;
-$DEEPS: #4c0013;
+$PINKS:	#ffc1cc;
+$CORALS: #FA9370;
+$YELLOWS: #FFD464;
+$REDS: #ED1F4C;
+$PURPLES: #C8A2C8;
+$BLUES: #6495ED;
+$GREENS: #ADFFAD;
+$DEEPS: #4C0013;
 $METALLICS: #aa8067;
-$GLITTERS: #c0c0c0;
+$GLITTERS: #C0C0C0;
 $NEONS: #ff3c8b;
-$GOLDS: #b88917;
-$SILVERS: #aaa9ad;
+$GOLDS: #B88917;
+$SILVERS: #AAA9AD;
 
 /* Colors Indicator CSS */
 div[data-section-type="collection-template"] {
-  .bottom-row {
-    margin-top: 60px;
-    margin-bottom: -30px;
-  }
-  .multi-tag-row .cat-custom-1 {
-    border: none;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    a {
-      text-transform: uppercase;
+    .bottom-row {
+     	margin-top: 60px;
+      	margin-bottom: -30px;
     }
-    @media (min-width: 767px) {
-      a {
-        padding: 8px 20px;
-      }
+	.multi-tag-row .cat-custom-1 {
+      	border: none;
+      	max-width: 1000px;
+      	margin-left: auto;
+      	margin-right: auto;
+      	a {text-transform: uppercase;}
+      	@media (min-width: 767px) {
+      		a {padding:8px 20px;}
+        }
+      	a:before {
+            width: 20px;
+            height: 20px;
+          	vertical-align: -3px;
+    		margin-right: 4px;
+            display: inline-block;
+            content: '';
+            -webkit-mask: url(https://cdn.shopify.com/s/files/1/0447/4049/files/icon-cote.svg?v=1594265702) no-repeat 50% 50%;
+            mask: url(https://cdn.shopify.com/s/files/1/0447/4049/files/icon-cote.svg?v=1594265702) no-repeat 50% 50%;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+          	/* IE */
+          	@media all and (-ms-high-contrast:none) {
+              	width: 16px;
+                height: 16px;
+            }
+        }
+        li[data-tag="sheers"] a:before {background:$SHEERS;}
+      	li[data-tag="neutrals"] a:before {background:$NEUTRALS;}
+      	li[data-tag="greys"] a:before {background:$GREYS;}
+      	li[data-tag="pinks"] a:before {background:$PINKS;}
+      	li[data-tag="corals"] a:before {background:$CORALS;}
+      	li[data-tag="yellows"] a:before {background:$YELLOWS;}
+      	li[data-tag="reds"] a:before {background:$REDS;}
+      	li[data-tag="purples"] a:before {background:$PURPLES;}
+      	li[data-tag="blues"] a:before {background:$BLUES;}
+      	li[data-tag="greens"] a:before {background:$GREENS;}
+      	li[data-tag="deeps"] a:before {background:$DEEPS;}
+      	li[data-tag="metallics"] a:before {background:$METALLICS;}
+      	li[data-tag="glitters"] a:before {background:$GLITTERS;}
+      	li[data-tag="neons"] a:before {background:$NEONS;}
+        li[data-tag="golds"] a:before {background:$GOLDS;}
+        li[data-tag="silvers"] a:before {background:$SILVERS;}
     }
-    a:before {
-      width: 20px;
-      height: 20px;
-      vertical-align: -3px;
-      margin-right: 4px;
-      display: inline-block;
-      content: "";
-      -webkit-mask: url(https://cdn.shopify.com/s/files/1/0447/4049/files/icon-cote.svg?v=1594265702)
-        no-repeat 50% 50%;
-      mask: url(https://cdn.shopify.com/s/files/1/0447/4049/files/icon-cote.svg?v=1594265702)
-        no-repeat 50% 50%;
-      -webkit-mask-size: contain;
-      mask-size: contain;
-      /* IE */
-      @media all and (-ms-high-contrast: none) {
-        width: 16px;
-        height: 16px;
-      }
-    }
-    li[data-tag="sheers"] a:before {
-      background: $SHEERS;
-    }
-    li[data-tag="neutrals"] a:before {
-      background: $NEUTRALS;
-    }
-    li[data-tag="greys"] a:before {
-      background: $GREYS;
-    }
-    li[data-tag="pinks"] a:before {
-      background: $PINKS;
-    }
-    li[data-tag="corals"] a:before {
-      background: $CORALS;
-    }
-    li[data-tag="yellows"] a:before {
-      background: $YELLOWS;
-    }
-    li[data-tag="reds"] a:before {
-      background: $REDS;
-    }
-    li[data-tag="purples"] a:before {
-      background: $PURPLES;
-    }
-    li[data-tag="blues"] a:before {
-      background: $BLUES;
-    }
-    li[data-tag="greens"] a:before {
-      background: $GREENS;
-    }
-    li[data-tag="deeps"] a:before {
-      background: $DEEPS;
-    }
-    li[data-tag="metallics"] a:before {
-      background: $METALLICS;
-    }
-    li[data-tag="glitters"] a:before {
-      background: $GLITTERS;
-    }
-    li[data-tag="neons"] a:before {
-      background: $NEONS;
-    }
-    li[data-tag="golds"] a:before {
-      background: $GOLDS;
-    }
-    li[data-tag="silvers"] a:before {
-      background: $SILVERS;
-    }
-  }
 }
 
 /* Main Nav Shop by Color Menu */
 .multi-level-nav {
+  
   ul.taglist {
     max-width: 950px;
     @media (max-width: 767px) {
-      li[data-tag] {
-        width: 49%;
-        display: inline-block !important;
-        a {
-          padding: 14px !important;
-        }
-      }
-    }
+      li[data-tag] { 
+        width:49%; 
+        display: inline-block !important; 
+        a { padding: 14px !important; }
+      } 
+  	}
   }
-
+  
   li[data-tag] a:before {
     width: 20px;
     height: 20px;
     vertical-align: -3px;
     margin-right: 4px;
     display: inline-block;
-    content: "";
-    -webkit-mask: url(https://cdn.shopify.com/s/files/1/0447/4049/files/icon-cote.svg?v=1594265702)
-      no-repeat 50% 50%;
-    mask: url(https://cdn.shopify.com/s/files/1/0447/4049/files/icon-cote.svg?v=1594265702)
-      no-repeat 50% 50%;
+    content: '';
+    -webkit-mask: url(https://cdn.shopify.com/s/files/1/0447/4049/files/icon-cote.svg?v=1594265702) no-repeat 50% 50%;
+    mask: url(https://cdn.shopify.com/s/files/1/0447/4049/files/icon-cote.svg?v=1594265702) no-repeat 50% 50%;
     -webkit-mask-size: contain;
     mask-size: contain;
     /* IE */
-    @media all and (-ms-high-contrast: none) {
+    @media all and (-ms-high-contrast:none) {
       width: 16px;
       height: 16px;
     }
   }
-  li[data-tag="sheers"] a:before {
-    background: $SHEERS;
-  }
-  li[data-tag="neutrals"] a:before {
-    background: $NEUTRALS;
-  }
-  li[data-tag="greys"] a:before {
-    background: $GREYS;
-  }
-  li[data-tag="pinks"] a:before {
-    background: $PINKS;
-  }
-  li[data-tag="corals"] a:before {
-    background: $CORALS;
-  }
-  li[data-tag="yellows"] a:before {
-    background: $YELLOWS;
-  }
-  li[data-tag="reds"] a:before {
-    background: $REDS;
-  }
-  li[data-tag="purples"] a:before {
-    background: $PURPLES;
-  }
-  li[data-tag="blues"] a:before {
-    background: $BLUES;
-  }
-  li[data-tag="greens"] a:before {
-    background: $GREENS;
-  }
-  li[data-tag="deeps"] a:before {
-    background: $DEEPS;
-  }
-  li[data-tag="metallics"] a:before {
-    background: $METALLICS;
-  }
-  li[data-tag="glitters"] a:before {
-    background: $GLITTERS;
-  }
-  li[data-tag="neons"] a:before {
-    background: $NEONS;
-  }
-  li[data-tag="golds"] a:before {
-    background: $GOLDS;
-  }
-  li[data-tag="silvers"] a:before {
-    background: $SILVERS;
-  }
+  
+  li[data-tag="sheers"] a:before {background:$SHEERS;}
+  li[data-tag="neutrals"] a:before {background:$NEUTRALS;}
+  li[data-tag="greys"] a:before {background:$GREYS;}
+  li[data-tag="pinks"] a:before {background:$PINKS;}
+  li[data-tag="corals"] a:before {background:$CORALS;}
+  li[data-tag="yellows"] a:before {background:$YELLOWS;}
+  li[data-tag="reds"] a:before {background:$REDS;}
+  li[data-tag="purples"] a:before {background:$PURPLES;}
+  li[data-tag="blues"] a:before {background:$BLUES;}
+  li[data-tag="greens"] a:before {background:$GREENS;}
+  li[data-tag="deeps"] a:before {background:$DEEPS;}
+  li[data-tag="metallics"] a:before {background:$METALLICS;}
+  li[data-tag="glitters"] a:before {background:$GLITTERS;}
+  li[data-tag="neons"] a:before {background:$NEONS;}
+  li[data-tag="golds"] a:before {background:$GOLDS;}
+  li[data-tag="silvers"] a:before {background:$SILVERS;}
+
 }
+

@@ -6,7 +6,7 @@
     .trigger-popup-klaviyo {
         position: fixed;
         display: flex;
-        bottom: 72px;  
+        bottom: 100px;  
         left: 10px;
         background: #000;
         color: #fff;
@@ -88,7 +88,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         e.target.closest('.trigger-popup-klaviyo').classList.add('hide');
         document.querySelector('.popup-klaviyo').classList.remove('hide');
     })
-    
     document.querySelector('.trigger-popup-klaviyo .close-trigger').addEventListener('click', (e) => {
         e.target.closest('.trigger-popup-klaviyo').classList.add('hide');
     })
@@ -100,5 +99,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
             e.target.classList.add('hide');
         }
     })
+});
+$(document).ready(function () {
+    if (sessionStorage.getItem('firstVisit', true)) {
+        $('.trigger-popup-klaviyo').css('display','none');
+        console.log('true');
+    }
+    $('.trigger-popup-klaviyo').on('click',function() {
+        sessionStorage.setItem('firstVisit', true);
+        $('.trigger-popup-klaviyo').css('display','none');
+        console.log('close');
+    });
 });
 </script>

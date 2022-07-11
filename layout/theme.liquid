@@ -59,6 +59,7 @@
     {% include 'twitter-card' %}
 
     {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'wishlist.scss.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
     {% if template contains 'customers' %}
@@ -138,6 +139,15 @@
     <!-- ShareASale -->
     <script src='https://www.dwin1.com/19038.js' type='text/javascript' defer='defer'></script>
     <!-- END: ShareASale -->
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "bxzv3g0z5y");
+	</script>
+    <!-- END: Microsoft Clarity -->
     {% render 'slick' %}
   </head>
   <body id="{{ page_title | handle }}" class="template-{{ template | split: '.' | first }}">
@@ -245,6 +255,9 @@
         }, 2000);
       });
     </script>
+    <!-- Wishlist Feature -->
+    {% include 'iwish_v2' with 'iwishfooter' %}
+    <!-- END: Wishlist Feature -->
   </body>
 </html>
 {% render 'afterpay' %}

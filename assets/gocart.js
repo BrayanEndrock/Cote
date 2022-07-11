@@ -933,6 +933,8 @@
 
                                         });
                                     });
+                                    document.querySelector('.go-cart-afterpay').classList.remove('hide');
+                                    document.querySelector('.go-cart-drawer__upsell').classList.remove('hide');
                                     var subtotalCart = t.total_price;
                                     var goal = 0;
                                     if( subtotalCart < 1) {
@@ -1008,7 +1010,11 @@
                             value: function () {
                                 this.cartDrawerSubTotal.parentNode.classList.add("is-invisible"), this.clearCartDrawer(), 
                                 (this.cartDrawerContent.innerHTML = '<div class="go-cart__empty">'.concat(this.labelCartIsEmpty, "</div>")),
-                                document.querySelector('.goal').innerHTML = formatMoney(4000, this.moneyFormat);
+                                document.getElementById('freeShippingPromo').classList.remove('hide'),
+                                document.getElementById('freeShippingReached').classList.add('hide'),
+                                document.querySelector('.goal').innerHTML = formatMoney(4000, this.moneyFormat),
+                                document.querySelector('.go-cart-afterpay').classList.add('hide'),
+                                document.querySelector('.go-cart-drawer__upsell').classList.add('hide');
                             },
                         },
                         {

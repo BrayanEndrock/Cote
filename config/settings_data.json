@@ -450,15 +450,14 @@
           "e70154b0-ca34-4b4f-bb2c-55d48a555f5b": {
             "type": "topbar",
             "settings": {
-              "heading": "FREE SHIPPING on orders over $40",
+              "heading": "WE'RE MOVING! We appreciate your patience while we move shipping facilities. All orders will incur a longer than normal shipping delay.",
               "link_url": "shopify:\/\/collections\/best-sellers"
             }
           },
           "8d1e3be9-5dca-4a35-8d5b-e9c9324efc55": {
             "type": "topbar",
-            "disabled": true,
             "settings": {
-              "heading": "Use code AFTERPAYDAY at checkout and get 30% off polishes and treatments!",
+              "heading": "We will offer free shipping on all orders while we complete the process",
               "link_url": ""
             }
           },
@@ -544,18 +543,12 @@
           "coll_num_per_page_int": 40,
           "coll_gridstream_mode": "grid",
           "coll_gridstream_toggle": false,
-          "icon-1": "shopify:\/\/shop_images\/cote-recycles.png",
-          "text_icon-1": "côte recycles <span class=\"cleaner-safer-banner__desktop-only-copy\">all of its used polish bottles<\/span>",
-          "icon-2": "shopify:\/\/shop_images\/vegan.png",
-          "text_icon-2": "vegan",
-          "icon-3": "shopify:\/\/shop_images\/cruelty-free.png",
-          "text_icon-3": "cruelty-free",
-          "icon-4": "shopify:\/\/shop_images\/hand-poured.png",
-          "text_icon-4": "hand poured in the USA",
-          "icon-5": "shopify:\/\/shop_images\/free-shipping.png",
-          "text_icon-5": "FREE shipping <span class=\"cleaner-safer-banner__desktop-only-copy\">on orders over $40<\/span>",
-          "banner-visible": false,
-          "promobanner-copy": "Use code\n<strong>AFTERPAYDAY<\/strong>\nat checkout and get 30% off polishes and treatments!"
+          "mobile_link_list": "dynamic-mobile-menu",
+          "first-card": "shopify:\/\/shop_images\/infoCard.png",
+          "second-card": "shopify:\/\/shop_images\/second-card.png",
+          "promo-banner": false,
+          "summer-sale": "Shop Côte’s Summer Sale",
+          "discount": "Enjoy 25% off sitewide 5\/26 - 6\/5!"
         }
       },
       "cross-page-promos": {
@@ -772,8 +765,7 @@
           "e449c8c1-9477-4585-bbd0-8c93fa47420d",
           "011e271a-2004-4ac6-a391-18c2106d8626"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "1535418692457": {
         "type": "text-image-overlay",
@@ -806,8 +798,8 @@
       "1535421423900": {
         "type": "featured-collection",
         "settings": {
-          "title": "Spring '22 Collection",
-          "collection": "spring-collection",
+          "title": "Summer '22 Collection",
+          "collection": "summer-22-collection",
           "use_carousel": true,
           "background_color": "#83a9a8"
         }
@@ -910,17 +902,17 @@
       },
       "go-cart": {
         "type": "go-cart",
-        "settings": {
-        }
+        "settings": {}
       },
       "1637775667e2dfb5b7": {
         "type": "best-sellers",
         "settings": {
-          "menu": "best-sellers"
+          "menu": "newmobilebestsellers"
         }
       },
       "16383974698f37d4e3": {
         "type": "image-with-text",
+        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/abyss_02_29f5a067-750d-4c9b-9a76-36e94b7b983b.jpg",
           "image_link_url": "",
@@ -1153,17 +1145,12 @@
           "coll_num_per_page_int": 16,
           "coll_gridstream_mode": "grid",
           "coll_gridstream_toggle": false,
-          "mobile_link_list": "dynamic-mobile-menu"
-        }
-      },
-      "16503991697a9473ba": {
-        "type": "home-hero",
-        "settings": {
-          "featured-image": "shopify:\/\/shop_images\/MG_7093_1.png",
-          "title": "Make Waves This Summer!",
-          "subtitle": "Our New Catalina Traveler <br>Set Is Here<br> Beachy, Bold & Ultra Clean",
-          "url": "https:\/\/coteshop.co\/products\/catalina-traveler-nail-polish-set",
-          "label": "Shop Now"
+          "mobile_link_list": "dynamic-mobile-menu",
+          "first-card": "shopify:\/\/shop_images\/infoCard.png",
+          "second-card": "shopify:\/\/shop_images\/second-card.png",
+          "promo-banner": false,
+          "summer-sale": "Shop Côte’s Summer Sale",
+          "discount": "Enjoy 25% off sitewide 5\/26 - 6\/5!"
         }
       },
       "collection-template-byob": {
@@ -1183,11 +1170,56 @@
           "coll_gridstream_mode": "grid",
           "coll_gridstream_toggle": true
         }
+      },
+      "1654537835cebaf6fd": {
+        "type": "home-hero",
+        "disabled": true,
+        "settings": {
+          "featured-image": "shopify:\/\/shop_images\/MG_7093_1.png",
+          "title": "Make Waves This Summer!",
+          "subtitle": "Our New Catalina Traveler Set Is Here Beachy, Bold & Ultra Clean",
+          "url": "https:\/\/coteshop.co\/products\/catalina-traveler-nail-polish-set",
+          "label": "Shop Now"
+        }
+      },
+      "16552145322c0ea9e8": {
+        "type": "home-feature-influencer-program-banner",
+        "settings": {
+          "link": "https:\/\/cote.aspireiq.com\/join\/Brand%20Ambassdor?clientId=Lz6aSDsi9k3lI0j1VDBhk6HaX2SL9VV6",
+          "title": "Become a Côte Ambassador!",
+          "copy": "<p>Join the Cleaner Safer Beauty Movement!<\/p><p>As a Côte Ambassador, you will earn 10% cash commission, gain early access to new product launches, receive product discounts and more!<br\/><br\/>If Cleaner Safer Beauty is your way of life!<\/p>",
+          "label": "Apply Now",
+          "image": "shopify:\/\/shop_images\/influencer-banner.png"
+        }
+      },
+      "1655310789346adcc0": {
+        "type": "home-hero-v2",
+        "settings": {
+          "hero": "shopify:\/\/shop_images\/new-hero_9e974010-a141-4189-941b-a32f7b930f55.png",
+          "mobile-hero": "shopify:\/\/shop_images\/mobile-new-hero.png",
+          "title": "Non-Toxic Polish For Everyone.",
+          "subtitle": "Long-lasting, chip-resistant, high-shine",
+          "url": "\/collections\/non-toxic-nail-polish",
+          "label": "Shop Now"
+        }
+      },
+      "collection-feature-promo-banner": {
+        "type": "collection-feature-promo-banner",
+        "settings": {
+          "desktop-banner": "shopify:\/\/shop_images\/promo-banner.png",
+          "mobile-banner": "shopify:\/\/shop_images\/mobile-promo-banner.png",
+          "title": "Free Gift!🚨",
+          "copy": "<p>We have partnered with the clean beauty brand Goldfaden MD! Receive a travel size Hands to Heart Hand Treatment with any purchase of $75 or more while supplies last.<\/p>",
+          "font-color": "#ffffff",
+          "product-link": "shopify:\/\/products\/goldfaden-md-hands-to-heart-travel-size-hand-treatment",
+          "button-label": "Click Here To Add Yours"
+        }
       }
     },
     "content_for_index": [
       "1637775667e2dfb5b7",
-      "16503991697a9473ba",
+      "1655310789346adcc0",
+      "1654537835cebaf6fd",
       "1478795901388",
       "164857500418bf7c91",
       "16401899621631ac50",
@@ -1199,6 +1231,7 @@
       "1569286208490",
       "1535418865798",
       "1554133674054",
+      "16552145322c0ea9e8",
       "16419166950eab2145",
       "1535431770220",
       "1589226160863",

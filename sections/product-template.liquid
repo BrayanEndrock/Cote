@@ -1,6 +1,6 @@
 <!-- <div itemscope itemtype="http://schema.org/Product" data-section-type="product-template"> -->
-
-<div>
+{{ 'product-template.css' | asset_url | stylesheet_tag }}
+<div class="product--template" id="product-template--{{ product.handle }}">
   <meta itemprop="name" content="{{ product.title }}" />
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
   <meta itemprop="image" content="http:{{ product.featured_image.src | product_img_url: 'grande' | remove: 'http:' | remove: 'https:' }}" />
@@ -64,6 +64,9 @@
 
   <div class="product-detail spaced-row container cf">
     <div class="gallery gallery-layout-{{ section.settings.prod_gall_thumbs_under }} layout-column-half-left {% if product.images.size > 1 %}has-thumbnails{% endif %}">
+      {%- comment -%} Wishlist Feature on PDP {%- endcomment -%}
+      <div class="wishlist-feature">{% include 'iwish_v2' with 'iwishProduct' %}</div>
+      {%- comment -%} END: Wishlist Feature on PDP {%- endcomment -%}
       {% assign lightbox_size = 'master' %}
       <div class="main-image">
         {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
@@ -170,7 +173,7 @@
 
         <div class="product-form section">
           {% if product.available %}
-            {% form 'product', product, class: 'form', data-product-id: product.id, data-enable-history-state: 'true' %}
+            {% form 'product', product, data-productid: product.id, class: 'form', data-product-id: product.id, data-enable-history-state: 'true' %}
               <div class="input-row">
                 {% if product.variants.size > 1 %}
                   <div class="option-selectors">
@@ -205,14 +208,14 @@
                       {% endif %}
                     {% endfor %}
                   </div>
-                  <select name="id" class="original-selector">
+                  <select name="id" data-productid="{{ product.id }}" class="original-selector">
                     {% for variant in product.variants %}
                       {% include 'bold-variant' with variant, hide_action: 'skip' %}
                       <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %} selected="selected"{% endif %} data-stock="{% if variant.inventory_management == 'shopify' and variant.inventory_quantity <= 0 %}out{% endif %}">{{ variant.title | escape }}</option>
                     {% endfor %}
                   </select>
                 {% else %}
-                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
+                  <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}" />
                   {% unless product.has_only_default_variant %}
                     <div class="singleopt">
                       {% for option in product.options %}
@@ -249,12 +252,11 @@
                 </span> -->
                 <button type="submit" name="add" data-add-to-cart class="js-go-cart-add-to-cart">                   
                   {{- 'products.product.add_to_cart' | t -}} 
-                </button>  
+                </button> 
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
               </div>
-
               <img class="image-custom-product" src="{{ "New_Icons.png" | asset_img_url: 'master' }}" alt="">
 
               {% capture backorder_message %}{{ 'products.product.backorder' | t }}{% endcapture %}

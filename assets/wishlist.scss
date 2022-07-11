@@ -1,0 +1,176 @@
+/* Wishlist Feature on PDP */
+.product--template {
+    .wishlist-feature {
+        background-color: #fff;
+        border: solid 1px #83A9A8;
+        border-radius: 100%;
+        margin-left: 10px;
+        margin-top: 10px;
+        position: absolute;
+        width: fit-content;
+        z-index: 1;
+        .iWishAdd__Product {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            flex-direction: row;
+            svg {
+                fill: #83A9A8;
+                path {
+                    &:first-of-type, &:nth-of-type(2) {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+        &:hover {
+            border: solid 1px #F69B7F;
+            transition-duration: 0.5s;
+            .iWishAddColl {
+                svg {
+                    fill: #F69B7F;
+                    path {
+                        &:nth-of-type(2) {
+                            fill: #F69B7F;
+                        } 
+                    }
+                }
+            }
+        }
+        .iwishAdded {
+            svg {
+                fill: #83A9A8;
+                path {
+                    &:nth-of-type(2) {
+                        fill: #83A9A8;
+                    } 
+                }
+            } 
+        }
+    }
+}
+
+/* Wishlist Feature on Header */
+.wishlist-link--menu {
+    margin-left: 15px;
+    @media screen and (max-width: 768px) {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+    .iWishView {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* Wishlist Feature on PLP */
+.wishlist-icon--wrapper {
+    background-color: #fff;
+    border: solid 1px #83A9A8;
+    border-radius: 100%;
+    margin-left: 10px;
+    margin-top: 10px;
+    position: absolute;
+    width: fit-content;
+    z-index: 1;
+    .iWishAddColl {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        flex-direction: row;
+        svg {
+            fill: #83A9A8;
+            path {
+                &:first-of-type, &:nth-of-type(2) {
+                    fill: #fff;
+                }
+            }
+        }
+    }
+    &:hover {
+        border: solid 1px #F69B7F;
+        transition-duration: 0.5s;
+        .iWishAddColl {
+            svg {
+                fill: #F69B7F;
+                path {
+                    &:nth-of-type(2) {
+                        fill: #F69B7F;
+                    } 
+                }
+            }
+        }
+    }
+    .iwishAdded {
+        svg {
+            fill: #83A9A8;
+            path {
+                &:nth-of-type(2) {
+                    fill: #83A9A8;
+                } 
+            }
+        } 
+    }
+}
+
+/* Wishlist Feature Page */
+.iwishWrapper {
+    padding-top: 60px;
+    @media screen and (max-width: 768px) {
+        padding-top: 40px;
+    }
+    .iWishLoginNote {
+        a { color: #F69B7F; }
+    }
+    .iwishProducts {
+        .iwishItem {
+            form {
+                height: 488px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                @media screen and (max-width: 768px) {
+                    height: 460px;
+                }
+            }
+            .iwishMeta {
+                .iwishBuyBtn {
+                    background: #83A9A8;
+                    border-color: #83A9A8;
+                    color: #fff;
+                    font-size: 16px;
+                    padding: 11px 10px;
+                    line-height: 1.2;
+                    text-transform: uppercase;
+                    width: 137px;
+                    &:hover {
+                        background: #F69B7F;
+                        border-color: #F69B7F;
+                        color: #fff;
+                        transition-duration: 0.5s;
+                    }
+                }
+                .iwishRemoveBtn {
+                    background-color: transparent;
+                    border: solid 1px #83A9A8;
+                    color: #83A9A8;
+                    font-size: 16px;
+                    padding: 11px 10px;
+                    line-height: 1.2;
+                    text-transform: uppercase;
+                    width: 137px;   
+                    &:hover {
+                        border-color: #F69B7F;
+                        color: #F69B7F;
+                        transition-duration: 0.5s;
+                    } 
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,164 @@
+<section class="collection-feature-promo-banner__template" id="freeGiftBannerPLP">
+    <div class="collection-feature-promo-banner__template--wrapper">
+        <h2>{{ section.settings.title }}</h2>
+        <div class="content__wrapper">
+            <div class="copy">{{ section.settings.copy }}</div>
+            <a id="freeGiftAnchor" href="{{ section.settings.product-link }}" class="btn__promo-banner">{{ section.settings.button-label }}</a>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    const bannerWrapper = document.getElementById('freeGiftBannerPLP');
+    var anchor = document.getElementById('freeGiftAnchor');
+    bannerWrapper.addEventListener('click', event => {
+        anchor.click();
+    });
+</script>
+
+<style>
+    .collection-feature-promo-banner__template {
+        align-items: center;
+        background-image: url({{ section.settings.desktop-banner | img_url: 'master' }});
+        background-repeat: no-repeat;      
+        background-size: cover; 
+        cursor: pointer;                        
+        display: flex;
+        height: 186px;
+        justify-content: flex-end;          
+    }
+    .collection-feature-promo-banner__template--wrapper {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding-right: 68px;
+    }
+    .collection-feature-promo-banner__template--wrapper h2 {
+        color: {{ section.settings.font-color }};
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 64px;
+        margin-right: 36px;
+    }
+    .collection-feature-promo-banner__template--wrapper .copy {
+        margin-bottom: 20px;
+        max-width: 562px;
+    }
+    .collection-feature-promo-banner__template--wrapper .copy p {
+        color: {{ section.settings.font-color }};
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 32px;
+        margin: 0;
+    }
+    .collection-feature-promo-banner__template--wrapper .content__wrapper  .btn__promo-banner {
+        background: #83A9A8;
+        color: #FFFFFF;
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        padding: 8px 28px;
+        text-align: center;
+        text-transform: uppercase;                
+    }
+    .collection-feature-promo-banner__template--wrapper .content__wrapper  .btn__promo-banner:hover {
+        background: #fff;
+        border: 1px solid #83A9A8;
+        color: #83A9A8;
+        transition-duration: 0.5s;
+    }
+    @media screen and (max-width: 768px) {
+        .collection-feature-promo-banner__template {
+            align-items: flex-start;
+            background-image: url({{ section.settings.mobile-banner | img_url: 'master' }});
+            background-position: right center;
+            background-repeat: no-repeat;      
+            background-size: cover;                         
+            display: flex;
+            flex-direction: column;
+            height: 290px;
+            justify-content: center;
+        }
+        .collection-feature-promo-banner__template--wrapper {
+            align-items: flex-start;
+            display: flex;
+            justify-content: center;
+            padding-left: 24px;
+            padding-right: 0px;
+            flex-direction: column;
+        }
+        .collection-feature-promo-banner__template--wrapper h2 {
+            font-size: 32px;
+            line-height: 64px;
+            margin: 0;
+            padding: 0;
+        }
+        .collection-feature-promo-banner__template--wrapper .copy {
+            max-width: 255px;  
+        }
+        .collection-feature-promo-banner__template--wrapper .copy p {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+</style>
+
+{% schema %}
+    {
+        "name":"Promo Banner",
+        "class":"collection-feature-promo-banner",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "desktop-banner",
+                "label": "Desktop Banner"
+            },
+            {
+                "type": "image_picker",
+                "id": "mobile-banner",
+                "label": "Mobile Banner"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Free Gift!🚨"
+            },
+            {
+                "type": "richtext",
+                "id": "copy",
+                "label": "Main Copy",
+                "default": "<p>We have partnered the clean beauty brand Goldfaden MD! Receive a travel size Hands to Heart Hand Treatment with any purchase of $75 or more while supplies last.</p>"
+            },
+            {
+                "type": "color",
+                "id": "font-color",
+                "label": "Font Color",
+                "default": "#FFFFFF"
+            },
+            {
+                "type": "url",
+                "id": "product-link",
+                "label": "Product Link"
+            },
+            {
+                "type": "text",
+                "id": "button-label",
+                "label": "Button Label",
+                "default": "Click Here"
+            }
+        ],   
+        "presets": [
+            {
+                "name":"Promo Banner",
+                "category": "Collection"
+            }
+        ]
+    }
+{% endschema %}
