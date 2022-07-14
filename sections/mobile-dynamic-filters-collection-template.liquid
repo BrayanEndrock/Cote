@@ -336,10 +336,12 @@
     $('.filter-by-color').click(function() {
       $('.filter-by-color-container').css('height', '403px');
       $('.color-swatches-container').css('opacity', '1');
+      $('.color-swatches-container').css('display', 'inline');
     });
     $('.close-icon__wrapper svg').click(function() {
       $('.filter-by-color-container').css('height', '46px');
-        $('.color-swatches-container').css('opacity', '0');
+      $('.color-swatches-container').css('opacity', '0');
+      $('.color-swatches-container').css('display', 'none');
     });
     $(window).bind('scroll', function() {
       if ($(window).scrollTop() > 60) {
@@ -474,6 +476,7 @@
         margin-top: 0;
         margin-bottom: 0;
         opacity: 0;
+        display: none;
         .color-swatches-slider {
           align-items: center;
           display: flex;

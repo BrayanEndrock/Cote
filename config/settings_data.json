@@ -450,15 +450,14 @@
           "e70154b0-ca34-4b4f-bb2c-55d48a555f5b": {
             "type": "topbar",
             "settings": {
-              "heading": "FREE SHIPPING on orders over $40",
+              "heading": "WE'RE MOVING! We appreciate your patience while we move shipping facilities. All orders will incur a longer than normal shipping delay.",
               "link_url": "shopify:\/\/collections\/best-sellers"
             }
           },
           "8d1e3be9-5dca-4a35-8d5b-e9c9324efc55": {
             "type": "topbar",
-            "disabled": true,
             "settings": {
-              "heading": "Use code AFTERPAYDAY at checkout and get 30% off polishes and treatments!",
+              "heading": "We will offer free shipping on all orders while we complete the process",
               "link_url": ""
             }
           },
@@ -766,7 +765,8 @@
           "e449c8c1-9477-4585-bbd0-8c93fa47420d",
           "011e271a-2004-4ac6-a391-18c2106d8626"
         ],
-        "settings": {}
+        "settings": {
+        }
       },
       "1535418692457": {
         "type": "text-image-overlay",
@@ -903,7 +903,8 @@
       },
       "go-cart": {
         "type": "go-cart",
-        "settings": {}
+        "settings": {
+        }
       },
       "1637775667e2dfb5b7": {
         "type": "best-sellers",
@@ -913,6 +914,7 @@
       },
       "16383974698f37d4e3": {
         "type": "image-with-text",
+        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/abyss_02_29f5a067-750d-4c9b-9a76-36e94b7b983b.jpg",
           "image_link_url": "",
@@ -1157,8 +1159,8 @@
         "type": "collection-template-byob",
         "settings": {
           "coll_desc_pos": "below",
-          "coll_show_sort": true,
-          "coll_show_feat": true,
+          "coll_show_sort": false,
+          "coll_show_feat": false,
           "coll_show_tags": true,
           "show_tagfilt_custom1": false,
           "tagfilt_custom1_name": "",

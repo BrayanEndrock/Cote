@@ -1,11 +1,9 @@
 {%- comment -%} Styles for Build Your Own Bundle {%- endcomment -%}
 {{ 'byob.scss.css' | asset_url | stylesheet_tag }}
-
 <!-- /sections/collection-template-byob.liquid -->
 <div id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-grid-type="{{ section.settings.collection_products_grid }}">
     {% include 'collection-filter-byob' %}   
-</div>
-   
+</div> 
 {% schema %}
     {
         "name": "Collection pages",
@@ -122,11 +120,11 @@
             }
         ]
     }
-{% endschema %}   
-  
+{% endschema %}
+{% comment %}
 <script>
     window.addEventListener("load", () => {
-        window.onscroll = function() { myFunction() }; 
+        //window.onscroll = function() { myFunction() }; 
         const header = document.querySelector('#build-your-kit-sticky');
         let sticky = header.offsetTop;
 
@@ -137,7 +135,8 @@
                 header.classList.remove("sticky");    
             } 
         }*/
-        let widthBar = header.offsetWidth;
-        header.style.maxWidth = widthBar+'px';
+        /*let widthBar = header.offsetWidth;
+        header.style.maxWidth = widthBar+'px';*/
     });
 </script>
+{% endcomment %}
