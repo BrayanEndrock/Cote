@@ -367,6 +367,11 @@
             <!-- END: TOP COLOR FILTER MENU -->
             {% if section.settings.coll_show_tags %}
                 {%- capture filter_html -%}
+                    {%- if current_tags -%}
+                    <li data-tag="{{tag | handleize}}">
+                        <a title="Narrow selection to products matching tag all nail polish" href="{{ collection.url }}">all nail polish</a>
+                    </li>
+                    {%- endif -%}
                     {%- for tag in collection.all_tags -%}
                         {%- unless tag contains 'meta-' or custom_tag_arr1 contains tag or custom_tag_arr2 contains tag -%}
                             {%- assign show_normal_filter = true -%}
@@ -459,13 +464,26 @@
 
         let typeBundle = document.querySelector('.choose-quantity .quantity-option.active span').textContent;
 
-        function bundleQuantity(typeBundle){
+        function resetOptionsProducts() {
+            document.querySelectorAll(".product-list .grid-product").forEach(product => {
+                product.querySelectorAll(".addtocart-btn").forEach(product => {
+                    product.classList.remove('hide');
+                    product.innerHTML = "Add <svg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7.00016 0.833313C10.6822 0.833313 13.6668 3.81798 13.6668 7.49998C13.6668 11.182 10.6822 14.1666 7.00016 14.1666C3.31816 14.1666 0.333496 11.182 0.333496 7.49998C0.333496 3.81798 3.31816 0.833313 7.00016 0.833313ZM7.00016 4.16665C6.87934 4.16665 6.7626 4.21041 6.67154 4.28982C6.58048 4.36924 6.52126 4.47894 6.50483 4.59865L6.50016 4.66665V6.99998H4.16683C4.04015 7.00002 3.9182 7.04814 3.82563 7.13463C3.73307 7.22111 3.67678 7.33951 3.66815 7.4659C3.65951 7.59229 3.69917 7.71724 3.77912 7.81551C3.85906 7.91378 3.97333 7.97804 4.09883 7.99531L4.16683 7.99998H6.50016V10.3333C6.5002 10.46 6.54833 10.5819 6.63481 10.6745C6.7213 10.7671 6.83969 10.8234 6.96608 10.832C7.09247 10.8406 7.21742 10.801 7.31569 10.721C7.41397 10.6411 7.47823 10.5268 7.4955 10.4013L7.50016 10.3333V7.99998H9.8335C9.96018 7.99994 10.0821 7.95182 10.1747 7.86533C10.2673 7.77885 10.3235 7.66045 10.3322 7.53406C10.3408 7.40767 10.3012 7.28272 10.2212 7.18445C10.1413 7.08618 10.027 7.02191 9.90149 7.00465L9.8335 6.99998H7.50016V4.66665C7.50016 4.53404 7.44748 4.40686 7.35372 4.31309C7.25995 4.21932 7.13277 4.16665 7.00016 4.16665Z' fill='#3E4B57'/></svg>";
+                });
+                product.querySelectorAll(".deletetocart-btn").forEach(product => {
+                    product.classList.add('hide');
+                });
+            });
+        }
 
+        function bundleQuantity(typeBundle) {
             const subtractQuantity = (id) => {
                 let total = document.querySelector(`.grid-product[data-first-variant-id="${id}"] input`).getAttribute('data-count-onetime');
                 let result = parseInt(total) - 1;
                 document.querySelector(`.grid-product[data-first-variant-id="${id}"] input`).setAttribute('data-count-onetime', result);
             }
+
+            resetOptionsProducts();
 
             let bundleOptionTotal = document.querySelectorAll('.choose-products .contain-item-bundle');
 
@@ -491,18 +509,40 @@
                         let id = bundleOptionTotal[i].getAttribute('data-product-variant');
                         subtractQuantity(id);
                     }
-                    bundleOptionTotal[i].style.display = 'none';
-                    bundleOptionTotal[i].classList.remove('active');
-                    bundleOptionTotal[i].removeAttribute('data-product-variant');
-                    bundleOptionTotal[i].childNodes[1].setAttribute("src", `https://cdn.shopify.com/s/files/1/0447/4049/files/byob-product-shape.png?v=1648770374`);
+                    bundleOptionTotal[i].style.display = 'none',
+                    bundleOptionTotal[i].classList.remove('active'),
+                    bundleOptionTotal[i].removeAttribute('data-product-variant'),
+                    bundleOptionTotal[i].childNodes[1].setAttribute("src", `https://cdn.shopify.com/s/files/1/0447/4049/files/byob-product-shape.png?v=1648770374`),
                     bundleOptionTotal[i].childNodes[1].setAttribute("srcset", `https://cdn.shopify.com/s/files/1/0447/4049/files/byob-product-shape.png?v=1648770374`);
                 } else {
-                    bundleOptionTotal[i].style.display = 'block';                
+                    bundleOptionTotal[i].style.display = 'block';
+                    if (bundleOptionTotal[i].getAttribute('data-product-variant')) {
+                        let variantId = bundleOptionTotal[i].getAttribute('data-product-variant');
+                        let gridProduct = document.querySelector(`.grid-product[data-first-variant-id="${variantId}"]`);
+                        let productsSelectorInput = gridProduct.querySelector(`input.product_byob_quantity`);
+                        //console.log('productsSelectorInput',productsSelectorInput);
+                        let count = parseInt(productsSelectorInput.getAttribute('data-count-onetime'));
+                        //console.log('count',count);
+                        if (count > 0) {
+                            gridProduct.querySelectorAll(".addtocart-btn").forEach(addToCartBtn => {
+                                addToCartBtn.innerHTML = "Add another <svg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7.00016 0.833313C10.6822 0.833313 13.6668 3.81798 13.6668 7.49998C13.6668 11.182 10.6822 14.1666 7.00016 14.1666C3.31816 14.1666 0.333496 11.182 0.333496 7.49998C0.333496 3.81798 3.31816 0.833313 7.00016 0.833313ZM7.00016 4.16665C6.87934 4.16665 6.7626 4.21041 6.67154 4.28982C6.58048 4.36924 6.52126 4.47894 6.50483 4.59865L6.50016 4.66665V6.99998H4.16683C4.04015 7.00002 3.9182 7.04814 3.82563 7.13463C3.73307 7.22111 3.67678 7.33951 3.66815 7.4659C3.65951 7.59229 3.69917 7.71724 3.77912 7.81551C3.85906 7.91378 3.97333 7.97804 4.09883 7.99531L4.16683 7.99998H6.50016V10.3333C6.5002 10.46 6.54833 10.5819 6.63481 10.6745C6.7213 10.7671 6.83969 10.8234 6.96608 10.832C7.09247 10.8406 7.21742 10.801 7.31569 10.721C7.41397 10.6411 7.47823 10.5268 7.4955 10.4013L7.50016 10.3333V7.99998H9.8335C9.96018 7.99994 10.0821 7.95182 10.1747 7.86533C10.2673 7.77885 10.3235 7.66045 10.3322 7.53406C10.3408 7.40767 10.3012 7.28272 10.2212 7.18445C10.1413 7.08618 10.027 7.02191 9.90149 7.00465L9.8335 6.99998H7.50016V4.66665C7.50016 4.53404 7.44748 4.40686 7.35372 4.31309C7.25995 4.21932 7.13277 4.16665 7.00016 4.16665Z' fill='#3E4B57'/></svg>";
+                            });
+                            gridProduct.querySelectorAll(".deletetocart-btn").forEach(deleteToCartBtn => {
+                                deleteToCartBtn.classList.remove('hide');
+                            });
+                        } else {
+                            gridProduct.querySelectorAll(".addtocart-btn").forEach(addToCartBtn => {
+                                addToCartBtn.innerHTML = "Add <svg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7.00016 0.833313C10.6822 0.833313 13.6668 3.81798 13.6668 7.49998C13.6668 11.182 10.6822 14.1666 7.00016 14.1666C3.31816 14.1666 0.333496 11.182 0.333496 7.49998C0.333496 3.81798 3.31816 0.833313 7.00016 0.833313ZM7.00016 4.16665C6.87934 4.16665 6.7626 4.21041 6.67154 4.28982C6.58048 4.36924 6.52126 4.47894 6.50483 4.59865L6.50016 4.66665V6.99998H4.16683C4.04015 7.00002 3.9182 7.04814 3.82563 7.13463C3.73307 7.22111 3.67678 7.33951 3.66815 7.4659C3.65951 7.59229 3.69917 7.71724 3.77912 7.81551C3.85906 7.91378 3.97333 7.97804 4.09883 7.99531L4.16683 7.99998H6.50016V10.3333C6.5002 10.46 6.54833 10.5819 6.63481 10.6745C6.7213 10.7671 6.83969 10.8234 6.96608 10.832C7.09247 10.8406 7.21742 10.801 7.31569 10.721C7.41397 10.6411 7.47823 10.5268 7.4955 10.4013L7.50016 10.3333V7.99998H9.8335C9.96018 7.99994 10.0821 7.95182 10.1747 7.86533C10.2673 7.77885 10.3235 7.66045 10.3322 7.53406C10.3408 7.40767 10.3012 7.28272 10.2212 7.18445C10.1413 7.08618 10.027 7.02191 9.90149 7.00465L9.8335 6.99998H7.50016V4.66665C7.50016 4.53404 7.44748 4.40686 7.35372 4.31309C7.25995 4.21932 7.13277 4.16665 7.00016 4.16665Z' fill='#3E4B57'/></svg>";
+                            });
+                            gridProduct.querySelectorAll(".deletetocart-btn").forEach(deleteToCartBtn => {
+                                deleteToCartBtn.classList.add('hide');
+                            });
+                        }
+                    }
                 }
             }
 
-            let totalActiveSelector = document.querySelectorAll('.contain-item-bundle.active');
-            let priceNow, priceOld;    
+            updatePrice(typeBundle);
 
             if (validateAddToCart(document.querySelectorAll('.choose-products .contain-item-bundle.active').length, typeBundle)) {
                 let hideBtn = document.querySelectorAll('.addtocart-btn');
@@ -515,6 +555,17 @@
                     hideBtn[i].classList.remove('hide');
                 } 
             }
+
+            let stateAcives = validateOptionsActive();
+            if (stateAcives) {
+                let hideBtn = document.querySelectorAll('.addtocart-btn');
+                for (var i = 0; i < hideBtn.length; i++) {
+                    hideBtn[i].classList.add('hide');
+                }                
+            }
+
+            // set Local Storage
+            setOptionsLocalStorage();
         }
 
         function setOptionsLocalStorage() {
@@ -579,15 +630,17 @@
             if (element) {
                 element.forEach(function(el, key) {
                     el.addEventListener('click', function () {
-                        el.classList.toggle("active");
-                        element.forEach(function(ell, els) {
-                            if (key !== els) {
-                                ell.classList.remove('active');
-                            }
-                            // console.log(els);
-                        });
-                        typeBundle = document.querySelector('.choose-quantity .quantity-option.active span').textContent;
-                        bundleQuantity(typeBundle);
+                        if (el.classList.contains("active") == false) {
+                            el.classList.toggle("active");
+                            element.forEach(function(ell, els) {
+                                if (key !== els) {
+                                    ell.classList.remove('active');
+                                }
+                                // console.log(els);
+                            });
+                            typeBundle = document.querySelector('.choose-quantity .quantity-option.active span').textContent;
+                            bundleQuantity(typeBundle);
+                        }
                     });
                 });
             }
@@ -597,8 +650,7 @@
 
         bundleQuantity(typeBundle);
 
-        function updatePrice(five = false, eight = false) {
-
+        function updatePrice() {
             let actualPrice = Number(jQuery('.price-container .now').text().replace(",", "").replace("$", "")).toLocaleString('en-US', {minimumFractionDigits: 2}),
                 actualPriceNoFormat = document.querySelector('.build-your-kit.wrapper .price-container .now'),
                 productsActive = document.querySelectorAll('.choose-products .contain-item-bundle.active'),
@@ -618,12 +670,13 @@
             });
 
             totalPlusArray = priceArray.reduce((a, b) => a + b, 0);
-
-            if (five) {
+            
+            console.log('typeBundle',typeBundle);
+            if (typeBundle == '4') {
                 totalDiscount = (totalPlusArray / 100) * 15;
                 price = totalPlusArray - totalDiscount;
                 oldPrice = totalPlusArray;
-            } else if (eight) {
+            } else if (typeBundle == '9') {
                 totalDiscount = (totalPlusArray / 100) * 30;
                 price = totalPlusArray - totalDiscount;
                 oldPrice = totalPlusArray;
@@ -643,11 +696,11 @@
                 if (myNodeList[i].classList.contains("active")) {
                 
                 } else {
-                    myNodeList[i].setAttribute("data-product-variant", variantId);
-                    myNodeList[i].setAttribute("data-price", productPrice);
-                    myNodeList[i].classList.add('active');
-                    myNodeList[i].childNodes[1].setAttribute("data-srcset", imageProduct);
-                    myNodeList[i].childNodes[1].setAttribute("src", imageProduct);
+                    myNodeList[i].setAttribute("data-product-variant", variantId),
+                    myNodeList[i].setAttribute("data-price", productPrice),
+                    myNodeList[i].classList.add('active'),
+                    myNodeList[i].childNodes[1].setAttribute("data-srcset", imageProduct),
+                    myNodeList[i].childNodes[1].setAttribute("src", imageProduct),
                     myNodeList[i].childNodes[1].setAttribute("srcset", imageProduct);
                     break;
                 }
@@ -655,7 +708,6 @@
         }
 
         function validateOptionsActive() {
-
             let selectorActive = document.querySelectorAll('.contain-item-bundle.active').length;
             let typeBundleSelect = document.querySelector('.choose-quantity .quantity-option.active').getAttribute('data-option');
             if (selectorActive == typeBundleSelect) {
@@ -747,7 +799,7 @@
             addToCartProducts();
         });
 
-        function configProductAfterClick(variantId, minus = false){
+        function configProductAfterClick(variantId, minus = false) {
             let productsSelectorInput = document.querySelector(`.grid-product input[name='updates--${variantId}']`);console.log('productsSelectorInput',productsSelectorInput);
             let gridProduct = document.querySelector(`.grid-product[data-first-variant-id="${variantId}"]`);
             let count = productsSelectorInput.getAttribute('data-count-onetime');
@@ -761,31 +813,37 @@
             let cartCountProduct = document.querySelector(`.grid-product__wrapper .cart-count-product[data-id="${variantId}"]`);
             // cartCountProduct.textContent = count;
             // cartCountProduct.classList.remove('hide');
-            let alldelete = gridProduct.querySelectorAll('.deletetocart-btn');
-            let allRemove = gridProduct.querySelectorAll('.addtocart-btn');
-            if ( count > 0) {
-                //console.log('alldelete.length',alldelete.length);
-                for (var i = 0; i < alldelete.length; i++) {
-                    alldelete[i].classList.remove('hide');
-                    allRemove[i].innerHTML = "Add <svg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7.00016 0.833313C10.6822 0.833313 13.6668 3.81798 13.6668 7.49998C13.6668 11.182 10.6822 14.1666 7.00016 14.1666C3.31816 14.1666 0.333496 11.182 0.333496 7.49998C0.333496 3.81798 3.31816 0.833313 7.00016 0.833313ZM7.00016 4.16665C6.87934 4.16665 6.7626 4.21041 6.67154 4.28982C6.58048 4.36924 6.52126 4.47894 6.50483 4.59865L6.50016 4.66665V6.99998H4.16683C4.04015 7.00002 3.9182 7.04814 3.82563 7.13463C3.73307 7.22111 3.67678 7.33951 3.66815 7.4659C3.65951 7.59229 3.69917 7.71724 3.77912 7.81551C3.85906 7.91378 3.97333 7.97804 4.09883 7.99531L4.16683 7.99998H6.50016V10.3333C6.5002 10.46 6.54833 10.5819 6.63481 10.6745C6.7213 10.7671 6.83969 10.8234 6.96608 10.832C7.09247 10.8406 7.21742 10.801 7.31569 10.721C7.41397 10.6411 7.47823 10.5268 7.4955 10.4013L7.50016 10.3333V7.99998H9.8335C9.96018 7.99994 10.0821 7.95182 10.1747 7.86533C10.2673 7.77885 10.3235 7.66045 10.3322 7.53406C10.3408 7.40767 10.3012 7.28272 10.2212 7.18445C10.1413 7.08618 10.027 7.02191 9.90149 7.00465L9.8335 6.99998H7.50016V4.66665C7.50016 4.53404 7.44748 4.40686 7.35372 4.31309C7.25995 4.21932 7.13277 4.16665 7.00016 4.16665Z' fill='#3E4B57'/></svg>";
+            let allDelete = gridProduct.querySelectorAll('.deletetocart-btn');
+            let allAdd = gridProduct.querySelectorAll('.addtocart-btn');
+            if (count > 0) {
+                //console.log('allDelete.length',allDelete.length);
+                for (var i = 0; i < allDelete.length; i++) {
+                    allDelete[i].classList.remove('hide');
+                    allAdd[i].innerHTML = "Add another <svg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7.00016 0.833313C10.6822 0.833313 13.6668 3.81798 13.6668 7.49998C13.6668 11.182 10.6822 14.1666 7.00016 14.1666C3.31816 14.1666 0.333496 11.182 0.333496 7.49998C0.333496 3.81798 3.31816 0.833313 7.00016 0.833313ZM7.00016 4.16665C6.87934 4.16665 6.7626 4.21041 6.67154 4.28982C6.58048 4.36924 6.52126 4.47894 6.50483 4.59865L6.50016 4.66665V6.99998H4.16683C4.04015 7.00002 3.9182 7.04814 3.82563 7.13463C3.73307 7.22111 3.67678 7.33951 3.66815 7.4659C3.65951 7.59229 3.69917 7.71724 3.77912 7.81551C3.85906 7.91378 3.97333 7.97804 4.09883 7.99531L4.16683 7.99998H6.50016V10.3333C6.5002 10.46 6.54833 10.5819 6.63481 10.6745C6.7213 10.7671 6.83969 10.8234 6.96608 10.832C7.09247 10.8406 7.21742 10.801 7.31569 10.721C7.41397 10.6411 7.47823 10.5268 7.4955 10.4013L7.50016 10.3333V7.99998H9.8335C9.96018 7.99994 10.0821 7.95182 10.1747 7.86533C10.2673 7.77885 10.3235 7.66045 10.3322 7.53406C10.3408 7.40767 10.3012 7.28272 10.2212 7.18445C10.1413 7.08618 10.027 7.02191 9.90149 7.00465L9.8335 6.99998H7.50016V4.66665C7.50016 4.53404 7.44748 4.40686 7.35372 4.31309C7.25995 4.21932 7.13277 4.16665 7.00016 4.16665Z' fill='#3E4B57'/></svg>";
                 }
             } else {
-                gridProduct.querySelector('.deletetocart-btn').classList.add('hide');
-                gridProduct.querySelector('.addtocart-btn').textContent = 'Add';
-                for (var i = 0; i < alldelete.length; i++) {
-                    alldelete[i].classList.add('hide');
-                    allRemove[i].innerHTML = "Add <svg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7.00016 0.833313C10.6822 0.833313 13.6668 3.81798 13.6668 7.49998C13.6668 11.182 10.6822 14.1666 7.00016 14.1666C3.31816 14.1666 0.333496 11.182 0.333496 7.49998C0.333496 3.81798 3.31816 0.833313 7.00016 0.833313ZM7.00016 4.16665C6.87934 4.16665 6.7626 4.21041 6.67154 4.28982C6.58048 4.36924 6.52126 4.47894 6.50483 4.59865L6.50016 4.66665V6.99998H4.16683C4.04015 7.00002 3.9182 7.04814 3.82563 7.13463C3.73307 7.22111 3.67678 7.33951 3.66815 7.4659C3.65951 7.59229 3.69917 7.71724 3.77912 7.81551C3.85906 7.91378 3.97333 7.97804 4.09883 7.99531L4.16683 7.99998H6.50016V10.3333C6.5002 10.46 6.54833 10.5819 6.63481 10.6745C6.7213 10.7671 6.83969 10.8234 6.96608 10.832C7.09247 10.8406 7.21742 10.801 7.31569 10.721C7.41397 10.6411 7.47823 10.5268 7.4955 10.4013L7.50016 10.3333V7.99998H9.8335C9.96018 7.99994 10.0821 7.95182 10.1747 7.86533C10.2673 7.77885 10.3235 7.66045 10.3322 7.53406C10.3408 7.40767 10.3012 7.28272 10.2212 7.18445C10.1413 7.08618 10.027 7.02191 9.90149 7.00465L9.8335 6.99998H7.50016V4.66665C7.50016 4.53404 7.44748 4.40686 7.35372 4.31309C7.25995 4.21932 7.13277 4.16665 7.00016 4.16665Z' fill='#3E4B57'/></svg>";
+                //gridProduct.querySelector('.deletetocart-btn').classList.add('hide');
+                //gridProduct.querySelector('.addtocart-btn').textContent = 'Add';
+                for (var i = 0; i < allDelete.length; i++) {
+                    allDelete[i].classList.add('hide');
+                    allAdd[i].innerHTML = "Add <svg width='14' height='15' viewBox='0 0 14 15' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M7.00016 0.833313C10.6822 0.833313 13.6668 3.81798 13.6668 7.49998C13.6668 11.182 10.6822 14.1666 7.00016 14.1666C3.31816 14.1666 0.333496 11.182 0.333496 7.49998C0.333496 3.81798 3.31816 0.833313 7.00016 0.833313ZM7.00016 4.16665C6.87934 4.16665 6.7626 4.21041 6.67154 4.28982C6.58048 4.36924 6.52126 4.47894 6.50483 4.59865L6.50016 4.66665V6.99998H4.16683C4.04015 7.00002 3.9182 7.04814 3.82563 7.13463C3.73307 7.22111 3.67678 7.33951 3.66815 7.4659C3.65951 7.59229 3.69917 7.71724 3.77912 7.81551C3.85906 7.91378 3.97333 7.97804 4.09883 7.99531L4.16683 7.99998H6.50016V10.3333C6.5002 10.46 6.54833 10.5819 6.63481 10.6745C6.7213 10.7671 6.83969 10.8234 6.96608 10.832C7.09247 10.8406 7.21742 10.801 7.31569 10.721C7.41397 10.6411 7.47823 10.5268 7.4955 10.4013L7.50016 10.3333V7.99998H9.8335C9.96018 7.99994 10.0821 7.95182 10.1747 7.86533C10.2673 7.77885 10.3235 7.66045 10.3322 7.53406C10.3408 7.40767 10.3012 7.28272 10.2212 7.18445C10.1413 7.08618 10.027 7.02191 9.90149 7.00465L9.8335 6.99998H7.50016V4.66665C7.50016 4.53404 7.44748 4.40686 7.35372 4.31309C7.25995 4.21932 7.13277 4.16665 7.00016 4.16665Z' fill='#3E4B57'/></svg>";
                 }
             }
         }
 
-        function removeProduct(idProduct){
-            let elementActive;
-            elementActive = document.querySelector(`.contain-item-bundle[data-product-variant='${idProduct}']`);
-            elementActive.classList.remove('active');
-            elementActive.childNodes[1].setAttribute("src", `https://cdn.shopify.com/s/files/1/0447/4049/files/empty.png?v=1644950097`);
-            elementActive.childNodes[1].setAttribute("srcset", `https://cdn.shopify.com/s/files/1/0447/4049/files/byob-product-shape.png?v=1648770374`);
-            elementActive.removeAttribute('data-product-variant');
+        function removeProduct(idProduct) {
+            let elementsActive = document.querySelectorAll(`.contain-item-bundle[data-product-variant='${idProduct}']`),
+                elementActive = null;
+            if (elementsActive.length > 0) {
+                elementActive = elementsActive[elementsActive.length - 1];
+            }
+            if (elementActive) {
+                //elementActive = document.querySelector(`.contain-item-bundle[data-product-variant='${idProduct}']`);
+                elementActive.childNodes[1].setAttribute("src", `https://cdn.shopify.com/s/files/1/0447/4049/files/empty.png?v=1644950097`),
+                elementActive.childNodes[1].setAttribute("srcset", `https://cdn.shopify.com/s/files/1/0447/4049/files/byob-product-shape.png?v=1648770374`),
+                elementActive.removeAttribute('data-product-variant'),
+                elementActive.classList.remove('active');
+            }
         }
 
         function functionRemoveFromBar(idElement, targetElement) {
@@ -825,20 +883,8 @@
                 }
             }
 
-            let quantityActive = document.querySelectorAll('.contain-item-bundle.active');
-
-            if (quantityActive.length >= 4) {
-                let promotionFive = true;
-                let promotionEight = false;
-                if (quantityActive.length >= 9) {
-                    promotionFive = false; promotionEight = true;
-                    updatePrice(promotionFive, promotionEight);
-                } else {
-                    updatePrice(promotionFive);
-                }
-            } else {
-                updatePrice();
-            }
+            updatePrice();
+            // set Local Storage
             setOptionsLocalStorage();
         }
 
@@ -871,24 +917,9 @@
 
                 validateAddToCart(document.querySelectorAll('.choose-products .contain-item-bundle.active').length, typeBundle);
 
-                let quantityActive = document.querySelectorAll('.contain-item-bundle.active');
-
-                if (quantityActive.length >= 4 ) {
-                    let promotionFive = true;
-                    let promotionEight = false;
-                    if (quantityActive.length >= 9) {
-                        promotionFive = false; promotionEight = true;
-                        updatePrice(promotionFive, promotionEight);
-                    } else {
-                        updatePrice(promotionFive, promotionEight);
-                    }
-                } else {
-                    updatePrice(promotionFive = false, promotionEight = false);
-                }
-
+                updatePrice();
                 // set Local Storage
                 setOptionsLocalStorage();
-                
             });
         });
 
@@ -909,22 +940,9 @@
 
                 configProductAfterClick(variantId, minus);
 
-                let quantityActive = document.querySelectorAll('.contain-item-bundle.active');
-
                 countAdd--;
 
-                if (quantityActive.length >= 4 ) {
-                    let promotionFive = true;
-                    let promotionEight = false;
-                    if (quantityActive.length >= 9) {
-                        promotionFive = false; promotionEight = true;
-                        updatePrice(promotionFive, promotionEight);
-                    } else {
-                        updatePrice(promotionFive);
-                    }
-                } else {
-                    updatePrice();
-                }
+                updatePrice();
 
                 let stateAcives = validateOptionsActive();
 
@@ -937,6 +955,7 @@
 
                 validateAddToCart(document.querySelectorAll('.choose-products .contain-item-bundle.active').length, typeBundle);
 
+                // set Local Storage
                 setOptionsLocalStorage();
 
             });
@@ -1029,6 +1048,9 @@
             if (bundleType == '5') {
                 document.querySelector('.choose-quantity .eight-option').classList.remove('active');
                 document.querySelector('.choose-quantity .five-option').classList.add('active');
+            } else if (bundleType == '9') {
+                document.querySelector('.choose-quantity .eight-option').classList.add('active');
+                document.querySelector('.choose-quantity .five-option').classList.remove('active');
             }
         }
 

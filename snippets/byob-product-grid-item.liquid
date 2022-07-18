@@ -44,7 +44,7 @@
 
 <div class="byob-product-block product-block grid-product {% if sold_out %}is-sold-out{% endif %} {% for tag in parent.tags %}{{ tag | handle }}{% endfor %}" data-image-render="{{ product.metafields.byob.render-product.value }}" data-product-type="{{ product.type }}" data-first-variant-id="{{ product.variants.first.id }}">
   <div class="block-inner">
-    <input name="updates--{{ product.variants.first.id }}" type="hidden" data-count-onetime="{{ cart_count_product }}" data-count-subscription="{{ cart_count_product_subs }}" data-id="{{ product.variants.first.id }}" data-name="{{ product.title }}" data-price="{{ product.price | money_without_trailing_zeros | remove: '$' }}" value="{{ cart_count_product }}" class="product_byob_quantity" />
+    <input name="updates--{{ product.variants.first.id }}" type="hidden" data-count-onetime="{{ cart_count_product }}" data-count-subscription="{{ cart_count_product_subs }}" data-id="{{ product.variants.first.id }}" data-name="{{ product.title }}" data-price="{{ product.price | money_without_trailing_zeros | remove: '$' | strip }}" value="{{ cart_count_product }}" class="product_byob_quantity" />
 
     <div class="grid-product__wrapper {% if cart_count_product > 0 %}showBtnDelete{% endif %}" data-id="{{ product.variants.first.id }}">
       <span class="hide cart-count-product" data-id="{{ product.variants.first.id }}">+{{ cart_count_product }}</span>

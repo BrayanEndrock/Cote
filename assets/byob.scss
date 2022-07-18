@@ -128,8 +128,10 @@
           transform: scale(0.5);
           @media screen and (max-width: 768px) {
             background-color: #3e4b57;
-            right: 7px;
+            right: calc(50% - 11px);
             top: 40%;
+            opacity: 1;
+            transform: scale(1);
           }
         }
       }
