@@ -71,7 +71,7 @@
       <div class="main-image">
         {% assign gif_image = false %} 
         {% for image in product.images %}
-          {% if forloop.index == 3 and image.alt contains 'gif' %}
+          {% if forloop.index == 2 and image.alt contains 'gif' %}
             {% assign gif_image = image %}
           {% endif %}
         {% endfor %}
@@ -85,7 +85,7 @@
           <a class="shows-lightbox" title="{{ featured_image.alt | escape }}" href="{{ featured_image | product_img_url: lightbox_size }}" data-full-size-url="{{ featured_image | product_img_url: 'master' }}">
             {% include 'responsive-image', image: featured_image %}
           </a>
-        {% endif %} 
+        {% endif %}
       </div>
       {% if product.images.size > 1 %}
         <div class="thumbnails">
