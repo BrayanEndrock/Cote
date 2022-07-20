@@ -270,14 +270,18 @@
 div[data-testid="ShopifyPay-button"] {
     display: none !important;
 }
-.go-cart-drawer__content {
-    border-top: 1px solid #D2D6D9;
-    height: calc(100% - 533px);
-    margin: 0 30px;
+.go-cart-drawer__content--wrapper {
+    height: calc(100% - 242px);
     overflow: hidden;
     overflow-y: auto;
     @media (max-width: 768px) {
-      height: calc(100% - 545px);       
+        height: calc(100% - 245px);
+    }
+}
+.go-cart-drawer__content {
+    border-top: 1px solid #D2D6D9;
+    margin: 0 30px;
+    @media (max-width: 768px) {  
       padding-bottom: 0px;
       margin-bottom: 0px;
     }
@@ -324,11 +328,8 @@ span.js-go-cart-counter {
 .go-cart-drawer__subtotal {
     -ms-flex-align: center;
     align-items: center;
-    padding: 10px 30px 0;
+    padding: 15px 30px 0;
     position: relative;
-    @media screen and (max-width: 768px) {
-        padding-top: 0;
-    }
 }
 .go-cart-drawer__footer, .go-cart-drawer__subtotal {
     display: -ms-flexbox;
@@ -689,6 +690,7 @@ span.js-go-cart-counter {
     line-height: 19px;
     letter-spacing: 0.03em;
     color: #7A7572;
+    display: none;
 }
 .go-cart__drawer.abandon-drawer .afterpay-placement {
     font-family: Roboto, sans-serif;
@@ -701,6 +703,7 @@ span.js-go-cart-counter {
     align-items: flex-end;
     letter-spacing: 0.03em;
     color: #7A7572;
+    display: none;
 }
 .go-cart__drawer.abandon-drawer .go-cart-drawer__footer {
     justify-content: flex-start;
@@ -709,6 +712,9 @@ span.js-go-cart-counter {
 .go-cart__drawer.abandon-drawer .go-cart-drawer__gamification {
     display: none;
 }   
+.go-cart__drawer.abandon-drawer .go-cart-drawer__content--wrapper {
+    height: calc(100% - 182px);
+}
 @media screen and (max-width: 768px) {
     .go-cart__drawer.abandon-drawer {
         left: 50%;
@@ -758,8 +764,10 @@ span.js-go-cart-counter {
 
 /* Recently Viewed's Upsell */
 .go-cart-drawer__upsell {
+    margin-top: 20px;
     padding: 0 14px 0;
     @media screen and (max-width: 768px) {
+        margin-top: 0px;
         padding-top: 15px;
     }
     .go-cart-drawer__upsell--wrapper {

@@ -69,10 +69,23 @@
       {%- comment -%} END: Wishlist Feature on PDP {%- endcomment -%}
       {% assign lightbox_size = 'master' %}
       <div class="main-image">
-        {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
-        <a class="shows-lightbox" title="{{ featured_image.alt | escape }}" href="{{ featured_image | product_img_url: lightbox_size }}" data-full-size-url="{{ featured_image | product_img_url: 'master' }}">
-          {% include 'responsive-image', image: featured_image %}
-        </a>
+        {% assign gif_image = false %} 
+        {% for image in product.images %}
+          {% if forloop.index == 2 and image.alt contains 'gif' %}
+            {% assign gif_image = image %}
+          {% endif %}
+        {% endfor %}
+        {% if gif_image != blank %}
+          {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+          <a class="shows-lightbox" title="{{ featured_image.alt | escape }}" href="{{ featured_image | product_img_url: lightbox_size }}" data-full-size-url="{{ featured_image | product_img_url: 'master' }}">
+            {% include 'responsive-image', image: gif_image %}
+          </a>
+        {% else %}
+          {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+          <a class="shows-lightbox" title="{{ featured_image.alt | escape }}" href="{{ featured_image | product_img_url: lightbox_size }}" data-full-size-url="{{ featured_image | product_img_url: 'master' }}">
+            {% include 'responsive-image', image: featured_image %}
+          </a>
+        {% endif %}
       </div>
       {% if product.images.size > 1 %}
         <div class="thumbnails">

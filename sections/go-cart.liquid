@@ -74,9 +74,17 @@
             </div>
         </div>
         <!--end go cart drawer close-->
-        <!--go cart drawer content-->
-        <div class="go-cart-drawer__content js-go-cart-drawer-content"></div>
-        <!--end go cart drawer content-->
+        <div class="go-cart-drawer__content--wrapper">
+            <!--go cart drawer content-->
+            <div class="go-cart-drawer__content js-go-cart-drawer-content"></div>
+            <!--end go cart drawer content-->
+            <div class="go-cart-drawer__upsell">
+                <div class="go-cart-drawer__upsell--wrapper">
+                    <h4>Recently Viewed</h4>
+                    {% include 'upsell-sidecart' %} 
+                </div>
+            </div>
+        </div>
         <!--go cart drawer subtotal-->
         <div class="go-cart-drawer__subtotal">
             <span>Subtotal: </span>
@@ -90,21 +98,7 @@
         <div class="go-cart-drawer__footer js-go-cart-drawer-footer">
             <a href="/checkout/" class="go-cart__button">Continue to checkout</a>
             <div class="continue-shopping-abandon hidden"><p >Continue shopping</p></div>
-            {%- comment -%}
-                Express Payment Buttons
-                <div class="content-or"><p>OR</p></div>
-                {% if additional_checkout_buttons %} 
-                    <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
-                {% endif %}
-            {%- endcomment -%}
         </div>
-        <div class="go-cart-drawer__upsell">
-            <div class="go-cart-drawer__upsell--wrapper">
-                <h4>Recently Viewed</h4>
-                {% include 'upsell-sidecart' %} 
-            </div>
-        </div>
-        <!--end go cart drawer buttons-->
     </div>
 </div>
 <!--end go cart drawer-->
